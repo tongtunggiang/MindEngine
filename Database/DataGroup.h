@@ -35,7 +35,7 @@ public:
 	 * @param rightSibling a DataNode pointer representing this node's right sibling in tree
 	 * @param leftMostChild a DataNode pointer representing this node's left most child in tree
 	 */
-	DataGroup(const std::string& identifier, const DataNode* parent, const DataNode* rightSibling, const DataNode* leftMostChild);
+	DataGroup(const std::string& identifier, DataNode *parent, DataNode *rightSibling, DataNode *leftMostChild);
 
 	/**
 	 * @brief ~DataGroup destructor

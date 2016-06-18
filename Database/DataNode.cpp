@@ -10,7 +10,7 @@ DataNode::DataNode()
 	rightSibling = NULL;
 }
 
-DataNode::DataNode(const std::string &identifier, const DataNode* parent, const DataNode* rightSibling)
+DataNode::DataNode(const std::string &identifier, DataNode* parent, DataNode* rightSibling)
 {
 	this->identifier = identifier;
 	this->parent = parent;

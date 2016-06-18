@@ -34,7 +34,7 @@ public:
 	 * @param parent a DataNode pointer representing this node's parent in tree structure
 	 * @param rightSibling a DataNode pointer representing this node's right sibling in tree structure
 	 */
-	DataNode(const std::string& identifier, const DataNode* parent, const DataNode* rightSibling);
+	DataNode(const std::string& identifier, DataNode *parent, DataNode *rightSibling);
 
 	/**
 	 * @brief ~DataNode destructor
