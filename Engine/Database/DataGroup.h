@@ -15,8 +15,8 @@ namespace Database
 /**
  * @brief The DataGroup class
  * Represents a non-leaf node, which contains children.
- * Its children can be any DataNode object: either another data group,
- * or a datum only.
+ * Its children can be any DataNode object: either another DataGroup,
+ * or a Datum only.
  * @see DataNode
  * @see Datum
  */

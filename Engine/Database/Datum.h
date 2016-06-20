@@ -20,15 +20,30 @@ namespace Database
  * @see DataGroup
  */
 template<class T>
-class Datum
+class Datum : public DataNode
 {
 
 public:
 
 	/**
-	 * @brief Datum default constructor
+	 * @brief Datum constructor
+	 * @param value the value that the Datum holds
 	 */
-	Datum();
+	Datum(T value);
+
+	/**
+	 * @brief Datum constructor
+	 * @param identifier a string parameter
+	 * @param parent a DataNode pointer representing this node's parent in tree structure
+	 * @param rightSibling a DataNode pointer representing this node's right sibling in tree
+	 * @param value the value that the Datum holds
+	 */
+	Datum(const std::string& identifier, DataNode *parent, DataNode *rightSibling, T value);
+
+	/**
+	 * @brief ~Datum destructor
+	 */
+	virtual ~Datum();
 
 	/**
 	 * @brief setValue

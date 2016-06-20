@@ -15,8 +15,8 @@ file(GLOB_RECURSE HDRS *.h)
 file(GLOB_RECURSE SRCS *.cpp)
 
 include_directories(
-	${PROJECT_SOURCE_DIR}
-	${PROJECT_SOURCE_DIR}/Database
+	${PROJECT_SOURCE_DIR}/Engine
+	${PROJECT_SOURCE_DIR}/Engine/Database
 )
 
 # Uncomment the first line to get a executable file, do the same for second line to get a UNIX static library

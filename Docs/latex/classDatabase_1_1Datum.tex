@@ -9,16 +9,27 @@ The \hyperlink{classDatabase_1_1Datum}{Datum} class A \hyperlink{classDatabase_1
 
 {\ttfamily \#include $<$Datum.\+h$>$}
 
+Inheritance diagram for Database\+:\+:Datum$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDatabase_1_1Datum}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classDatabase_1_1Datum_ae1880ae165f7a4aef90be6e8cfaa5ff5}{Datum} ()\hypertarget{classDatabase_1_1Datum_ae1880ae165f7a4aef90be6e8cfaa5ff5}{}\label{classDatabase_1_1Datum_ae1880ae165f7a4aef90be6e8cfaa5ff5}
+\hyperlink{classDatabase_1_1Datum_a6c8c58a7e440ababc4f0a87f5da4d387}{Datum} (T value)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_1_1Datum}{Datum} constructor. \end{DoxyCompactList}\item 
+\hyperlink{classDatabase_1_1Datum_af00751a057fe19a929a979d7a925ef0a}{Datum} (const std\+::string \&\hyperlink{classDatabase_1_1DataNode_ace59a7fba9c490d2dae59c4af7b0c71f}{identifier}, \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$\hyperlink{classDatabase_1_1DataNode_a8d70472d0f14aa3ae3ee74d9f3e879d6}{parent}, \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$\hyperlink{classDatabase_1_1DataNode_ae335fc33c3813e8a6638d50faef44d5d}{right\+Sibling}, T value)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_1_1Datum}{Datum} constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classDatabase_1_1Datum_a973e321d98f8be376fd8ec772446f480}{$\sim$\+Datum} ()\hypertarget{classDatabase_1_1Datum_a973e321d98f8be376fd8ec772446f480}{}\label{classDatabase_1_1Datum_a973e321d98f8be376fd8ec772446f480}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_1_1Datum}{Datum} default constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em $\sim$\+Datum destructor \end{DoxyCompactList}\item 
 void \hyperlink{classDatabase_1_1Datum_a636a8ed59bfcb2947100f8181a9b5c73}{set\+Value} (T new\+Value)
 \begin{DoxyCompactList}\small\item\em set\+Value \end{DoxyCompactList}\item 
 T \hyperlink{classDatabase_1_1Datum_a1965d14f29d7bc7369ce1d96f529124f}{get\+Value} ()
 \begin{DoxyCompactList}\small\item\em get\+Value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
@@ -32,6 +43,50 @@ The \hyperlink{classDatabase_1_1Datum}{Datum} class A \hyperlink{classDatabase_1
 
 \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} 
 \end{DoxySeeAlso}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Database\+::\+Datum@{Database\+::\+Datum}!Datum@{Datum}}
+\index{Datum@{Datum}!Database\+::\+Datum@{Database\+::\+Datum}}
+\subsubsection[{\texorpdfstring{Datum(\+T value)}{Datum(T value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf Database\+::\+Datum}$<$ T $>$\+::{\bf Datum} (
+\begin{DoxyParamCaption}
+\item[{T}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classDatabase_1_1Datum_a6c8c58a7e440ababc4f0a87f5da4d387}{}\label{classDatabase_1_1Datum_a6c8c58a7e440ababc4f0a87f5da4d387}
+
+
+\hyperlink{classDatabase_1_1Datum}{Datum} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value that the \hyperlink{classDatabase_1_1Datum}{Datum} holds \\
+\hline
+\end{DoxyParams}
+\index{Database\+::\+Datum@{Database\+::\+Datum}!Datum@{Datum}}
+\index{Datum@{Datum}!Database\+::\+Datum@{Database\+::\+Datum}}
+\subsubsection[{\texorpdfstring{Datum(const std\+::string \&identifier, Data\+Node $\ast$parent, Data\+Node $\ast$right\+Sibling, T value)}{Datum(const std::string &identifier, DataNode *parent, DataNode *rightSibling, T value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf Database\+::\+Datum}$<$ T $>$\+::{\bf Datum} (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{identifier, }
+\item[{{\bf Data\+Node} $\ast$}]{parent, }
+\item[{{\bf Data\+Node} $\ast$}]{right\+Sibling, }
+\item[{T}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{classDatabase_1_1Datum_af00751a057fe19a929a979d7a925ef0a}{}\label{classDatabase_1_1Datum_af00751a057fe19a929a979d7a925ef0a}
+
+
+\hyperlink{classDatabase_1_1Datum}{Datum} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em identifier} & a string parameter \\
+\hline
+{\em parent} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s parent in tree structure \\
+\hline
+{\em right\+Sibling} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s right sibling in tree \\
+\hline
+{\em value} & the value that the \hyperlink{classDatabase_1_1Datum}{Datum} holds \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Function Documentation}
@@ -69,5 +124,5 @@ set\+Value
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Database/Datum.\+h\item 
-Database/Datum.\+cpp\end{DoxyCompactItemize}
+Engine/\+Database/Datum.\+h\item 
+Engine/\+Database/Datum.\+cpp\end{DoxyCompactItemize}
