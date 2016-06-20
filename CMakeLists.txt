@@ -21,4 +21,5 @@ include_directories(
 
 # Uncomment the first line to get a executable file, do the same for second line to get a UNIX static library
 #add_executable(${PROJECT_NAME} ${HDRS} ${SRCS})
-add_library(${PROJECT_NAME} ${HDRS} ${SRCS})
+add_library(${PROJECT_NAME}_s STATIC ${HDRS} ${SRCS})
+add_library(${PROJECT_NAME} SHARED ${HDRS} ${SRCS})

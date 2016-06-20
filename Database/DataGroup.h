@@ -4,7 +4,7 @@
 #include "DataNode.h"
 
 /**
- * @brief The Database namspace
+ * @brief The Database namespace
  *
  * Contains classes to represent Rule-based system's Database,
  * which stores knowledge available to the AI agent
@@ -17,6 +17,8 @@ namespace Database
  * Represents a non-leaf node, which contains children.
  * Its children can be any DataNode object: either another data group,
  * or a datum only.
+ * @see DataNode
+ * @see Datum
  */
 class DataGroup : public DataNode
 {

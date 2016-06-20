@@ -4,7 +4,7 @@
 #include <string>
 
 /**
- * @brief The Database namspace
+ * @brief The Database namespace
  *
  * Contains classes to represent Rule-based system's Database,
  * which stores knowledge available to the AI agent
@@ -17,6 +17,8 @@ namespace Database
  * Base class of each node in the database tree. Since every node needs
  * an identifier, but non-leaf nodes contain their children, while leaf
  * nodes store values.
+ * @see DataGroup
+ * @see Datum
  */
 class DataNode
 {
