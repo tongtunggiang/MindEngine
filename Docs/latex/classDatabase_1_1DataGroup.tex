@@ -2,7 +2,7 @@
 \label{classDatabase_1_1DataGroup}\index{Database\+::\+Data\+Group@{Database\+::\+Data\+Group}}
 
 
-The \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} class Represents a non-\/leaf node, which contains children. Its children can be any \hyperlink{classDatabase_1_1DataNode}{Data\+Node} object\+: either another \hyperlink{classDatabase_1_1DataGroup}{Data\+Group}, or a \hyperlink{classDatabase_1_1Datum}{Datum} only.  
+Represents a non-\/leaf node, which contains children. Its children can be any \hyperlink{classDatabase_1_1DataNode}{Data\+Node} object\+: either another \hyperlink{classDatabase_1_1DataGroup}{Data\+Group}, or a \hyperlink{classDatabase_1_1Datum}{Datum} only.  
 
 
 
@@ -25,14 +25,16 @@ Inheritance diagram for Database\+:\+:Data\+Group\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} constructor. \end{DoxyCompactList}\item 
 virtual \hyperlink{classDatabase_1_1DataGroup_a88b36fe397284004ce86726e7808466e}{$\sim$\+Data\+Group} ()\hypertarget{classDatabase_1_1DataGroup_a88b36fe397284004ce86726e7808466e}{}\label{classDatabase_1_1DataGroup_a88b36fe397284004ce86726e7808466e}
 
-\begin{DoxyCompactList}\small\item\em $\sim$\+Data\+Group destructor \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em $\sim$\+Data\+Group destructor. \end{DoxyCompactList}\item 
 const \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$ \hyperlink{classDatabase_1_1DataGroup_af6abab9878250ade850fc8e43042ab01}{get\+Left\+Most\+Child} ()
-\begin{DoxyCompactList}\small\item\em get\+Left\+Most\+Child \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Data nodes are put into a left-\/most child, right sibling tree. This function returns the pointer to the left most child of this node. \end{DoxyCompactList}\item 
+bool \hyperlink{classDatabase_1_1DataGroup_a89bb1aa667805f278ad0dfa9172c3ee0}{is\+Group} ()
+\begin{DoxyCompactList}\small\item\em Allows user to check whether this node is a \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-The \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} class Represents a non-\/leaf node, which contains children. Its children can be any \hyperlink{classDatabase_1_1DataNode}{Data\+Node} object\+: either another \hyperlink{classDatabase_1_1DataGroup}{Data\+Group}, or a \hyperlink{classDatabase_1_1Datum}{Datum} only. 
+Represents a non-\/leaf node, which contains children. Its children can be any \hyperlink{classDatabase_1_1DataNode}{Data\+Node} object\+: either another \hyperlink{classDatabase_1_1DataGroup}{Data\+Group}, or a \hyperlink{classDatabase_1_1Datum}{Datum} only. 
 
 \begin{DoxySeeAlso}{See also}
 \hyperlink{classDatabase_1_1DataNode}{Data\+Node} 
@@ -58,13 +60,13 @@ The \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} class Represents a non-\
 
 
 \begin{DoxyParams}{Parameters}
-{\em identifier} & a string parameter \\
+{\em identifier} & a string parameter. \\
 \hline
-{\em parent} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s parent in tree structure \\
+{\em parent} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s parent in tree structure. \\
 \hline
-{\em right\+Sibling} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s right sibling in tree \\
+{\em right\+Sibling} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s right sibling in tree. \\
 \hline
-{\em left\+Most\+Child} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s left most child in tree \\
+{\em left\+Most\+Child} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s left most child in tree. \\
 \hline
 \end{DoxyParams}
 
@@ -79,11 +81,29 @@ The \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} class Represents a non-\
 )}\hypertarget{classDatabase_1_1DataGroup_af6abab9878250ade850fc8e43042ab01}{}\label{classDatabase_1_1DataGroup_af6abab9878250ade850fc8e43042ab01}
 
 
-get\+Left\+Most\+Child 
+Data nodes are put into a left-\/most child, right sibling tree. This function returns the pointer to the left most child of this node. 
 
 \begin{DoxyReturn}{Returns}
-The left most child of this data group node 
+The left most child of this data group node. 
 \end{DoxyReturn}
+\index{Database\+::\+Data\+Group@{Database\+::\+Data\+Group}!is\+Group@{is\+Group}}
+\index{is\+Group@{is\+Group}!Database\+::\+Data\+Group@{Database\+::\+Data\+Group}}
+\subsubsection[{\texorpdfstring{is\+Group()}{isGroup()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Database\+::\+Data\+Group\+::is\+Group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classDatabase_1_1DataGroup_a89bb1aa667805f278ad0dfa9172c3ee0}{}\label{classDatabase_1_1DataGroup_a89bb1aa667805f278ad0dfa9172c3ee0}
+
+
+Allows user to check whether this node is a \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} or not. 
+
+\begin{DoxyReturn}{Returns}
+true if this node is a \hyperlink{classDatabase_1_1DataGroup}{Data\+Group}, otherwise returns false. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classDatabase_1_1DataNode_a996e222a24c6f3e1bc646fe31e26af1b}{Database\+::\+Data\+Node}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

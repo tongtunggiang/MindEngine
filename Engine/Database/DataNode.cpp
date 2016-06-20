@@ -41,4 +41,14 @@ const DataNode* DataNode::getRightSibling()
 	return rightSibling;
 }
 
+bool DataNode::isGroup()
+{
+	return false;
+}
+
+bool DataNode::isDatum()
+{
+	return false;
+}
+
 }

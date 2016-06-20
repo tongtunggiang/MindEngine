@@ -4,17 +4,14 @@
 #include "DataNode.h"
 
 /**
- * @brief The Database namespace
- *
- * Contains classes to represent Rule-based system's Database,
- * which stores knowledge available to the AI agent
+ * @brief Contains classes to represent Rule-based system's database,
+ * which stores knowledge available to the AI agent.
  */
 namespace Database
 {
 
 /**
- * @brief The DataGroup class
- * Represents a non-leaf node, which contains children.
+ * @brief Represents a non-leaf node, which contains children.
  * Its children can be any DataNode object: either another DataGroup,
  * or a Datum only.
  * @see DataNode
@@ -26,35 +23,40 @@ class DataGroup : public DataNode
 public:
 
 	/**
-	 * @brief DataGroup default constructor
+	 * @brief DataGroup default constructor.
 	 */
 	DataGroup();
 
 	/**
-	 * @brief DataGroup constructor
-	 * @param identifier a string parameter
-	 * @param parent a DataNode pointer representing this node's parent in tree structure
-	 * @param rightSibling a DataNode pointer representing this node's right sibling in tree
-	 * @param leftMostChild a DataNode pointer representing this node's left most child in tree
+	 * @brief DataGroup constructor.
+	 * @param identifier a string parameter.
+	 * @param parent a DataNode pointer representing this node's parent in tree structure.
+	 * @param rightSibling a DataNode pointer representing this node's right sibling in tree.
+	 * @param leftMostChild a DataNode pointer representing this node's left most child in tree.
 	 */
 	DataGroup(const std::string& identifier, DataNode *parent, DataNode *rightSibling, DataNode *leftMostChild);
 
 	/**
-	 * @brief ~DataGroup destructor
+	 * @brief ~DataGroup destructor.
 	 */
 	virtual ~DataGroup();
 
 	/**
-	 * @brief getLeftMostChild
-	 * @return The left most child of this data group node
+	 * @brief Data nodes are put into a left-most child, right sibling tree. This function returns the pointer to the left most child of this node.
+	 * @return The left most child of this data group node.
 	 */
 	const DataNode* getLeftMostChild();
+
+	/**
+	 * @brief Allows user to check whether this node is a DataGroup or not.
+	 * @return true if this node is a DataGroup, otherwise returns false.
+	 */
+	bool isGroup();
 
 private:
 
 	/**
-	 * @brief leftMostChild
-	 * The left most child of this node in tree structure
+	 * @brief The left most child of this node in tree structure.
 	 */
 	DataNode* leftMostChild;
 

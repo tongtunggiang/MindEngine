@@ -2,7 +2,7 @@
 \label{classDatabase_1_1DataNode}\index{Database\+::\+Data\+Node@{Database\+::\+Data\+Node}}
 
 
-The \hyperlink{classDatabase_1_1DataNode}{Data\+Node} class Base class of each node in the database tree. Since every node needs an identifier, but non-\/leaf nodes contain their children, while leaf nodes store values.  
+Base class of each node in the database tree. Since every node needs an identifier, but non-\/leaf nodes contain their children, while leaf nodes store values.  
 
 
 
@@ -22,32 +22,35 @@ Inheritance diagram for Database\+:\+:Data\+Node\+:\begin{figure}[H]
 
 \begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_1_1DataNode}{Data\+Node} default constructor. \end{DoxyCompactList}\item 
 \hyperlink{classDatabase_1_1DataNode_ac7680a07b6a02dbc031bdd338b36aa1d}{Data\+Node} (const std\+::string \&\hyperlink{classDatabase_1_1DataNode_ace59a7fba9c490d2dae59c4af7b0c71f}{identifier}, \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$\hyperlink{classDatabase_1_1DataNode_a8d70472d0f14aa3ae3ee74d9f3e879d6}{parent}, \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$\hyperlink{classDatabase_1_1DataNode_ae335fc33c3813e8a6638d50faef44d5d}{right\+Sibling})
-\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_1_1DataNode}{Data\+Node} constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_1_1DataNode}{Data\+Node} constructor with parameters. \end{DoxyCompactList}\item 
 virtual \hyperlink{classDatabase_1_1DataNode_ac58f04cb07497c0b0028398f18f36c4f}{$\sim$\+Data\+Node} ()\hypertarget{classDatabase_1_1DataNode_ac58f04cb07497c0b0028398f18f36c4f}{}\label{classDatabase_1_1DataNode_ac58f04cb07497c0b0028398f18f36c4f}
 
-\begin{DoxyCompactList}\small\item\em $\sim$\+Data\+Node destructor \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em $\sim$\+Data\+Node destructor. \end{DoxyCompactList}\item 
 const std\+::string \& \hyperlink{classDatabase_1_1DataNode_a428c4442fbdb48945dbd432c1f03ab60}{get\+Identifier} ()
-\begin{DoxyCompactList}\small\item\em get\+Identifier \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The data nodes have unique identifiers. \end{DoxyCompactList}\item 
 const \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$ \hyperlink{classDatabase_1_1DataNode_a888e0c17ef05ffbf2e332e15c7636209}{get\+Parent} ()
-\begin{DoxyCompactList}\small\item\em get\+Parent \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Data nodes are put into a left-\/most child, right sibling tree. This function returns the pointer to the parent of this node. \end{DoxyCompactList}\item 
 const \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$ \hyperlink{classDatabase_1_1DataNode_a09d6674f389f8d528cea37326cfe9037}{get\+Right\+Sibling} ()
-\begin{DoxyCompactList}\small\item\em get\+Right\+Sibling \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Data nodes are put into a left-\/most child, right sibling tree. This function is used to get the sibling next to current node. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classDatabase_1_1DataNode_a996e222a24c6f3e1bc646fe31e26af1b}{is\+Group} ()
+\begin{DoxyCompactList}\small\item\em Allows user to check whether this node is a \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} or not. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classDatabase_1_1DataNode_afc96c4a3acb58cb1afb68ebaae43d0ae}{is\+Datum} ()
+\begin{DoxyCompactList}\small\item\em Allows user to check whether this node is a \hyperlink{classDatabase_1_1Datum}{Datum} or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \hyperlink{classDatabase_1_1DataNode_ace59a7fba9c490d2dae59c4af7b0c71f}{identifier}\hypertarget{classDatabase_1_1DataNode_ace59a7fba9c490d2dae59c4af7b0c71f}{}\label{classDatabase_1_1DataNode_ace59a7fba9c490d2dae59c4af7b0c71f}
-
-\begin{DoxyCompactList}\small\item\em identifier Each item of data should be identified to know what the value means. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classDatabase_1_1DataNode_ace59a7fba9c490d2dae59c4af7b0c71f}{identifier}
+\begin{DoxyCompactList}\small\item\em Each item of data should be identified to know what the value means. \end{DoxyCompactList}\item 
 \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$ \hyperlink{classDatabase_1_1DataNode_a8d70472d0f14aa3ae3ee74d9f3e879d6}{parent}\hypertarget{classDatabase_1_1DataNode_a8d70472d0f14aa3ae3ee74d9f3e879d6}{}\label{classDatabase_1_1DataNode_a8d70472d0f14aa3ae3ee74d9f3e879d6}
 
-\begin{DoxyCompactList}\small\item\em parent The parent node of this node, or N\+U\+LL if this node is the root of the tree \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The parent node of this node, or N\+U\+LL if this node is the root of the tree. \end{DoxyCompactList}\item 
 \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$ \hyperlink{classDatabase_1_1DataNode_ae335fc33c3813e8a6638d50faef44d5d}{right\+Sibling}\hypertarget{classDatabase_1_1DataNode_ae335fc33c3813e8a6638d50faef44d5d}{}\label{classDatabase_1_1DataNode_ae335fc33c3813e8a6638d50faef44d5d}
 
-\begin{DoxyCompactList}\small\item\em right\+Sibling The right sibling node of this node, or N\+U\+LL if this node is the right most child \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The right sibling node of this node, or N\+U\+LL if this node is the right most child. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The \hyperlink{classDatabase_1_1DataNode}{Data\+Node} class Base class of each node in the database tree. Since every node needs an identifier, but non-\/leaf nodes contain their children, while leaf nodes store values. 
+Base class of each node in the database tree. Since every node needs an identifier, but non-\/leaf nodes contain their children, while leaf nodes store values. 
 
 \begin{DoxySeeAlso}{See also}
 \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} 
@@ -68,15 +71,15 @@ The \hyperlink{classDatabase_1_1DataNode}{Data\+Node} class Base class of each n
 )}\hypertarget{classDatabase_1_1DataNode_ac7680a07b6a02dbc031bdd338b36aa1d}{}\label{classDatabase_1_1DataNode_ac7680a07b6a02dbc031bdd338b36aa1d}
 
 
-\hyperlink{classDatabase_1_1DataNode}{Data\+Node} constructor. 
+\hyperlink{classDatabase_1_1DataNode}{Data\+Node} constructor with parameters. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em identifier} & a string parameter \\
+{\em identifier} & a string parameter. \\
 \hline
-{\em parent} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s parent in tree structure \\
+{\em parent} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s parent in tree structure. \\
 \hline
-{\em right\+Sibling} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s right sibling in tree structure \\
+{\em right\+Sibling} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s right sibling in tree. structure \\
 \hline
 \end{DoxyParams}
 
@@ -91,10 +94,10 @@ The \hyperlink{classDatabase_1_1DataNode}{Data\+Node} class Base class of each n
 )}\hypertarget{classDatabase_1_1DataNode_a428c4442fbdb48945dbd432c1f03ab60}{}\label{classDatabase_1_1DataNode_a428c4442fbdb48945dbd432c1f03ab60}
 
 
-get\+Identifier 
+The data nodes have unique identifiers. 
 
 \begin{DoxyReturn}{Returns}
-The identifier of this node 
+The identifier of this node. 
 \end{DoxyReturn}
 \index{Database\+::\+Data\+Node@{Database\+::\+Data\+Node}!get\+Parent@{get\+Parent}}
 \index{get\+Parent@{get\+Parent}!Database\+::\+Data\+Node@{Database\+::\+Data\+Node}}
@@ -105,10 +108,10 @@ The identifier of this node
 )}\hypertarget{classDatabase_1_1DataNode_a888e0c17ef05ffbf2e332e15c7636209}{}\label{classDatabase_1_1DataNode_a888e0c17ef05ffbf2e332e15c7636209}
 
 
-get\+Parent 
+Data nodes are put into a left-\/most child, right sibling tree. This function returns the pointer to the parent of this node. 
 
 \begin{DoxyReturn}{Returns}
-The parent node of this node, or N\+U\+LL if this node is the root of the tree 
+The parent node of this node, or N\+U\+LL if this node is the root of the tree. 
 \end{DoxyReturn}
 \index{Database\+::\+Data\+Node@{Database\+::\+Data\+Node}!get\+Right\+Sibling@{get\+Right\+Sibling}}
 \index{get\+Right\+Sibling@{get\+Right\+Sibling}!Database\+::\+Data\+Node@{Database\+::\+Data\+Node}}
@@ -119,11 +122,59 @@ The parent node of this node, or N\+U\+LL if this node is the root of the tree
 )}\hypertarget{classDatabase_1_1DataNode_a09d6674f389f8d528cea37326cfe9037}{}\label{classDatabase_1_1DataNode_a09d6674f389f8d528cea37326cfe9037}
 
 
-get\+Right\+Sibling 
+Data nodes are put into a left-\/most child, right sibling tree. This function is used to get the sibling next to current node. 
 
 \begin{DoxyReturn}{Returns}
-The right sibling node of this node, or N\+U\+LL if this node is the right most child 
+The right sibling node of this node, or N\+U\+LL if this node is the right most child. 
 \end{DoxyReturn}
+\index{Database\+::\+Data\+Node@{Database\+::\+Data\+Node}!is\+Datum@{is\+Datum}}
+\index{is\+Datum@{is\+Datum}!Database\+::\+Data\+Node@{Database\+::\+Data\+Node}}
+\subsubsection[{\texorpdfstring{is\+Datum()}{isDatum()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Database\+::\+Data\+Node\+::is\+Datum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classDatabase_1_1DataNode_afc96c4a3acb58cb1afb68ebaae43d0ae}{}\label{classDatabase_1_1DataNode_afc96c4a3acb58cb1afb68ebaae43d0ae}
+
+
+Allows user to check whether this node is a \hyperlink{classDatabase_1_1Datum}{Datum} or not. 
+
+\begin{DoxyReturn}{Returns}
+true if this node is a \hyperlink{classDatabase_1_1Datum}{Datum}, otherwise returns false. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classDatabase_1_1Datum_a81a243020da7294ad331b50d45b86ad8}{Database\+::\+Datum$<$ T $>$}.
+
+\index{Database\+::\+Data\+Node@{Database\+::\+Data\+Node}!is\+Group@{is\+Group}}
+\index{is\+Group@{is\+Group}!Database\+::\+Data\+Node@{Database\+::\+Data\+Node}}
+\subsubsection[{\texorpdfstring{is\+Group()}{isGroup()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Database\+::\+Data\+Node\+::is\+Group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classDatabase_1_1DataNode_a996e222a24c6f3e1bc646fe31e26af1b}{}\label{classDatabase_1_1DataNode_a996e222a24c6f3e1bc646fe31e26af1b}
+
+
+Allows user to check whether this node is a \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} or not. 
+
+\begin{DoxyReturn}{Returns}
+true if this node is a \hyperlink{classDatabase_1_1DataGroup}{Data\+Group}, otherwise returns false. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classDatabase_1_1DataGroup_a89bb1aa667805f278ad0dfa9172c3ee0}{Database\+::\+Data\+Group}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Database\+::\+Data\+Node@{Database\+::\+Data\+Node}!identifier@{identifier}}
+\index{identifier@{identifier}!Database\+::\+Data\+Node@{Database\+::\+Data\+Node}}
+\subsubsection[{\texorpdfstring{identifier}{identifier}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Database\+::\+Data\+Node\+::identifier\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classDatabase_1_1DataNode_ace59a7fba9c490d2dae59c4af7b0c71f}{}\label{classDatabase_1_1DataNode_ace59a7fba9c490d2dae59c4af7b0c71f}
+
+
+Each item of data should be identified to know what the value means. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Use identifier with strings may decrease performance with large systems due to string-\/matching operations. Will change this to integer or unsigned integer as soon as I find a way to match identifier with human-\/readable strings. \end{DoxyRefDesc}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -17,6 +17,7 @@ file(GLOB_RECURSE SRCS *.cpp)
 include_directories(
 	${PROJECT_SOURCE_DIR}/Engine
 	${PROJECT_SOURCE_DIR}/Engine/Database
+	${PROJECT_SOURCE_DIR}/Engine/Rules
 )
 
 # Uncomment the first line to get a executable file, do the same for second line to get a UNIX static library

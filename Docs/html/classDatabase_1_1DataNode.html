@@ -39,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -97,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="classDatabase_1_1DataNode.html" title="The DataNode class Base class of each node in the database tree. Since every node needs an identifier...">DataNode</a> class Base class of each node in the database tree. Since every node needs an identifier, but non-leaf nodes contain their children, while leaf nodes store values.  
+<p>Base class of each node in the database tree. Since every node needs an identifier, but non-leaf nodes contain their children, while leaf nodes store values.  
  <a href="classDatabase_1_1DataNode.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="DataNode_8h_source.html">DataNode.h</a>&gt;</code></p>
@@ -107,8 +108,8 @@ Inheritance diagram for Database::DataNode:</div>
  <div class="center">
   <img src="classDatabase_1_1DataNode.png" usemap="#Database::DataNode_map" alt=""/>
   <map id="Database::DataNode_map" name="Database::DataNode_map">
-<area href="classDatabase_1_1DataGroup.html" title="The DataGroup class Represents a non-leaf node, which contains children. Its children can be any Data..." alt="Database::DataGroup" shape="rect" coords="0,56,137,80"/>
-<area href="classDatabase_1_1Datum.html" title="The Datum class A Datum consists of an identifier and and value. In Database&#39;s tree structure..." alt="Database::Datum&lt; T &gt;" shape="rect" coords="147,56,284,80"/>
+<area href="classDatabase_1_1DataGroup.html" title="Represents a non-leaf node, which contains children. Its children can be any DataNode object: either ..." alt="Database::DataGroup" shape="rect" coords="0,56,137,80"/>
+<area href="classDatabase_1_1Datum.html" title="A Datum consists of an identifier and and value. In Database&#39;s tree structure, a leaf node is a Datum..." alt="Database::Datum&lt; T &gt;" shape="rect" coords="147,56,284,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -116,45 +117,50 @@ Inheritance diagram for Database::DataNode:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7999f782bb0465613e703364db8cd22a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7999f782bb0465613e703364db8cd22a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#a7999f782bb0465613e703364db8cd22a">DataNode</a> ()</td></tr>
-<tr class="memdesc:a7999f782bb0465613e703364db8cd22a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDatabase_1_1DataNode.html" title="The DataNode class Base class of each node in the database tree. Since every node needs an identifier...">DataNode</a> default constructor. <br /></td></tr>
+<tr class="memdesc:a7999f782bb0465613e703364db8cd22a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDatabase_1_1DataNode.html" title="Base class of each node in the database tree. Since every node needs an identifier, but non-leaf nodes contain their children, while leaf nodes store values. ">DataNode</a> default constructor. <br /></td></tr>
 <tr class="separator:a7999f782bb0465613e703364db8cd22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7680a07b6a02dbc031bdd338b36aa1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#ac7680a07b6a02dbc031bdd338b36aa1d">DataNode</a> (const std::string &amp;<a class="el" href="classDatabase_1_1DataNode.html#ace59a7fba9c490d2dae59c4af7b0c71f">identifier</a>, <a class="el" href="classDatabase_1_1DataNode.html">DataNode</a> *<a class="el" href="classDatabase_1_1DataNode.html#a8d70472d0f14aa3ae3ee74d9f3e879d6">parent</a>, <a class="el" href="classDatabase_1_1DataNode.html">DataNode</a> *<a class="el" href="classDatabase_1_1DataNode.html#ae335fc33c3813e8a6638d50faef44d5d">rightSibling</a>)</td></tr>
-<tr class="memdesc:ac7680a07b6a02dbc031bdd338b36aa1d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDatabase_1_1DataNode.html" title="The DataNode class Base class of each node in the database tree. Since every node needs an identifier...">DataNode</a> constructor.  <a href="#ac7680a07b6a02dbc031bdd338b36aa1d">More...</a><br /></td></tr>
+<tr class="memdesc:ac7680a07b6a02dbc031bdd338b36aa1d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDatabase_1_1DataNode.html" title="Base class of each node in the database tree. Since every node needs an identifier, but non-leaf nodes contain their children, while leaf nodes store values. ">DataNode</a> constructor with parameters.  <a href="#ac7680a07b6a02dbc031bdd338b36aa1d">More...</a><br /></td></tr>
 <tr class="separator:ac7680a07b6a02dbc031bdd338b36aa1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac58f04cb07497c0b0028398f18f36c4f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac58f04cb07497c0b0028398f18f36c4f"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#ac58f04cb07497c0b0028398f18f36c4f">~DataNode</a> ()</td></tr>
-<tr class="memdesc:ac58f04cb07497c0b0028398f18f36c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">~DataNode destructor <br /></td></tr>
+<tr class="memdesc:ac58f04cb07497c0b0028398f18f36c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">~DataNode destructor. <br /></td></tr>
 <tr class="separator:ac58f04cb07497c0b0028398f18f36c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a428c4442fbdb48945dbd432c1f03ab60"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#a428c4442fbdb48945dbd432c1f03ab60">getIdentifier</a> ()</td></tr>
-<tr class="memdesc:a428c4442fbdb48945dbd432c1f03ab60"><td class="mdescLeft">&#160;</td><td class="mdescRight">getIdentifier  <a href="#a428c4442fbdb48945dbd432c1f03ab60">More...</a><br /></td></tr>
+<tr class="memdesc:a428c4442fbdb48945dbd432c1f03ab60"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data nodes have unique identifiers.  <a href="#a428c4442fbdb48945dbd432c1f03ab60">More...</a><br /></td></tr>
 <tr class="separator:a428c4442fbdb48945dbd432c1f03ab60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a888e0c17ef05ffbf2e332e15c7636209"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDatabase_1_1DataNode.html">DataNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#a888e0c17ef05ffbf2e332e15c7636209">getParent</a> ()</td></tr>
-<tr class="memdesc:a888e0c17ef05ffbf2e332e15c7636209"><td class="mdescLeft">&#160;</td><td class="mdescRight">getParent  <a href="#a888e0c17ef05ffbf2e332e15c7636209">More...</a><br /></td></tr>
+<tr class="memdesc:a888e0c17ef05ffbf2e332e15c7636209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data nodes are put into a left-most child, right sibling tree. This function returns the pointer to the parent of this node.  <a href="#a888e0c17ef05ffbf2e332e15c7636209">More...</a><br /></td></tr>
 <tr class="separator:a888e0c17ef05ffbf2e332e15c7636209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09d6674f389f8d528cea37326cfe9037"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classDatabase_1_1DataNode.html">DataNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#a09d6674f389f8d528cea37326cfe9037">getRightSibling</a> ()</td></tr>
-<tr class="memdesc:a09d6674f389f8d528cea37326cfe9037"><td class="mdescLeft">&#160;</td><td class="mdescRight">getRightSibling  <a href="#a09d6674f389f8d528cea37326cfe9037">More...</a><br /></td></tr>
+<tr class="memdesc:a09d6674f389f8d528cea37326cfe9037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data nodes are put into a left-most child, right sibling tree. This function is used to get the sibling next to current node.  <a href="#a09d6674f389f8d528cea37326cfe9037">More...</a><br /></td></tr>
 <tr class="separator:a09d6674f389f8d528cea37326cfe9037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996e222a24c6f3e1bc646fe31e26af1b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#a996e222a24c6f3e1bc646fe31e26af1b">isGroup</a> ()</td></tr>
+<tr class="memdesc:a996e222a24c6f3e1bc646fe31e26af1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows user to check whether this node is a <a class="el" href="classDatabase_1_1DataGroup.html" title="Represents a non-leaf node, which contains children. Its children can be any DataNode object: either ...">DataGroup</a> or not.  <a href="#a996e222a24c6f3e1bc646fe31e26af1b">More...</a><br /></td></tr>
+<tr class="separator:a996e222a24c6f3e1bc646fe31e26af1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc96c4a3acb58cb1afb68ebaae43d0ae"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#afc96c4a3acb58cb1afb68ebaae43d0ae">isDatum</a> ()</td></tr>
+<tr class="memdesc:afc96c4a3acb58cb1afb68ebaae43d0ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows user to check whether this node is a <a class="el" href="classDatabase_1_1Datum.html" title="A Datum consists of an identifier and and value. In Database&#39;s tree structure, a leaf node is a Datum...">Datum</a> or not.  <a href="#afc96c4a3acb58cb1afb68ebaae43d0ae">More...</a><br /></td></tr>
+<tr class="separator:afc96c4a3acb58cb1afb68ebaae43d0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ace59a7fba9c490d2dae59c4af7b0c71f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace59a7fba9c490d2dae59c4af7b0c71f"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#ace59a7fba9c490d2dae59c4af7b0c71f">identifier</a></td></tr>
-<tr class="memdesc:ace59a7fba9c490d2dae59c4af7b0c71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">identifier Each item of data should be identified to know what the value means. <br /></td></tr>
+<tr class="memitem:ace59a7fba9c490d2dae59c4af7b0c71f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#ace59a7fba9c490d2dae59c4af7b0c71f">identifier</a></td></tr>
+<tr class="memdesc:ace59a7fba9c490d2dae59c4af7b0c71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each item of data should be identified to know what the value means.  <a href="#ace59a7fba9c490d2dae59c4af7b0c71f">More...</a><br /></td></tr>
 <tr class="separator:ace59a7fba9c490d2dae59c4af7b0c71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d70472d0f14aa3ae3ee74d9f3e879d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d70472d0f14aa3ae3ee74d9f3e879d6"></a>
 <a class="el" href="classDatabase_1_1DataNode.html">DataNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#a8d70472d0f14aa3ae3ee74d9f3e879d6">parent</a></td></tr>
-<tr class="memdesc:a8d70472d0f14aa3ae3ee74d9f3e879d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">parent The parent node of this node, or NULL if this node is the root of the tree <br /></td></tr>
+<tr class="memdesc:a8d70472d0f14aa3ae3ee74d9f3e879d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parent node of this node, or NULL if this node is the root of the tree. <br /></td></tr>
 <tr class="separator:a8d70472d0f14aa3ae3ee74d9f3e879d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae335fc33c3813e8a6638d50faef44d5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae335fc33c3813e8a6638d50faef44d5d"></a>
 <a class="el" href="classDatabase_1_1DataNode.html">DataNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase_1_1DataNode.html#ae335fc33c3813e8a6638d50faef44d5d">rightSibling</a></td></tr>
-<tr class="memdesc:ae335fc33c3813e8a6638d50faef44d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">rightSibling The right sibling node of this node, or NULL if this node is the right most child <br /></td></tr>
+<tr class="memdesc:ae335fc33c3813e8a6638d50faef44d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The right sibling node of this node, or NULL if this node is the right most child. <br /></td></tr>
 <tr class="separator:ae335fc33c3813e8a6638d50faef44d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classDatabase_1_1DataNode.html" title="The DataNode class Base class of each node in the database tree. Since every node needs an identifier...">DataNode</a> class Base class of each node in the database tree. Since every node needs an identifier, but non-leaf nodes contain their children, while leaf nodes store values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classDatabase_1_1DataGroup.html" title="The DataGroup class Represents a non-leaf node, which contains children. Its children can be any Data...">DataGroup</a> </dd>
+<div class="textblock"><p>Base class of each node in the database tree. Since every node needs an identifier, but non-leaf nodes contain their children, while leaf nodes store values. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classDatabase_1_1DataGroup.html" title="Represents a non-leaf node, which contains children. Its children can be any DataNode object: either ...">DataGroup</a> </dd>
 <dd>
-<a class="el" href="classDatabase_1_1Datum.html" title="The Datum class A Datum consists of an identifier and and value. In Database&#39;s tree structure...">Datum</a> </dd></dl>
+<a class="el" href="classDatabase_1_1Datum.html" title="A Datum consists of an identifier and and value. In Database&#39;s tree structure, a leaf node is a Datum...">Datum</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac7680a07b6a02dbc031bdd338b36aa1d"></a>
 <div class="memitem">
@@ -186,12 +192,12 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classDatabase_1_1DataNode.html" title="The DataNode class Base class of each node in the database tree. Since every node needs an identifier...">DataNode</a> constructor. </p>
+<p><a class="el" href="classDatabase_1_1DataNode.html" title="Base class of each node in the database tree. Since every node needs an identifier, but non-leaf nodes contain their children, while leaf nodes store values. ">DataNode</a> constructor with parameters. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">identifier</td><td>a string parameter </td></tr>
-    <tr><td class="paramname">parent</td><td>a <a class="el" href="classDatabase_1_1DataNode.html" title="The DataNode class Base class of each node in the database tree. Since every node needs an identifier...">DataNode</a> pointer representing this node's parent in tree structure </td></tr>
-    <tr><td class="paramname">rightSibling</td><td>a <a class="el" href="classDatabase_1_1DataNode.html" title="The DataNode class Base class of each node in the database tree. Since every node needs an identifier...">DataNode</a> pointer representing this node's right sibling in tree structure </td></tr>
+    <tr><td class="paramname">identifier</td><td>a string parameter. </td></tr>
+    <tr><td class="paramname">parent</td><td>a <a class="el" href="classDatabase_1_1DataNode.html" title="Base class of each node in the database tree. Since every node needs an identifier, but non-leaf nodes contain their children, while leaf nodes store values. ">DataNode</a> pointer representing this node's parent in tree structure. </td></tr>
+    <tr><td class="paramname">rightSibling</td><td>a <a class="el" href="classDatabase_1_1DataNode.html" title="Base class of each node in the database tree. Since every node needs an identifier, but non-leaf nodes contain their children, while leaf nodes store values. ">DataNode</a> pointer representing this node's right sibling in tree. structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -212,8 +218,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
       </table>
 </div><div class="memdoc">
 
-<p>getIdentifier </p>
-<dl class="section return"><dt>Returns</dt><dd>The identifier of this node </dd></dl>
+<p>The data nodes have unique identifiers. </p>
+<dl class="section return"><dt>Returns</dt><dd>The identifier of this node. </dd></dl>
 
 </div>
 </div>
@@ -230,8 +236,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
       </table>
 </div><div class="memdoc">
 
-<p>getParent </p>
-<dl class="section return"><dt>Returns</dt><dd>The parent node of this node, or NULL if this node is the root of the tree </dd></dl>
+<p>Data nodes are put into a left-most child, right sibling tree. This function returns the pointer to the parent of this node. </p>
+<dl class="section return"><dt>Returns</dt><dd>The parent node of this node, or NULL if this node is the root of the tree. </dd></dl>
 
 </div>
 </div>
@@ -248,8 +254,88 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
       </table>
 </div><div class="memdoc">
 
-<p>getRightSibling </p>
-<dl class="section return"><dt>Returns</dt><dd>The right sibling node of this node, or NULL if this node is the right most child </dd></dl>
+<p>Data nodes are put into a left-most child, right sibling tree. This function is used to get the sibling next to current node. </p>
+<dl class="section return"><dt>Returns</dt><dd>The right sibling node of this node, or NULL if this node is the right most child. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afc96c4a3acb58cb1afb68ebaae43d0ae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Database::DataNode::isDatum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Allows user to check whether this node is a <a class="el" href="classDatabase_1_1Datum.html" title="A Datum consists of an identifier and and value. In Database&#39;s tree structure, a leaf node is a Datum...">Datum</a> or not. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if this node is a <a class="el" href="classDatabase_1_1Datum.html" title="A Datum consists of an identifier and and value. In Database&#39;s tree structure, a leaf node is a Datum...">Datum</a>, otherwise returns false. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classDatabase_1_1Datum.html#a81a243020da7294ad331b50d45b86ad8">Database::Datum&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a996e222a24c6f3e1bc646fe31e26af1b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Database::DataNode::isGroup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Allows user to check whether this node is a <a class="el" href="classDatabase_1_1DataGroup.html" title="Represents a non-leaf node, which contains children. Its children can be any DataNode object: either ...">DataGroup</a> or not. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if this node is a <a class="el" href="classDatabase_1_1DataGroup.html" title="Represents a non-leaf node, which contains children. Its children can be any DataNode object: either ...">DataGroup</a>, otherwise returns false. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classDatabase_1_1DataGroup.html#a89bb1aa667805f278ad0dfa9172c3ee0">Database::DataGroup</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ace59a7fba9c490d2dae59c4af7b0c71f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Database::DataNode::identifier</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Each item of data should be identified to know what the value means. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Use identifier with strings may decrease performance with large systems due to string-matching operations. Will change this to integer or unsigned integer as soon as I find a way to match identifier with human-readable strings. </dd></dl>
 
 </div>
 </div>

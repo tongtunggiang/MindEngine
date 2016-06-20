@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['getidentifier',['getIdentifier',['../classDatabase_1_1DataNode.html#a428c4442fbdb48945dbd432c1f03ab60',1,'Database::DataNode']]],
-  ['getleftmostchild',['getLeftMostChild',['../classDatabase_1_1DataGroup.html#af6abab9878250ade850fc8e43042ab01',1,'Database::DataGroup']]],
-  ['getparent',['getParent',['../classDatabase_1_1DataNode.html#a888e0c17ef05ffbf2e332e15c7636209',1,'Database::DataNode']]],
-  ['getrightsibling',['getRightSibling',['../classDatabase_1_1DataNode.html#a09d6674f389f8d528cea37326cfe9037',1,'Database::DataNode']]],
-  ['getvalue',['getValue',['../classDatabase_1_1Datum.html#a1965d14f29d7bc7369ce1d96f529124f',1,'Database::Datum']]]
+  ['datagroup',['DataGroup',['../classDatabase_1_1DataGroup.html#a633bd46aaee7adafcb0181b12c2466f0',1,'Database::DataGroup::DataGroup()'],['../classDatabase_1_1DataGroup.html#a1bed40d80c81f52145c4696b7c70d75b',1,'Database::DataGroup::DataGroup(const std::string &amp;identifier, DataNode *parent, DataNode *rightSibling, DataNode *leftMostChild)']]],
+  ['datanode',['DataNode',['../classDatabase_1_1DataNode.html#a7999f782bb0465613e703364db8cd22a',1,'Database::DataNode::DataNode()'],['../classDatabase_1_1DataNode.html#ac7680a07b6a02dbc031bdd338b36aa1d',1,'Database::DataNode::DataNode(const std::string &amp;identifier, DataNode *parent, DataNode *rightSibling)']]],
+  ['datum',['Datum',['../classDatabase_1_1Datum.html#a6c8c58a7e440ababc4f0a87f5da4d387',1,'Database::Datum::Datum(T value)'],['../classDatabase_1_1Datum.html#af00751a057fe19a929a979d7a925ef0a',1,'Database::Datum::Datum(const std::string &amp;identifier, DataNode *parent, DataNode *rightSibling, T value)']]]
 ];

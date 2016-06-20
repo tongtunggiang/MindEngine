@@ -1,0 +1,49 @@
+\hypertarget{structRules_1_1Match}{}\section{Rules\+:\+:Match Struct Reference}
+\label{structRules_1_1Match}\index{Rules\+::\+Match@{Rules\+::\+Match}}
+
+
+Provides the mechanism to match the data item from the rule with any item inside the database.  
+
+
+
+
+{\ttfamily \#include $<$Match.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{structRules_1_1Match_a41fdfdc0b535e029369be3e18854e14e}{matches} (const \hyperlink{classDatabase_1_1DataNode}{Database\+::\+Data\+Node} $\ast$database, void $\ast$bindings)=0
+\begin{DoxyCompactList}\small\item\em Check the match on the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides the mechanism to match the data item from the rule with any item inside the database. 
+
+\subsection{Member Function Documentation}
+\index{Rules\+::\+Match@{Rules\+::\+Match}!matches@{matches}}
+\index{matches@{matches}!Rules\+::\+Match@{Rules\+::\+Match}}
+\subsubsection[{\texorpdfstring{matches(const Database\+::\+Data\+Node $\ast$database, void $\ast$bindings)=0}{matches(const Database::DataNode *database, void *bindings)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Rules\+::\+Match\+::matches (
+\begin{DoxyParamCaption}
+\item[{const {\bf Database\+::\+Data\+Node} $\ast$}]{database, }
+\item[{void $\ast$}]{bindings}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{structRules_1_1Match_a41fdfdc0b535e029369be3e18854e14e}{}\label{structRules_1_1Match_a41fdfdc0b535e029369be3e18854e14e}
+
+
+Check the match on the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & The database to match on. \\
+\hline
+{\em bindings} & When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if matches, else returns false. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Rules/Match.\+h\end{DoxyCompactItemize}

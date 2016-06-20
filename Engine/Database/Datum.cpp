@@ -32,4 +32,10 @@ T Datum<T>::getValue()
 	return value;
 }
 
+template<class T>
+bool Datum<T>::isDatum()
+{
+	return true;
+}
+
 }

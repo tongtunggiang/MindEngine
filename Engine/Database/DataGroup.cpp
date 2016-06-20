@@ -26,4 +26,9 @@ const DataNode* DataGroup::getLeftMostChild()
 	return leftMostChild;
 }
 
+bool DataGroup::isGroup()
+{
+	return true;
+}
+
 }

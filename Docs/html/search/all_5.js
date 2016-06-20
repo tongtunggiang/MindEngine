@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setvalue',['setValue',['../classDatabase_1_1Datum.html#a636a8ed59bfcb2947100f8181a9b5c73',1,'Database::Datum']]]
+  ['parent',['parent',['../classDatabase_1_1DataNode.html#a8d70472d0f14aa3ae3ee74d9f3e879d6',1,'Database::DataNode']]]
 ];

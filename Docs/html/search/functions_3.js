@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['_7edatagroup',['~DataGroup',['../classDatabase_1_1DataGroup.html#a88b36fe397284004ce86726e7808466e',1,'Database::DataGroup']]],
-  ['_7edatanode',['~DataNode',['../classDatabase_1_1DataNode.html#ac58f04cb07497c0b0028398f18f36c4f',1,'Database::DataNode']]],
-  ['_7edatum',['~Datum',['../classDatabase_1_1Datum.html#a973e321d98f8be376fd8ec772446f480',1,'Database::Datum']]]
+  ['isdatum',['isDatum',['../classDatabase_1_1DataNode.html#afc96c4a3acb58cb1afb68ebaae43d0ae',1,'Database::DataNode::isDatum()'],['../classDatabase_1_1Datum.html#a81a243020da7294ad331b50d45b86ad8',1,'Database::Datum::isDatum()']]],
+  ['isgroup',['isGroup',['../classDatabase_1_1DataGroup.html#a89bb1aa667805f278ad0dfa9172c3ee0',1,'Database::DataGroup::isGroup()'],['../classDatabase_1_1DataNode.html#a996e222a24c6f3e1bc646fe31e26af1b',1,'Database::DataNode::isGroup()']]]
 ];

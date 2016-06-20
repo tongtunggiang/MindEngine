@@ -1,0 +1,76 @@
+\begin{theindex}
+
+  \item {action}
+    \subitem {Rules\+::\+Rule}, \hyperpage{18}
+
+  \indexspace
+
+  \item {Data\+Group}
+    \subitem {Database\+::\+Data\+Group}, \hyperpage{12}
+  \item {Data\+Node}
+    \subitem {Database\+::\+Data\+Node}, \hyperpage{14}
+  \item {Database}, \hyperpage{9}
+  \item {Database\+::\+Data\+Group}, \hyperpage{11}
+    \subitem {Data\+Group}, \hyperpage{12}
+    \subitem {get\+Left\+Most\+Child}, \hyperpage{12}
+    \subitem {is\+Group}, \hyperpage{12}
+  \item {Database\+::\+Data\+Node}, \hyperpage{13}
+    \subitem {Data\+Node}, \hyperpage{14}
+    \subitem {get\+Identifier}, \hyperpage{14}
+    \subitem {get\+Parent}, \hyperpage{14}
+    \subitem {get\+Right\+Sibling}, \hyperpage{14}
+    \subitem {identifier}, \hyperpage{15}
+    \subitem {is\+Datum}, \hyperpage{14}
+    \subitem {is\+Group}, \hyperpage{14}
+  \item {Database\+::\+Datum}
+    \subitem {Datum}, \hyperpage{16}
+    \subitem {get\+Value}, \hyperpage{16}
+    \subitem {is\+Datum}, \hyperpage{16}
+    \subitem {set\+Value}, \hyperpage{17}
+  \item {Database\+::\+Datum$<$ T $>$}, \hyperpage{15}
+  \item {Datum}
+    \subitem {Database\+::\+Datum}, \hyperpage{16}
+
+  \indexspace
+
+  \item {get\+Identifier}
+    \subitem {Database\+::\+Data\+Node}, \hyperpage{14}
+  \item {get\+Left\+Most\+Child}
+    \subitem {Database\+::\+Data\+Group}, \hyperpage{12}
+  \item {get\+Parent}
+    \subitem {Database\+::\+Data\+Node}, \hyperpage{14}
+  \item {get\+Right\+Sibling}
+    \subitem {Database\+::\+Data\+Node}, \hyperpage{14}
+  \item {get\+Value}
+    \subitem {Database\+::\+Datum}, \hyperpage{16}
+
+  \indexspace
+
+  \item {identifier}
+    \subitem {Database\+::\+Data\+Node}, \hyperpage{15}
+  \item {is\+Datum}
+    \subitem {Database\+::\+Data\+Node}, \hyperpage{14}
+    \subitem {Database\+::\+Datum}, \hyperpage{16}
+  \item {is\+Group}
+    \subitem {Database\+::\+Data\+Group}, \hyperpage{12}
+    \subitem {Database\+::\+Data\+Node}, \hyperpage{14}
+
+  \indexspace
+
+  \item {matches}
+    \subitem {Rules\+::\+Match}, \hyperpage{17}
+
+  \indexspace
+
+  \item {Rules}, \hyperpage{9}
+  \item {Rules\+::\+Match}, \hyperpage{17}
+    \subitem {matches}, \hyperpage{17}
+  \item {Rules\+::\+Rule}, \hyperpage{18}
+    \subitem {action}, \hyperpage{18}
+
+  \indexspace
+
+  \item {set\+Value}
+    \subitem {Database\+::\+Datum}, \hyperpage{17}
+
+\end{theindex}
