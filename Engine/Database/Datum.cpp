@@ -10,8 +10,8 @@ Datum<T>::Datum(T value)
 }
 
 template<class T>
-Datum<T>::Datum(const std::string &identifier, DataNode *parent, DataNode *rightSibling, T value)
-	: DataNode(identifier, parent, rightSibling), value(value)
+Datum<T>::Datum(const std::string &identifier, DataNode *rightSibling, T value)
+	: DataNode(identifier, rightSibling), value(value)
 {
 }
 
@@ -27,7 +27,7 @@ void Datum<T>::setValue(T newValue)
 }
 
 template<class T>
-T Datum<T>::getValue()
+T Datum<T>::getValue() const
 {
 	return value;
 }

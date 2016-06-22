@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['match',['Match',['../structRules_1_1Match.html',1,'Rules']]],
-  ['matches',['matches',['../structRules_1_1Match.html#a41fdfdc0b535e029369be3e18854e14e',1,'Rules::Match']]]
+  ['leftmostchild',['leftMostChild',['../structRules_1_1DataGroupMatch.html#a3dd32fca397944ef759c6f236548077a',1,'Rules::DataGroupMatch']]]
 ];

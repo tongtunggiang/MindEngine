@@ -6,14 +6,12 @@ namespace Database
 DataNode::DataNode()
 {
 	identifier = "";
-	parent = NULL;
 	rightSibling = NULL;
 }
 
-DataNode::DataNode(const std::string &identifier, DataNode* parent, DataNode* rightSibling)
+DataNode::DataNode(const std::string &identifier, DataNode* rightSibling)
 {
 	this->identifier = identifier;
-	this->parent = parent;
 	this->rightSibling = rightSibling;
 }
 
@@ -21,32 +19,24 @@ DataNode::~DataNode()
 {
 	if (rightSibling != NULL)
 		delete rightSibling;
-
-	if (parent != NULL)
-		delete parent;
 }
 
-const std::string& DataNode::getIdentifier()
+IdType DataNode::getIdentifier() const
 {
 	return identifier;
 }
 
-const DataNode* DataNode::getParent()
-{
-	return parent;
-}
-
-const DataNode* DataNode::getRightSibling()
+DataNode *DataNode::getRightSibling() const
 {
 	return rightSibling;
 }
 
-bool DataNode::isGroup()
+bool DataNode::isGroup() const
 {
 	return false;
 }
 
-bool DataNode::isDatum()
+bool DataNode::isDatum() const
 {
 	return false;
 }

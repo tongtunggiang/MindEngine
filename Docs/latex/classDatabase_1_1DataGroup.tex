@@ -21,12 +21,12 @@ Inheritance diagram for Database\+:\+:Data\+Group\+:\begin{figure}[H]
 \hyperlink{classDatabase_1_1DataGroup_a633bd46aaee7adafcb0181b12c2466f0}{Data\+Group} ()\hypertarget{classDatabase_1_1DataGroup_a633bd46aaee7adafcb0181b12c2466f0}{}\label{classDatabase_1_1DataGroup_a633bd46aaee7adafcb0181b12c2466f0}
 
 \begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} default constructor. \end{DoxyCompactList}\item 
-\hyperlink{classDatabase_1_1DataGroup_a1bed40d80c81f52145c4696b7c70d75b}{Data\+Group} (const std\+::string \&\hyperlink{classDatabase_1_1DataNode_ace59a7fba9c490d2dae59c4af7b0c71f}{identifier}, \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$\hyperlink{classDatabase_1_1DataNode_a8d70472d0f14aa3ae3ee74d9f3e879d6}{parent}, \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$\hyperlink{classDatabase_1_1DataNode_ae335fc33c3813e8a6638d50faef44d5d}{right\+Sibling}, \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$left\+Most\+Child)
+\hyperlink{classDatabase_1_1DataGroup_a6d6a837e2f182b2b4e37768ace5bc7c3}{Data\+Group} (const std\+::string \&\hyperlink{classDatabase_1_1DataNode_a2417b60924a11cf9157b996fbf7b2ca5}{identifier}, \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$\hyperlink{classDatabase_1_1DataNode_ae335fc33c3813e8a6638d50faef44d5d}{right\+Sibling}, \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$left\+Most\+Child)
 \begin{DoxyCompactList}\small\item\em \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} constructor. \end{DoxyCompactList}\item 
 virtual \hyperlink{classDatabase_1_1DataGroup_a88b36fe397284004ce86726e7808466e}{$\sim$\+Data\+Group} ()\hypertarget{classDatabase_1_1DataGroup_a88b36fe397284004ce86726e7808466e}{}\label{classDatabase_1_1DataGroup_a88b36fe397284004ce86726e7808466e}
 
 \begin{DoxyCompactList}\small\item\em $\sim$\+Data\+Group destructor. \end{DoxyCompactList}\item 
-const \hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$ \hyperlink{classDatabase_1_1DataGroup_af6abab9878250ade850fc8e43042ab01}{get\+Left\+Most\+Child} ()
+\hyperlink{classDatabase_1_1DataNode}{Data\+Node} $\ast$ \hyperlink{classDatabase_1_1DataGroup_ac1e85f7959b06c6885c68ce58c13d509}{get\+Left\+Most\+Child} () const 
 \begin{DoxyCompactList}\small\item\em Data nodes are put into a left-\/most child, right sibling tree. This function returns the pointer to the left most child of this node. \end{DoxyCompactList}\item 
 bool \hyperlink{classDatabase_1_1DataGroup_a89bb1aa667805f278ad0dfa9172c3ee0}{is\+Group} ()
 \begin{DoxyCompactList}\small\item\em Allows user to check whether this node is a \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -46,14 +46,13 @@ Represents a non-\/leaf node, which contains children. Its children can be any \
 \subsection{Constructor \& Destructor Documentation}
 \index{Database\+::\+Data\+Group@{Database\+::\+Data\+Group}!Data\+Group@{Data\+Group}}
 \index{Data\+Group@{Data\+Group}!Database\+::\+Data\+Group@{Database\+::\+Data\+Group}}
-\subsubsection[{\texorpdfstring{Data\+Group(const std\+::string \&identifier, Data\+Node $\ast$parent, Data\+Node $\ast$right\+Sibling, Data\+Node $\ast$left\+Most\+Child)}{DataGroup(const std::string &identifier, DataNode *parent, DataNode *rightSibling, DataNode *leftMostChild)}}]{\setlength{\rightskip}{0pt plus 5cm}Database\+::\+Data\+Group\+::\+Data\+Group (
+\subsubsection[{\texorpdfstring{Data\+Group(const std\+::string \&identifier, Data\+Node $\ast$right\+Sibling, Data\+Node $\ast$left\+Most\+Child)}{DataGroup(const std::string &identifier, DataNode *rightSibling, DataNode *leftMostChild)}}]{\setlength{\rightskip}{0pt plus 5cm}Database\+::\+Data\+Group\+::\+Data\+Group (
 \begin{DoxyParamCaption}
 \item[{const std\+::string \&}]{identifier, }
-\item[{{\bf Data\+Node} $\ast$}]{parent, }
 \item[{{\bf Data\+Node} $\ast$}]{right\+Sibling, }
 \item[{{\bf Data\+Node} $\ast$}]{left\+Most\+Child}
 \end{DoxyParamCaption}
-)}\hypertarget{classDatabase_1_1DataGroup_a1bed40d80c81f52145c4696b7c70d75b}{}\label{classDatabase_1_1DataGroup_a1bed40d80c81f52145c4696b7c70d75b}
+)}\hypertarget{classDatabase_1_1DataGroup_a6d6a837e2f182b2b4e37768ace5bc7c3}{}\label{classDatabase_1_1DataGroup_a6d6a837e2f182b2b4e37768ace5bc7c3}
 
 
 \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} constructor. 
@@ -61,8 +60,6 @@ Represents a non-\/leaf node, which contains children. Its children can be any \
 
 \begin{DoxyParams}{Parameters}
 {\em identifier} & a string parameter. \\
-\hline
-{\em parent} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s parent in tree structure. \\
 \hline
 {\em right\+Sibling} & a \hyperlink{classDatabase_1_1DataNode}{Data\+Node} pointer representing this node\textquotesingle{}s right sibling in tree. \\
 \hline
@@ -74,11 +71,11 @@ Represents a non-\/leaf node, which contains children. Its children can be any \
 \subsection{Member Function Documentation}
 \index{Database\+::\+Data\+Group@{Database\+::\+Data\+Group}!get\+Left\+Most\+Child@{get\+Left\+Most\+Child}}
 \index{get\+Left\+Most\+Child@{get\+Left\+Most\+Child}!Database\+::\+Data\+Group@{Database\+::\+Data\+Group}}
-\subsubsection[{\texorpdfstring{get\+Left\+Most\+Child()}{getLeftMostChild()}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Data\+Node} $\ast$ Database\+::\+Data\+Group\+::get\+Left\+Most\+Child (
+\subsubsection[{\texorpdfstring{get\+Left\+Most\+Child() const }{getLeftMostChild() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data\+Node} $\ast$ Database\+::\+Data\+Group\+::get\+Left\+Most\+Child (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}\hypertarget{classDatabase_1_1DataGroup_af6abab9878250ade850fc8e43042ab01}{}\label{classDatabase_1_1DataGroup_af6abab9878250ade850fc8e43042ab01}
+) const}\hypertarget{classDatabase_1_1DataGroup_ac1e85f7959b06c6885c68ce58c13d509}{}\label{classDatabase_1_1DataGroup_ac1e85f7959b06c6885c68ce58c13d509}
 
 
 Data nodes are put into a left-\/most child, right sibling tree. This function returns the pointer to the left most child of this node. 
@@ -92,7 +89,7 @@ The left most child of this data group node.
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classDatabase_1_1DataGroup_a89bb1aa667805f278ad0dfa9172c3ee0}{}\label{classDatabase_1_1DataGroup_a89bb1aa667805f278ad0dfa9172c3ee0}
+)}\hypertarget{classDatabase_1_1DataGroup_a89bb1aa667805f278ad0dfa9172c3ee0}{}\label{classDatabase_1_1DataGroup_a89bb1aa667805f278ad0dfa9172c3ee0}
 
 
 Allows user to check whether this node is a \hyperlink{classDatabase_1_1DataGroup}{Data\+Group} or not. 
@@ -100,10 +97,6 @@ Allows user to check whether this node is a \hyperlink{classDatabase_1_1DataGrou
 \begin{DoxyReturn}{Returns}
 true if this node is a \hyperlink{classDatabase_1_1DataGroup}{Data\+Group}, otherwise returns false. 
 \end{DoxyReturn}
-
-
-Reimplemented from \hyperlink{classDatabase_1_1DataNode_a996e222a24c6f3e1bc646fe31e26af1b}{Database\+::\+Data\+Node}.
-
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

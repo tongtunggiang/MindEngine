@@ -14,7 +14,23 @@ class \hyperlink{classDatabase_1_1DataNode}{Data\+Node}
 \begin{DoxyCompactList}\small\item\em Base class of each node in the database tree. Since every node needs an identifier, but non-\/leaf nodes contain their children, while leaf nodes store values. \end{DoxyCompactList}\item 
 class \hyperlink{classDatabase_1_1Datum}{Datum}
 \begin{DoxyCompactList}\small\item\em A \hyperlink{classDatabase_1_1Datum}{Datum} consists of an identifier and and value. In \hyperlink{namespaceDatabase}{Database}\textquotesingle{}s tree structure, a leaf node is a \hyperlink{classDatabase_1_1Datum}{Datum}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::string \hyperlink{namespaceDatabase_abca840aa37b2fd02e1d82e32a8171437}{Id\+Type}
+\begin{DoxyCompactList}\small\item\em Currently set the type of the ID of data nodes as string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Contains classes to represent Rule-\/based system\textquotesingle{}s database, which stores knowledge available to the AI agent. 
+
+\subsection{Typedef Documentation}
+\index{Database@{Database}!Id\+Type@{Id\+Type}}
+\index{Id\+Type@{Id\+Type}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Id\+Type}{IdType}}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\+::string {\bf Database\+::\+Id\+Type}}\hypertarget{namespaceDatabase_abca840aa37b2fd02e1d82e32a8171437}{}\label{namespaceDatabase_abca840aa37b2fd02e1d82e32a8171437}
+
+
+Currently set the type of the ID of data nodes as string. 
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Use identifier with strings may decrease performance with large systems due to string-\/matching operations. Will change this to integer or unsigned integer as soon as I find a way to match identifier with human-\/readable strings. \end{DoxyRefDesc}

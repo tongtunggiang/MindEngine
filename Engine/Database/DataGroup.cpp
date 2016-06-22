@@ -9,8 +9,8 @@ DataGroup::DataGroup()
 	leftMostChild = NULL;
 }
 
-DataGroup::DataGroup(const std::string &identifier, DataNode *parent, DataNode *rightSibling, DataNode* leftMostChild)
-	: DataNode(identifier, parent, rightSibling)
+DataGroup::DataGroup(const std::string &identifier, DataNode *rightSibling, DataNode* leftMostChild)
+	: DataNode(identifier, rightSibling)
 {
 	this->leftMostChild = leftMostChild;
 }
@@ -21,7 +21,7 @@ DataGroup::~DataGroup()
 		delete leftMostChild;
 }
 
-const DataNode* DataGroup::getLeftMostChild()
+DataNode* DataGroup::getLeftMostChild() const
 {
 	return leftMostChild;
 }

@@ -1,0 +1,123 @@
+\hypertarget{structRules_1_1DataNodeMatch}{}\section{Rules\+:\+:Data\+Node\+Match Struct Reference}
+\label{structRules_1_1DataNodeMatch}\index{Rules\+::\+Data\+Node\+Match@{Rules\+::\+Data\+Node\+Match}}
+
+
+A struct derived from \hyperlink{structRules_1_1Match}{Match}, it is responsible for matching a single Data\+Node in the database.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Node\+Match.\+h$>$}
+
+Inheritance diagram for Rules\+:\+:Data\+Node\+Match\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structRules_1_1DataNodeMatch}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{structRules_1_1DataNodeMatch_a9b30f5181bccbbac274f27f2a0c8421b}{matches} (const \hyperlink{classDatabase_1_1DataNode}{Database\+::\+Data\+Node} $\ast$database, void $\ast$bindings)
+\begin{DoxyCompactList}\small\item\em Matches the given database by checking each element in the database against the matches\+Node method. \end{DoxyCompactList}\item 
+bool \hyperlink{structRules_1_1DataNodeMatch_af96494dfe20521bc7a43eceac013d9c8}{matches\+Children} (const \hyperlink{classDatabase_1_1DataGroup}{Database\+::\+Data\+Group} $\ast$group, void $\ast$bindings)
+\begin{DoxyCompactList}\small\item\em Matches all the children of the given group to see if any of them pass the matches\+Node test. This is used in the implementation of the matches method to iterate through items in the database. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{structRules_1_1DataNodeMatch_a9b2515abf3ef2b216cfc4ea18e95e07d}{matches\+Node} (const \hyperlink{classDatabase_1_1DataNode}{Database\+::\+Data\+Node} $\ast$node, void $\ast$bindings)=0
+\begin{DoxyCompactList}\small\item\em Matches the data node from the database against the criteria in this match. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structRules_1_1DataNodeMatch}{Data\+Node\+Match} $\ast$ \hyperlink{structRules_1_1DataNodeMatch_a6a55cae5c9f132912f877f34b8fa716e}{right\+Sibling}\hypertarget{structRules_1_1DataNodeMatch_a6a55cae5c9f132912f877f34b8fa716e}{}\label{structRules_1_1DataNodeMatch_a6a55cae5c9f132912f877f34b8fa716e}
+
+\begin{DoxyCompactList}\small\item\em The right sibling of this node in match tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A struct derived from \hyperlink{structRules_1_1Match}{Match}, it is responsible for matching a single Data\+Node in the database. 
+
+Conceptually, the match class could match the whole database in a single operation\+: it is only ever fed the whole database, so it can do with that what it likes. However in practical, the vast majority of matching requirements involve trying to find a single item in the database. This struct\textquotesingle{}s match method iterates through the items in the database, and calls matches\+Node on each one. Matches items can be implemented in sub-\/classes to check if the item fulfils the mtach criteria.
+
+Data node matches are arranged into tree, just like how data nodes are.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structRules_1_1Match}{Match} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\index{Rules\+::\+Data\+Node\+Match@{Rules\+::\+Data\+Node\+Match}!matches@{matches}}
+\index{matches@{matches}!Rules\+::\+Data\+Node\+Match@{Rules\+::\+Data\+Node\+Match}}
+\subsubsection[{\texorpdfstring{matches(const Database\+::\+Data\+Node $\ast$database, void $\ast$bindings)}{matches(const Database::DataNode *database, void *bindings)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Rules\+::\+Data\+Node\+Match\+::matches (
+\begin{DoxyParamCaption}
+\item[{const {\bf Database\+::\+Data\+Node} $\ast$}]{database, }
+\item[{void $\ast$}]{bindings}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{structRules_1_1DataNodeMatch_a9b30f5181bccbbac274f27f2a0c8421b}{}\label{structRules_1_1DataNodeMatch_a9b30f5181bccbbac274f27f2a0c8421b}
+
+
+Matches the given database by checking each element in the database against the matches\+Node method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & The database to match on. \\
+\hline
+{\em bindings} & When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if matches, else returns false. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{structRules_1_1Match_a41fdfdc0b535e029369be3e18854e14e}{Rules\+::\+Match}.
+
+\index{Rules\+::\+Data\+Node\+Match@{Rules\+::\+Data\+Node\+Match}!matches\+Children@{matches\+Children}}
+\index{matches\+Children@{matches\+Children}!Rules\+::\+Data\+Node\+Match@{Rules\+::\+Data\+Node\+Match}}
+\subsubsection[{\texorpdfstring{matches\+Children(const Database\+::\+Data\+Group $\ast$group, void $\ast$bindings)}{matchesChildren(const Database::DataGroup *group, void *bindings)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Rules\+::\+Data\+Node\+Match\+::matches\+Children (
+\begin{DoxyParamCaption}
+\item[{const {\bf Database\+::\+Data\+Group} $\ast$}]{group, }
+\item[{void $\ast$}]{bindings}
+\end{DoxyParamCaption}
+)}\hypertarget{structRules_1_1DataNodeMatch_af96494dfe20521bc7a43eceac013d9c8}{}\label{structRules_1_1DataNodeMatch_af96494dfe20521bc7a43eceac013d9c8}
+
+
+Matches all the children of the given group to see if any of them pass the matches\+Node test. This is used in the implementation of the matches method to iterate through items in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em group} & The group to match on. \\
+\hline
+{\em bindings} & When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if matches, else return false. 
+\end{DoxyReturn}
+\index{Rules\+::\+Data\+Node\+Match@{Rules\+::\+Data\+Node\+Match}!matches\+Node@{matches\+Node}}
+\index{matches\+Node@{matches\+Node}!Rules\+::\+Data\+Node\+Match@{Rules\+::\+Data\+Node\+Match}}
+\subsubsection[{\texorpdfstring{matches\+Node(const Database\+::\+Data\+Node $\ast$node, void $\ast$bindings)=0}{matchesNode(const Database::DataNode *node, void *bindings)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Rules\+::\+Data\+Node\+Match\+::matches\+Node (
+\begin{DoxyParamCaption}
+\item[{const {\bf Database\+::\+Data\+Node} $\ast$}]{node, }
+\item[{void $\ast$}]{bindings}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{structRules_1_1DataNodeMatch_a9b2515abf3ef2b216cfc4ea18e95e07d}{}\label{structRules_1_1DataNodeMatch_a9b2515abf3ef2b216cfc4ea18e95e07d}
+
+
+Matches the data node from the database against the criteria in this match. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The database to match on. \\
+\hline
+{\em bindings} & When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if matches, else return false. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Rules/Data\+Node\+Match.\+h\item 
+Engine/\+Rules/Data\+Node\+Match.\+cpp\end{DoxyCompactItemize}

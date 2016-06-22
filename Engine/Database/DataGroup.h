@@ -30,11 +30,10 @@ public:
 	/**
 	 * @brief DataGroup constructor.
 	 * @param identifier a string parameter.
-	 * @param parent a DataNode pointer representing this node's parent in tree structure.
 	 * @param rightSibling a DataNode pointer representing this node's right sibling in tree.
 	 * @param leftMostChild a DataNode pointer representing this node's left most child in tree.
 	 */
-	DataGroup(const std::string& identifier, DataNode *parent, DataNode *rightSibling, DataNode *leftMostChild);
+	DataGroup(const std::string& identifier, DataNode *rightSibling, DataNode *leftMostChild);
 
 	/**
 	 * @brief ~DataGroup destructor.
@@ -45,7 +44,7 @@ public:
 	 * @brief Data nodes are put into a left-most child, right sibling tree. This function returns the pointer to the left most child of this node.
 	 * @return The left most child of this data group node.
 	 */
-	const DataNode* getLeftMostChild();
+	DataNode* getLeftMostChild() const;
 
 	/**
 	 * @brief Allows user to check whether this node is a DataGroup or not.

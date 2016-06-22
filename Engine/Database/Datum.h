@@ -31,11 +31,10 @@ public:
 	/**
 	 * @brief Datum constructor.
 	 * @param identifier a string parameter.
-	 * @param parent a DataNode pointer representing this node's parent in tree structure.
 	 * @param rightSibling a DataNode pointer representing this node's right sibling in tree.
 	 * @param value the value that the Datum holds.
 	 */
-	Datum(const std::string& identifier, DataNode *parent, DataNode *rightSibling, T value);
+	Datum(const std::string& identifier, DataNode *rightSibling, T value);
 
 	/**
 	 * @brief ~Datum destructor
@@ -52,7 +51,7 @@ public:
 	 * @brief To get the value of the Datum.
 	 * @return The value that the datum is currently holding.
 	 */
-	T getValue();
+	T getValue() const;
 
 	/**
 	 * @brief Allows user to check whether this node is a Datum or not.
