@@ -1,6 +1,6 @@
 #include "DataNode.h"
 
-namespace Database
+namespace RuleBased
 {
 
 DataNode::DataNode()

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rule',['Rule',['../classRules_1_1Rule.html',1,'Rules']]]
+  ['rule',['Rule',['../classRuleBased_1_1Rule.html',1,'RuleBased']]]
 ];

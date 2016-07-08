@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['identifier',['identifier',['../classDatabase_1_1DataNode.html#a2417b60924a11cf9157b996fbf7b2ca5',1,'Database::DataNode::identifier()'],['../structRules_1_1DataGroupMatch.html#a8ff473135e5a803c36cd8b2b23296da3',1,'Rules::DataGroupMatch::identifier()']]],
-  ['ifclause',['ifClause',['../classRules_1_1Rule.html#a4b4030afd5ca2d4812ba9100b3b0047d',1,'Rules::Rule']]]
+  ['identifier',['identifier',['../classRuleBased_1_1DataNode.html#abc1a10160dadf1db541d7cfe147d2254',1,'RuleBased::DataNode::identifier()'],['../structRuleBased_1_1DataGroupMatch.html#a4ced4e0533db5c4d5ffd290228d039fe',1,'RuleBased::DataGroupMatch::identifier()']]],
+  ['ifclause',['ifClause',['../classRuleBased_1_1Rule.html#af28b62f54122d5e847fcf7075819ba91',1,'RuleBased::Rule']]]
 ];

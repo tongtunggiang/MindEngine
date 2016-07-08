@@ -1,6 +1,6 @@
 #include "Datum.h"
 
-namespace Database
+namespace RuleBased
 {
 
 template<class T>

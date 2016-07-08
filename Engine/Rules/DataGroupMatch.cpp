@@ -1,9 +1,9 @@
 #include "DataGroupMatch.h"
 
-namespace Rules
+namespace RuleBased
 {
 
-bool DataGroupMatch::matchesNode(const Database::DataNode* node, void *bindings)
+bool DataGroupMatch::matchesNode(const DataNode* node, void *bindings)
 {
 	if (!node->isGroup())
 		return false;
@@ -16,7 +16,7 @@ bool DataGroupMatch::matchesNode(const Database::DataNode* node, void *bindings)
 		return false;
 	}
 
-	Database::DataGroup* group = (Database::DataGroup*) node;
+	DataGroup* group = (DataGroup*) node;
 
 	DataNodeMatch* match = leftMostChild;
 	while (match)

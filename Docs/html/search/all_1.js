@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['database',['Database',['../namespaceDatabase.html',1,'']]],
-  ['datagroup',['DataGroup',['../classDatabase_1_1DataGroup.html',1,'Database']]],
-  ['datagroup',['DataGroup',['../classDatabase_1_1DataGroup.html#a633bd46aaee7adafcb0181b12c2466f0',1,'Database::DataGroup::DataGroup()'],['../classDatabase_1_1DataGroup.html#a6d6a837e2f182b2b4e37768ace5bc7c3',1,'Database::DataGroup::DataGroup(const std::string &amp;identifier, DataNode *rightSibling, DataNode *leftMostChild)']]],
-  ['datagroupmatch',['DataGroupMatch',['../structRules_1_1DataGroupMatch.html',1,'Rules']]],
-  ['datanode',['DataNode',['../classDatabase_1_1DataNode.html#a7999f782bb0465613e703364db8cd22a',1,'Database::DataNode::DataNode()'],['../classDatabase_1_1DataNode.html#ae5b8832fbaf844bd74739bb7d1ce6737',1,'Database::DataNode::DataNode(const IdType &amp;identifier, DataNode *rightSibling)']]],
-  ['datanode',['DataNode',['../classDatabase_1_1DataNode.html',1,'Database']]],
-  ['datanodematch',['DataNodeMatch',['../structRules_1_1DataNodeMatch.html',1,'Rules']]],
-  ['datum',['Datum',['../classDatabase_1_1Datum.html',1,'Database']]],
-  ['datum',['Datum',['../classDatabase_1_1Datum.html#a6c8c58a7e440ababc4f0a87f5da4d387',1,'Database::Datum::Datum(T value)'],['../classDatabase_1_1Datum.html#a7e35720d2b0b7baaff936163314940dd',1,'Database::Datum::Datum(const std::string &amp;identifier, DataNode *rightSibling, T value)']]]
+  ['datagroup',['DataGroup',['../classRuleBased_1_1DataGroup.html',1,'RuleBased']]],
+  ['datagroup',['DataGroup',['../classRuleBased_1_1DataGroup.html#a3d4faa320446a9ee8c0fddeda5d21ec3',1,'RuleBased::DataGroup::DataGroup()'],['../classRuleBased_1_1DataGroup.html#a18756cb2d3708d949a49a752c28369eb',1,'RuleBased::DataGroup::DataGroup(const std::string &amp;identifier, DataNode *rightSibling, DataNode *leftMostChild)']]],
+  ['datagroupmatch',['DataGroupMatch',['../structRuleBased_1_1DataGroupMatch.html',1,'RuleBased']]],
+  ['datanode',['DataNode',['../classRuleBased_1_1DataNode.html#a97bfc0fc313c123def83a1b9aa7269bb',1,'RuleBased::DataNode::DataNode()'],['../classRuleBased_1_1DataNode.html#ad4c3ec089337ea40a7280454f692b5a2',1,'RuleBased::DataNode::DataNode(const IdType &amp;identifier, DataNode *rightSibling)']]],
+  ['datanode',['DataNode',['../classRuleBased_1_1DataNode.html',1,'RuleBased']]],
+  ['datanodematch',['DataNodeMatch',['../structRuleBased_1_1DataNodeMatch.html',1,'RuleBased']]],
+  ['datum',['Datum',['../classRuleBased_1_1Datum.html',1,'RuleBased']]],
+  ['datum',['Datum',['../classRuleBased_1_1Datum.html#aabe2a7bc260086e222f0364f18df3c57',1,'RuleBased::Datum::Datum(T value)'],['../classRuleBased_1_1Datum.html#a7e58f182b8484e3aba9afee527dd0c16',1,'RuleBased::Datum::Datum(const std::string &amp;identifier, DataNode *rightSibling, T value)']]]
 ];

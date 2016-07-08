@@ -4,10 +4,12 @@
 #include "DataNodeMatch.h"
 
 /**
- * @brief Contains the implementation of rules as well as the mechanism to match the rules
+ * @brief Contains classes to represent Rule-based system's database,
+ * which stores knowledge available to the AI agent as well as the
+ * implementation of rules and the mechanism to match the rules
  * and the data in the database.
  */
-namespace Rules
+namespace RuleBased
 {
 
 /**
@@ -20,7 +22,7 @@ struct DataGroupMatch
 	/**
 	 * @brief The identifier to match.
 	 */
-	Database::IdType identifier;
+	IdType identifier;
 
 	/**
 	 * @brief The first sub-match in this group.
@@ -34,7 +36,7 @@ struct DataGroupMatch
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, otherwise return false.
 	 */
-	virtual bool matchesNode(const Database::DataNode* node, void *bindings);
+	virtual bool matchesNode(const DataNode* node, void *bindings);
 
 };
 

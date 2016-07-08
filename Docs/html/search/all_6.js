@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['rightsibling',['rightSibling',['../classDatabase_1_1DataNode.html#ae335fc33c3813e8a6638d50faef44d5d',1,'Database::DataNode::rightSibling()'],['../structRules_1_1DataNodeMatch.html#a6a55cae5c9f132912f877f34b8fa716e',1,'Rules::DataNodeMatch::rightSibling()']]],
-  ['rule',['Rule',['../classRules_1_1Rule.html',1,'Rules']]],
-  ['rules',['Rules',['../namespaceRules.html',1,'']]]
+  ['rightsibling',['rightSibling',['../classRuleBased_1_1DataNode.html#a785aa67b9cf72f7add5b15c873cc9cd5',1,'RuleBased::DataNode::rightSibling()'],['../structRuleBased_1_1DataNodeMatch.html#ac7c9dccd1f97a0f065d70bf69a54100e',1,'RuleBased::DataNodeMatch::rightSibling()']]],
+  ['rule',['Rule',['../classRuleBased_1_1Rule.html',1,'RuleBased']]],
+  ['rulebased',['RuleBased',['../namespaceRuleBased.html',1,'']]]
 ];

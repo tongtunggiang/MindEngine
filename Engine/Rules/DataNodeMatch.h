@@ -5,10 +5,12 @@
 #include "DataGroup.h"
 
 /**
- * @brief Contains the implementation of rules as well as the mechanism to match the rules
+ * @brief Contains classes to represent Rule-based system's database,
+ * which stores knowledge available to the AI agent as well as the
+ * implementation of rules and the mechanism to match the rules
  * and the data in the database.
  */
-namespace Rules
+namespace RuleBased
 {
 
 /**
@@ -42,7 +44,7 @@ struct DataNodeMatch : public Match
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else returns false.
 	 */
-	virtual bool matches(const Database::DataNode *database, void *bindings);
+	virtual bool matches(const DataNode *database, void *bindings);
 
 	/**
 	 * @brief Matches all the children of the given group to see if any of them pass the matchesNode test.
@@ -51,7 +53,7 @@ struct DataNodeMatch : public Match
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else return false.
 	 */
-	bool matchesChildren(const Database::DataGroup *group, void *bindings);
+	bool matchesChildren(const DataGroup *group, void *bindings);
 
 	/**
 	 * @brief Matches the data node from the database against the criteria in this match.
@@ -59,7 +61,7 @@ struct DataNodeMatch : public Match
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else return false.
 	 */
-	virtual bool matchesNode(const Database::DataNode *node, void *bindings) = 0;
+	virtual bool matchesNode(const DataNode *node, void *bindings) = 0;
 
 };
 

@@ -1,6 +1,6 @@
 #include "DataGroup.h"
 
-namespace Database
+namespace RuleBased
 {
 
 DataGroup::DataGroup()

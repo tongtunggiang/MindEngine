@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['database',['Database',['../namespaceDatabase.html',1,'']]]
+  ['rulebased',['RuleBased',['../namespaceRuleBased.html',1,'']]]
 ];
