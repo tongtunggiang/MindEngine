@@ -1,4 +1,5 @@
 #include "DataGroupMatch.h"
+#include "IdCheck.h"
 
 namespace RuleBased
 {
@@ -8,10 +9,9 @@ bool DataGroupMatch::matchesNode(const DataNode* node, void *bindings)
 	if (!node->isGroup())
 		return false;
 
-	/**
-	 * @todo Add check for wildcard identifier with strings.
-	 */
-	if (identifier != node->getIdentifier())
+	bool identifierIsWildcard = IdCheck::isWildcard(identifier);
+	if (!identifierIsWildcard &&
+		identifier != node->getIdentifier())
 	{
 		return false;
 	}
@@ -24,12 +24,12 @@ bool DataGroupMatch::matchesNode(const DataNode* node, void *bindings)
 		if (!match->matchesChildren(group, bindings))
 			return false;
 		match = match->rightSibling;
-	}
+	}	
 
 	/**
-	 * @todo Add check for wildcards here.
+	 * @todo Need adding bindings mechanism here
 	 */
-	if (bindings)
+	if (bindings && identifierIsWildcard)
 	{
 		// Add to the binding list.
 	}

@@ -108,7 +108,8 @@ Inheritance diagram for RuleBased::DataNodeMatch:</div>
  <div class="center">
   <img src="structRuleBased_1_1DataNodeMatch.png" usemap="#RuleBased::DataNodeMatch_map" alt=""/>
   <map id="RuleBased::DataNodeMatch_map" name="RuleBased::DataNodeMatch_map">
-<area href="structRuleBased_1_1Match.html" title="Provides the mechanism to match the data item from the rule with any item inside the database..." alt="RuleBased::Match" shape="rect" coords="0,0,169,24"/>
+<area href="structRuleBased_1_1Match.html" title="Provides the mechanism to match the data item from the rule with any item inside the database..." alt="RuleBased::Match" shape="rect" coords="0,0,223,24"/>
+<area href="structRuleBased_1_1NumberDatumMatch.html" title="A struct provides mechanism for matching two Datum whose values is number values (int, float,...). " alt="RuleBased::NumberDatumMatch&lt; T &gt;" shape="rect" coords="0,112,223,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -172,7 +173,7 @@ Public Attributes</h2></td></tr>
 <p>Matches the given database by checking each element in the database against the matchesNode method. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">database</td><td>The database to match on. </td></tr>
+    <tr><td class="paramname">database</td><td>The database node to match on. </td></tr>
     <tr><td class="paramname">bindings</td><td>When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter. </td></tr>
   </table>
   </dd>
@@ -254,12 +255,14 @@ Public Attributes</h2></td></tr>
 <p>Matches the data node from the database against the criteria in this match. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node</td><td>The database to match on. </td></tr>
+    <tr><td class="paramname">node</td><td>The database node to match on. </td></tr>
     <tr><td class="paramname">bindings</td><td>When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if matches, else return false. </dd></dl>
+
+<p>Implemented in <a class="el" href="structRuleBased_1_1NumberDatumMatch.html#abf8f052a5668d57adccdb131a4bdd850">RuleBased::NumberDatumMatch&lt; T &gt;</a>.</p>
 
 </div>
 </div>

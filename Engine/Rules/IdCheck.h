@@ -13,10 +13,19 @@ namespace RuleBased
 {
 
 /**
- * @brief Provides methods to check the id.
+ * @brief Provides methods to check the IDs.
  */
 class IdCheck
 {
+
+public:
+
+	/**
+	 * @brief Check if the given database item's identifier is a wildcard or not.
+	 * @see IdType
+	 * @return True if it is a wildcard.
+	 */
+	static bool isWildcard(IdType identifier);
 
 };
 

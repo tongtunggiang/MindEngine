@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setvalue',['setValue',['../classRuleBased_1_1Datum.html#a94a795a5761324d698c7d567862b6dde',1,'RuleBased::Datum']]]
+  ['numberdatummatch',['NumberDatumMatch',['../structRuleBased_1_1NumberDatumMatch.html#a1f461f5b5cec5867fad4a8484d1e8e86',1,'RuleBased::NumberDatumMatch']]]
 ];

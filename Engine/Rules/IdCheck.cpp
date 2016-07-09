@@ -9,9 +9,17 @@
 namespace RuleBased
 {
 
-IdCheck::IdCheck()
+bool IdCheck::isWildcard(IdType identifier)
 {
+	// A wildcard contains a question mark
+	// For example: "?person" will match every name appeared in database like "Mark", "John",...
+	std::size_t foundQuestionMark = identifier.find('?');
 
+	// Found a question mark in identifier parameter
+	if (foundQuestionMark != std::string::npos)
+		return true;
+
+	return false;
 }
 
 }

@@ -40,7 +40,7 @@ struct DataNodeMatch : public Match
 
 	/**
 	 * @brief Matches the given database by checking each element in the database against the matchesNode method.
-	 * @param database The database to match on.
+	 * @param database The database node to match on.
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else returns false.
 	 */
@@ -57,7 +57,7 @@ struct DataNodeMatch : public Match
 
 	/**
 	 * @brief Matches the data node from the database against the criteria in this match.
-	 * @param node The database to match on.
+	 * @param node The database node to match on.
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else return false.
 	 */

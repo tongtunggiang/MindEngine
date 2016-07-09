@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rule',['Rule',['../classRuleBased_1_1Rule.html',1,'RuleBased']]]
+  ['match',['Match',['../structRuleBased_1_1Match.html',1,'RuleBased']]]
 ];

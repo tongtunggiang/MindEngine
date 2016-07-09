@@ -32,7 +32,7 @@ struct DataGroupMatch
 	/**
 	 * @brief Tries to match the given data node from the database against the criteria.
 	 * Method used: a recursive matching algorithm that travels down the given node, trying to match it against the structure of this match and its children.
-	 * @param node The database to match on.
+	 * @param node The database node to match on.
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, otherwise return false.
 	 */
