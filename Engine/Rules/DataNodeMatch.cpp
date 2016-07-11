@@ -3,14 +3,14 @@
 namespace RuleBased
 {
 
-bool DataNodeMatch::matches(const DataNode *database, void *bindings)
+bool DataNodeMatch::matches(DataNode *database, BindingList &bindings)
 {
-	return matchesChildren((const DataGroup*) database, bindings);
+	return matchesChildren((DataGroup*) database, bindings);
 }
 
-bool DataNodeMatch::matchesChildren(const DataGroup *group, void *bindings)
+bool DataNodeMatch::matchesChildren(DataGroup *group, BindingList &bindings)
 {
-	const DataNode* node = group->getLeftMostChild();
+	DataNode* node = group->getLeftMostChild();
 	while (node)
 	{
 		if (matchesNode(node, bindings))

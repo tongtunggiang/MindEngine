@@ -129,10 +129,28 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a63325ec6591914530509aac8285b5e04"><td class="memItemLeft" align="right" valign="top">typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceRuleBased.html#a63325ec6591914530509aac8285b5e04">IdType</a></td></tr>
 <tr class="memdesc:a63325ec6591914530509aac8285b5e04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Currently set the type of the ID of data nodes as string.  <a href="#a63325ec6591914530509aac8285b5e04">More...</a><br /></td></tr>
 <tr class="separator:a63325ec6591914530509aac8285b5e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c8356ce66be73317fef3b850778086e"><td class="memItemLeft" align="right" valign="top">typedef std::map&lt; std::string, <a class="el" href="classRuleBased_1_1DataNode.html">DataNode</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceRuleBased.html#a4c8356ce66be73317fef3b850778086e">BindingList</a></td></tr>
+<tr class="memdesc:a4c8356ce66be73317fef3b850778086e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of bound actions is simply a list of strings representing actions (for now). I use list of strings for output actions because 1/ the action should be freed from function signatures and 2/ the AI engine should only produce 'decisions', rather than carry out the actions - that is the job of the agent itself.  <a href="#a4c8356ce66be73317fef3b850778086e">More...</a><br /></td></tr>
+<tr class="separator:a4c8356ce66be73317fef3b850778086e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains classes to represent Rule-based system's database, which stores knowledge available to the AI agent as well as the implementation of rules and the mechanism to match the rules and the data in the database. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a4c8356ce66be73317fef3b850778086e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::map&lt;std::string, <a class="el" href="classRuleBased_1_1DataNode.html">DataNode</a>*&gt; <a class="el" href="namespaceRuleBased.html#a4c8356ce66be73317fef3b850778086e">RuleBased::BindingList</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The list of bound actions is simply a list of strings representing actions (for now). I use list of strings for output actions because 1/ the action should be freed from function signatures and 2/ the AI engine should only produce 'decisions', rather than carry out the actions - that is the job of the agent itself. </p>
+<dl class="section note"><dt>Note</dt><dd>The output actions list would be used to carry out actions later by the agent. The approach here is to find appropriate methods on the script files to execute. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a63325ec6591914530509aac8285b5e04"></a>
 <div class="memitem">
 <div class="memproto">

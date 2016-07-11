@@ -4,7 +4,7 @@
 namespace RuleBased
 {
 
-bool DataGroupMatch::matchesNode(const DataNode* node, void *bindings)
+bool DataGroupMatch::matchesNode(DataNode* node, BindingList &bindings)
 {
 	if (!node->isGroup())
 		return false;
@@ -24,14 +24,13 @@ bool DataGroupMatch::matchesNode(const DataNode* node, void *bindings)
 		if (!match->matchesChildren(group, bindings))
 			return false;
 		match = match->rightSibling;
-	}	
+	}
 
-	/**
-	 * @todo Need adding bindings mechanism here
-	 */
-	if (bindings && identifierIsWildcard)
+	//if (bindings && identifierIsWildcard)
+	if (identifierIsWildcard)
 	{
 		// Add to the binding list.
+		bindings[identifier] = node;
 	}
 
 	return true;
