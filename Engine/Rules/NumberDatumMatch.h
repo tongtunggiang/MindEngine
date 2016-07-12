@@ -54,7 +54,7 @@ struct NumberDatumMatch : public DataNodeMatch
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else return false.
 	 */
-	virtual bool matchesNode(const DataNode *node, void *bindings);
+	virtual bool matchesNode(DataNode *node, BindingList &bindings);
 
 	/**
 	 * @brief Create a match object with the given identifier and range.

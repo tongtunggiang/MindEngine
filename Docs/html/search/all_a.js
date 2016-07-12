@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['match',['Match',['../structRuleBased_1_1Match.html',1,'RuleBased']]],
   ['matches',['matches',['../structRuleBased_1_1DataNodeMatch.html#a5a51f67cad4f5784f87c910351a55da0',1,'RuleBased::DataNodeMatch::matches()'],['../structRuleBased_1_1Match.html#adf9604f97080feec5efd85d57b06ed38',1,'RuleBased::Match::matches()']]],
   ['matcheschildren',['matchesChildren',['../structRuleBased_1_1DataNodeMatch.html#ad1d14b154ca4726c461913e7489fd4da',1,'RuleBased::DataNodeMatch']]],
@@ -12,4 +13,7 @@ var searchData=
   ['mempoolt_3c_20sizeof_28tinyxml2_3a_3axmlelement_29_20_3e',['MemPoolT&lt; sizeof(tinyxml2::XMLElement) &gt;',['../classtinyxml2_1_1MemPoolT.html',1,'tinyxml2']]],
   ['mempoolt_3c_20sizeof_28tinyxml2_3a_3axmltext_29_20_3e',['MemPoolT&lt; sizeof(tinyxml2::XMLText) &gt;',['../classtinyxml2_1_1MemPoolT.html',1,'tinyxml2']]],
   ['min',['min',['../structRuleBased_1_1NumberDatumMatch.html#a23692ffbc7126e35db68d94673897771',1,'RuleBased::NumberDatumMatch']]]
+=======
+  ['todo_20list',['Todo List',['../todo.html',1,'']]]
+>>>>>>> 3afe097ccc0dbb628c5c143025f4408620ba2f43
 ];

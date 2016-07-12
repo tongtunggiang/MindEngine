@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['name',['Name',['../classtinyxml2_1_1XMLAttribute.html#a8124fbfd27f57150cc68d8a9207078c3',1,'tinyxml2::XMLAttribute::Name()'],['../classtinyxml2_1_1XMLElement.html#a8bff355472bce2c60d4b50a212bf7f5f',1,'tinyxml2::XMLElement::Name()']]],
   ['newcomment',['NewComment',['../classtinyxml2_1_1XMLDocument.html#a386df0befd06aadb5e0cd21381aa955a',1,'tinyxml2::XMLDocument']]],
   ['newdeclaration',['NewDeclaration',['../classtinyxml2_1_1XMLDocument.html#ae519030c0262fa2daff8993681990e16',1,'tinyxml2::XMLDocument']]],
@@ -12,4 +13,9 @@ var searchData=
   ['nochildren',['NoChildren',['../classtinyxml2_1_1XMLNode.html#a96afe34a9ccd0ed4c0cff32beb42cc6c',1,'tinyxml2::XMLNode']]],
   ['numberdatummatch',['NumberDatumMatch',['../structRuleBased_1_1NumberDatumMatch.html',1,'RuleBased']]],
   ['numberdatummatch',['NumberDatumMatch',['../structRuleBased_1_1NumberDatumMatch.html#a1f461f5b5cec5867fad4a8484d1e8e86',1,'RuleBased::NumberDatumMatch']]]
+=======
+  ['_7edatagroup',['~DataGroup',['../classRuleBased_1_1DataGroup.html#a3d047848988b398d119ec6f9ff1027a3',1,'RuleBased::DataGroup']]],
+  ['_7edatanode',['~DataNode',['../classRuleBased_1_1DataNode.html#aa541fd4bfd248c2e1192a145bf7e6629',1,'RuleBased::DataNode']]],
+  ['_7edatum',['~Datum',['../classRuleBased_1_1Datum.html#abe322962c6a4ad4a8b96d5ab91ae0823',1,'RuleBased::Datum']]]
+>>>>>>> 3afe097ccc0dbb628c5c143025f4408620ba2f43
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['datagroup',['DataGroup',['../classRuleBased_1_1DataGroup.html',1,'RuleBased']]],
   ['datagroup',['DataGroup',['../classRuleBased_1_1DataGroup.html#a3d4faa320446a9ee8c0fddeda5d21ec3',1,'RuleBased::DataGroup::DataGroup()'],['../classRuleBased_1_1DataGroup.html#a18756cb2d3708d949a49a752c28369eb',1,'RuleBased::DataGroup::DataGroup(const std::string &amp;identifier, DataNode *rightSibling, DataNode *leftMostChild)']]],
   ['datagroupmatch',['DataGroupMatch',['../structRuleBased_1_1DataGroupMatch.html',1,'RuleBased']]],
@@ -18,4 +19,10 @@ var searchData=
   ['dynarray_3c_20block_20_2a_2c_2010_20_3e',['DynArray&lt; Block *, 10 &gt;',['../classtinyxml2_1_1DynArray.html',1,'tinyxml2']]],
   ['dynarray_3c_20char_2c_2020_20_3e',['DynArray&lt; char, 20 &gt;',['../classtinyxml2_1_1DynArray.html',1,'tinyxml2']]],
   ['dynarray_3c_20const_20char_20_2a_2c_2010_20_3e',['DynArray&lt; const char *, 10 &gt;',['../classtinyxml2_1_1DynArray.html',1,'tinyxml2']]]
+=======
+  ['getidentifier',['getIdentifier',['../classRuleBased_1_1DataNode.html#a345149518a89c30d34b4a4feec2418dd',1,'RuleBased::DataNode']]],
+  ['getleftmostchild',['getLeftMostChild',['../classRuleBased_1_1DataGroup.html#a5962f238f4049109fae3e65b44e337a7',1,'RuleBased::DataGroup']]],
+  ['getrightsibling',['getRightSibling',['../classRuleBased_1_1DataNode.html#ad24043cab4466895213f611d4240dd1c',1,'RuleBased::DataNode']]],
+  ['getvalue',['getValue',['../classRuleBased_1_1Datum.html#a3108e3e96fa04748f5bc3a006855f23f',1,'RuleBased::Datum']]]
+>>>>>>> 3afe097ccc0dbb628c5c143025f4408620ba2f43
 ];

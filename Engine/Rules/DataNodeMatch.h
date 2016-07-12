@@ -4,6 +4,9 @@
 #include "Match.h"
 #include "DataGroup.h"
 
+#include <string>
+#include <map>
+
 /**
  * @brief Contains classes to represent Rule-based system's database,
  * which stores knowledge available to the AI agent as well as the
@@ -12,6 +15,16 @@
  */
 namespace RuleBased
 {
+
+/**
+ * @brief The list of bound actions is simply a list of strings representing actions (for now).
+ * I use list of strings for output actions because 1/ the action should be freed from function
+ * signatures and 2/ the AI engine should only produce 'decisions', rather than carry out the
+ * actions - that is the job of the agent itself.
+ * @note The output actions list would be used to carry out actions later by the agent. The
+ * approach here is to find appropriate methods on the script files to execute.
+ */
+typedef std::map<std::string, DataNode*> BindingList;
 
 /**
  * @brief A struct derived from Match, it is responsible for matching a
@@ -44,7 +57,7 @@ struct DataNodeMatch : public Match
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else returns false.
 	 */
-	virtual bool matches(const DataNode *database, void *bindings);
+	virtual bool matches(DataNode *database, BindingList &bindings);
 
 	/**
 	 * @brief Matches all the children of the given group to see if any of them pass the matchesNode test.
@@ -53,7 +66,7 @@ struct DataNodeMatch : public Match
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else return false.
 	 */
-	bool matchesChildren(const DataGroup *group, void *bindings);
+	bool matchesChildren(DataGroup *group, BindingList &bindings);
 
 	/**
 	 * @brief Matches the data node from the database against the criteria in this match.
@@ -61,7 +74,7 @@ struct DataNodeMatch : public Match
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else return false.
 	 */
-	virtual bool matchesNode(const DataNode *node, void *bindings) = 0;
+	virtual bool matchesNode(DataNode *node, BindingList &bindings) = 0;
 
 };
 

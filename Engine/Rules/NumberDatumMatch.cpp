@@ -5,7 +5,7 @@ namespace RuleBased
 {
 
 template<typename T>
-bool NumberDatumMatch<T>::matchesNode(const DataNode *node, void *bindings)
+bool NumberDatumMatch<T>::matchesNode(DataNode *node, BindingList &bindings)
 {
 	if (!node->isDatum())
 		return false;
@@ -22,9 +22,10 @@ bool NumberDatumMatch<T>::matchesNode(const DataNode *node, void *bindings)
 	 */
 	if (min <= datum->value && datum->value <= max)
 	{
-		if (bindings && idIsWildcard)
+		if (idIsWildcard)
 		{
 			// Add to the binding list.
+			bindings[identifier] = node;
 		}
 		return true;
 	}

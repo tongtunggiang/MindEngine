@@ -3,6 +3,8 @@
 
 #include "Match.h"
 
+#include <string>
+
 /**
  * @brief Contains classes to represent Rule-based system's database,
  * which stores knowledge available to the AI agent as well as the

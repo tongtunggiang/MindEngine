@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['idtype',['IdType',['../namespaceRuleBased.html#a63325ec6591914530509aac8285b5e04',1,'RuleBased']]]
+  ['bindinglist',['BindingList',['../namespaceRuleBased.html#a4c8356ce66be73317fef3b850778086e',1,'RuleBased']]]
 ];
