@@ -24,6 +24,9 @@ DataNode* constructDataTree()
     std::cout << "Database file is loaded succesfully" << std::endl;
     tinyxml2::XMLElement *databaseNode = doc.FirstChildElement();
 
+	DataNode* root = new DataNode(doc.RootElement()->Name(), NULL);
+	std::cout << root->getIdentifier() << " " << root->getRightSibling() << std::endl;
+
     return NULL;
 }
 
