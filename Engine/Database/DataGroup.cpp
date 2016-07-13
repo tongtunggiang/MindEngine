@@ -1,5 +1,7 @@
 #include "DataGroup.h"
 
+#include <iostream>
+
 namespace RuleBased
 {
 
@@ -29,6 +31,27 @@ DataNode* DataGroup::getLeftMostChild() const
 bool DataGroup::isGroup()
 {
 	return true;
+}
+
+bool DataGroup::canCastToDataGroup(DataNode* node)
+{
+	if (node->isDatum())
+		return false;
+	return true;
+}
+
+DataGroup * DataGroup::castToDataGroup(DataNode* node)
+{
+	if (!canCastToDataGroup(node))
+		return NULL;
+
+	if (node->isGroup())
+		return (DataGroup*)node;
+
+	DataGroup* castResult;
+	castResult = (DataGroup*)node;
+	std::cout << "castResult: " << castResult->isGroup() << std::endl;
+	return castResult;
 }
 
 }

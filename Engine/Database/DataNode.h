@@ -55,6 +55,12 @@ public:
 	IdType getIdentifier() const;
 
 	/**
+	 * @brief Add new sibling for the current data node, given its identifier.
+	 * @return The right sibling.
+	 */
+	DataNode* addRightSibling(IdType id);
+
+	/**
 	 * @brief Data nodes are put into a left-most child, right sibling tree. This function is used to get the sibling next to current node.
 	 * @return The right sibling node of this node, or NULL if this node is the right most child.
 	 */

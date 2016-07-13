@@ -12,6 +12,8 @@ using namespace RuleBased;
 
 DataNode* constructDataTree()
 {
+	std::cout << "Constructing the data tree" << std::endl;
+
     tinyxml2::XMLDocument doc;
     doc.LoadFile("Database.xml");
 
@@ -22,10 +24,20 @@ DataNode* constructDataTree()
     }
 
     std::cout << "Database file is loaded succesfully" << std::endl;
-    tinyxml2::XMLElement *databaseNode = doc.FirstChildElement();
+    tinyxml2::XMLElement *traverseNode = doc.FirstChildElement();
 
-	DataNode* root = new DataNode(doc.RootElement()->Name(), NULL);
-	std::cout << root->getIdentifier() << " " << root->getRightSibling() << std::endl;
+	// Traverse the XML tree
+	while (traverseNode->FirstChildElement() != NULL)
+	{
+		tinyxml2::XMLElement *traverseNodeSiblings = traverseNode;
+		while (traverseNodeSiblings->NextSiblingElement() != NULL)
+		{
+			std::cout << traverseNode->Name() << "  ";
+			traverseNodeSiblings = traverseNodeSiblings->NextSiblingElement();
+		} 
+		traverseNode = traverseNode->FirstChildElement();
+		std::cout << std::endl;
+	}
 
     return NULL;
 }
