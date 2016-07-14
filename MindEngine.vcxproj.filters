@@ -1,75 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{9bd76c77-3701-4163-9ae1-6d583137a19f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libs">
+      <UniqueIdentifier>{b11572fe-5a42-4b2c-9456-2053dd8bf831}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Rules">
+      <UniqueIdentifier>{dac43936-5a48-4bbd-991e-f9e4a9cfb74c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Database">
+      <UniqueIdentifier>{e0628937-aec8-4329-8234-105d235fca32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Database\DataGroup.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Database</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Database\DataNode.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Database</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Database\Datum.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\DataGroupMatch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\DataNodeMatch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\IdCheck.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Database</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Rules\NumberDatumMatch.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Engine\Rules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rules\DataGroupMatch.cpp">
+      <Filter>Engine\Rules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rules\DataNodeMatch.cpp">
+      <Filter>Engine\Rules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rules\IdCheck.cpp">
+      <Filter>Engine\Rules</Filter>
     </ClCompile>
     <ClCompile Include="Libs\tinyxml2.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Libs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Database\DataGroup.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Engine\Database\Datum.h">
+      <Filter>Engine\Database</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Database\DataNode.h">
-      <Filter>Header Files</Filter>
+      <Filter>Engine\Database</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Database\Datum.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\DataGroupMatch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\DataNodeMatch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\IdCheck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\Match.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\NumberDatumMatch.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Engine\Database\DataGroup.h">
+      <Filter>Engine\Database</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Rules\Rule.h">
-      <Filter>Header Files</Filter>
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\DataGroupMatch.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\DataNodeMatch.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\IdCheck.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\Match.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\NumberDatumMatch.h">
+      <Filter>Engine\Rules</Filter>
     </ClInclude>
     <ClInclude Include="Libs\tinyxml2.h">
-      <Filter>Header Files</Filter>
+      <Filter>Libs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

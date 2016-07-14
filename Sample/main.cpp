@@ -10,41 +10,46 @@
 
 using namespace RuleBased;
 
-DataNode* constructDataTree()
-{
-	std::cout << "Constructing the data tree" << std::endl;
+#define XML_FILE "Database.xml"
 
-    tinyxml2::XMLDocument doc;
-    doc.LoadFile("Database.xml");
-
-    if (doc.ErrorID() != 0)
-    {
-        std::cout << "Can't load the database file" << std::endl;
-        return NULL;
-    }
-
-    std::cout << "Database file is loaded succesfully" << std::endl;
-    tinyxml2::XMLElement *traverseNode = doc.FirstChildElement();
-
-	// Traverse the XML tree
-	while (traverseNode->FirstChildElement() != NULL)
-	{
-		tinyxml2::XMLElement *traverseNodeSiblings = traverseNode;
-		while (traverseNodeSiblings->NextSiblingElement() != NULL)
-		{
-			std::cout << traverseNode->Name() << "  ";
-			traverseNodeSiblings = traverseNodeSiblings->NextSiblingElement();
-		} 
-		traverseNode = traverseNode->FirstChildElement();
-		std::cout << std::endl;
-	}
-
-    return NULL;
-}
+tinyxml2::XMLDocument* readXmlFile(std::string fileName);
+DataNode* processNode(tinyxml2::XMLNode* xmlNode);
 
 int main()
 {
-    DataNode* treeRoot = constructDataTree();
+	tinyxml2::XMLDocument* doc = readXmlFile(XML_FILE);
+
+	processNode(doc->FirstChild());
 
     return 0;
+}
+
+tinyxml2::XMLDocument* readXmlFile(std::string fileName)
+{
+	std::cout << "Loading XML file " << fileName << std::endl;
+	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument();
+	doc->LoadFile(fileName.c_str());
+	std::cout << "XML file is successfully loaded" << fileName << std::endl;
+
+	return doc;
+}
+
+DataNode* processNode(tinyxml2::XMLNode* xmlNode)
+{
+	if (xmlNode == NULL)
+		return NULL;
+
+	tinyxml2::XMLElement* element = xmlNode->ToElement();
+	std::cout << element->Name() << " " << element->GetText() << std::endl;
+
+	processNode(xmlNode->FirstChild());
+	
+	tinyxml2::XMLNode* rightSibling = xmlNode->NextSibling();
+	while (rightSibling != NULL)
+	{
+		processNode(rightSibling);
+		rightSibling = rightSibling->NextSibling();
+	}
+
+	return NULL;
 }
