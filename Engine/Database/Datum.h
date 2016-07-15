@@ -28,38 +28,37 @@ public:
 	 * @brief Datum constructor.
 	 * @param value the value that the Datum holds.
 	 */
-	Datum(T value);
+	Datum(T value) : DataNode(), value(value) {}
 
 	/**
 	 * @brief Datum constructor.
 	 * @param identifier a string parameter.
-	 * @param rightSibling a DataNode pointer representing this node's right sibling in tree.
 	 * @param value the value that the Datum holds.
 	 */
-	Datum(const std::string& identifier, DataNode *rightSibling, T value);
+	Datum(const std::string& identifier, T value) : DataNode(identifier), value(value) {}
 
 	/**
 	 * @brief ~Datum destructor
 	 */
-	virtual ~Datum();
+	virtual ~Datum() {}
 
 	/**
 	 * @brief To change the value of the Datum.
 	 * @param newValue The new value that is going to be assigned to the Datum.
 	 */
-	void setValue(T newValue);
+	void setValue(T newValue) { value = newValue; }
 
 	/**
 	 * @brief To get the value of the Datum.
 	 * @return The value that the datum is currently holding.
 	 */
-	T getValue() const;
+	T getValue() const { return value; }
 
 	/**
 	 * @brief Allows user to check whether this node is a Datum or not.
 	 * @return true if this node is a Datum, otherwise returns false.
 	 */
-	bool isDatum();
+	bool isDatum() { return true;  }
 
 private:
 

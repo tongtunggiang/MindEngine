@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-	<character>Captain
-                <weapon>Rifle
-                        <ammo>36</ammo>
-                        <clips>2</clips>
+	<character>
+		<name>Captain</name>
+        <weapon>
+			<type>Rifle</type>
+            <ammo>36</ammo>
+            <clips>2</clips>
 		</weapon>
-                <health>65</health>
+        <health>65</health>
 	</character>
 	
-        <character>Giang
-                <weapon>Knife</weapon>
-                <health>100</health>
+    <character>
+		<name>Giang</name>
+        <weapon>Knife</weapon>
+        <health>100</health>
 	</character>
 </database>

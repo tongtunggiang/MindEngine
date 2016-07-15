@@ -9,10 +9,10 @@ DataNode::DataNode()
 	rightSibling = NULL;
 }
 
-DataNode::DataNode(const IdType & identifier, DataNode * rightSibling)
+DataNode::DataNode(const IdType & identifier)
 {
 	this->identifier = identifier;
-	this->rightSibling = rightSibling;
+	this->rightSibling = NULL;
 }
 
 DataNode::~DataNode()
@@ -41,11 +41,10 @@ bool DataNode::isDatum() const
 	return false;
 }
 
-DataNode* DataNode::addRightSibling(IdType id)
+void DataNode::setRightSibling(DataNode* sibling)
 {
-	DataNode* sibling = new DataNode(id, rightSibling);
+	sibling->rightSibling = rightSibling;
 	rightSibling = sibling;
-	return sibling;
 }
 
 }

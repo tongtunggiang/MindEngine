@@ -38,9 +38,8 @@ public:
 	/**
 	 * @brief DataNode constructor with parameters.
 	 * @param identifier an ID parameter.
-	 * @param rightSibling a DataNode pointer representing this node's right sibling in tree. structure
 	 */
-	DataNode(const IdType& identifier, DataNode *rightSibling);
+	DataNode(const IdType& identifier);
 
 	/**
 	 * @brief ~DataNode destructor.
@@ -55,10 +54,10 @@ public:
 	IdType getIdentifier() const;
 
 	/**
-	 * @brief Add new sibling for the current data node, given its identifier.
-	 * @return The right sibling.
+	 * @brief Set new sibling for the current data node and keep the current right sibling as new right sibling's sibling.
+	 * @param sibling The new right sibling of this DataNode object.
 	 */
-	DataNode* addRightSibling(IdType id);
+	void setRightSibling(DataNode* sibling);
 
 	/**
 	 * @brief Data nodes are put into a left-most child, right sibling tree. This function is used to get the sibling next to current node.
