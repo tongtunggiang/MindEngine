@@ -29,6 +29,8 @@ bool NumberDatumMatch<T>::matchesNode(DataNode *node, BindingList &bindings)
 		}
 		return true;
 	}
+
+	return false;
 }
 
 }

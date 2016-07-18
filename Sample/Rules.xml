@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules>
+	<rule>
+		<if>
+			<job>Soldier</job>
+		</if>		
+		<action>Retire</action>
+	</rule>
+	
+	<rule>
+		<if>
+			<weapon>Knife</weapon>
+		</if>
+		
+		<action>Hit</action>
+	</rule>
+	
+	<rule>
+		<if>
+			<weapon>Machine</weapon>
+		</if>
+		
+		<action>Throw</action>
+	</rule>
+	
+    <rule>
+		<if>
+			<job>Jobless</job>
+		</if>
+		
+		<action>Suicide</action>
+	</rule>
+</rules>

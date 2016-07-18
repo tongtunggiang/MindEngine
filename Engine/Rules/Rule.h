@@ -31,7 +31,7 @@ public:
 	 * @brief The action is going to be carried out when the rule matches.
 	 * @todo Examine the performance and reusability of using a method. If it is hard to expand, find a way to use a struct/class instead.
 	 */
-	virtual void action() = 0;
+	std::string action;
 
 };
 

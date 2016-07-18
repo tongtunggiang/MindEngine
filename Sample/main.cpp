@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #include "tinyxml2.h"
 
@@ -8,28 +9,55 @@
 #include "DataGroupMatch.h"
 #include "NumberDatumMatch.h"
 
+#include "Rule.h"
+
 using namespace RuleBased;
 
-#define XML_FILE "Database.xml"
+#define DATABASE_FILE "Database.xml"
+#define RULES_FILE "Rules.xml"
 
+// Function declarations
 tinyxml2::XMLDocument* readXmlFile(std::string fileName);
 
-DataNode* processNode(tinyxml2::XMLElement* xmlNode);
+DataNode* processDataNode(tinyxml2::XMLElement* xmlNode);
 
 void traverseTree(DataNode* root);
 
+Rule* processRule(tinyxml2::XMLElement* xmlNode);
+
+void processRulesFile(tinyxml2::XMLDocument* doc, std::vector<Rule*> &rules);
+
+// Main function
 int main()
 {
-	tinyxml2::XMLDocument* doc = readXmlFile(XML_FILE);
+	// Construct data tree
+	tinyxml2::XMLDocument* doc = readXmlFile(DATABASE_FILE);
 
-	DataGroup* root = (DataGroup*)processNode(doc->FirstChildElement());
+	DataGroup* root = (DataGroup*)processDataNode(doc->FirstChildElement());
 
-	std::cout << std::endl << std::endl << "Traverse the built tree:" << std::endl;
+	std::cout << std::endl << "Traverse the built tree:" << std::endl;
 	traverseTree(root);
+	std::cout << std::endl;
+
+	// Create Rule objects
+	delete doc;
+	std::vector<Rule*> rules;
+	doc = readXmlFile(RULES_FILE);
+	processRulesFile(doc, rules);
+
+	BindingList bindings;
+	for (int i = 0; i < rules.size(); i++)
+	{
+		if (rules[i]->ifClause->matches(root, bindings))
+		{
+			std::cout << rules[i]->action << std::endl;
+		}
+	}
 
 	return 0;
 }
 
+// Function definition
 tinyxml2::XMLDocument* readXmlFile(std::string fileName)
 {
 	std::cout << "Loading XML file " << fileName << std::endl;
@@ -38,6 +66,17 @@ tinyxml2::XMLDocument* readXmlFile(std::string fileName)
 	std::cout << "XML file is successfully loaded" << std::endl;
 
 	return doc;
+}
+
+void processRulesFile(tinyxml2::XMLDocument* doc, std::vector<Rule*> &rules)
+{
+	// Get all elements with tag 'rule'
+
+	// Construct Rule object by those 'rule' elements
+}
+
+Rule* processRule(tinyxml2::XMLElement* xmlNode)
+{
 }
 
 void traverseTree(DataNode* root)
@@ -65,7 +104,7 @@ void traverseTree(DataNode* root)
 	{
 		IdType rootID = root->getIdentifier();
 
-		if (rootID == "name" || rootID == "type")
+		if (rootID == "name" || rootID == "type" || rootID == "job")
 		{
 			Datum<std::string>* datum = (Datum<std::string>*)root;
 			std::cout << datum->getValue() << " ";
@@ -79,18 +118,15 @@ void traverseTree(DataNode* root)
 }
 
 // Damn ugly code - luckily it's just a demo
-DataNode* processNode(tinyxml2::XMLElement* xmlNode)
+DataNode* processDataNode(tinyxml2::XMLElement* xmlNode)
 {
 	if (xmlNode == NULL)
 		return NULL;
-
-	std::cout << std::endl << "Process XML node " << xmlNode->Name() << std::endl;
 	// If a xml node has a text, it must be a Datum
 	if (xmlNode->GetText() != NULL)
 	{
-		std::cout << "Got a datum " << xmlNode->GetText() << std::endl;
 		std::string xmlNodeType = xmlNode->Name();
-		if (xmlNodeType == "name" || xmlNodeType == "type")
+		if (xmlNodeType == "name" || xmlNodeType == "type" || xmlNodeType == "job")
 		{
 			Datum<std::string>* result = new Datum<std::string>(
 				xmlNode->Name(),
@@ -111,18 +147,16 @@ DataNode* processNode(tinyxml2::XMLElement* xmlNode)
 	}
 
 	// Else, it is a data group
-	std::cout << "Got a data group" << std::endl;
 	DataGroup* result = new DataGroup(xmlNode->Name());
 
-	result->setLeftMostChild(processNode(xmlNode->FirstChildElement()));
-	std::cout << "Data group " << result->getIdentifier() << " has first child: " << result->getLeftMostChild()->getIdentifier() << " " << std::endl;
+	result->setLeftMostChild(processDataNode(xmlNode->FirstChildElement()));
 
 	if (xmlNode->FirstChildElement() != NULL)
 	{
 		tinyxml2::XMLElement* rightSibling = xmlNode->FirstChildElement()->NextSiblingElement();
 		while (rightSibling != NULL)
 		{
-			result->getLeftMostChild()->setRightSibling(processNode(rightSibling));
+			result->getLeftMostChild()->setRightSibling(processDataNode(rightSibling));
 			rightSibling = rightSibling->NextSiblingElement();
 		}
 	}

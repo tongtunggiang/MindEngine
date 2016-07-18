@@ -5,7 +5,6 @@
 #include "DataGroup.h"
 
 #include <string>
-#include <map>
 
 /**
  * @brief Contains classes to represent Rule-based system's database,
@@ -15,16 +14,6 @@
  */
 namespace RuleBased
 {
-
-/**
- * @brief The list of bound actions is simply a list of strings representing actions (for now).
- * I use list of strings for output actions because 1/ the action should be freed from function
- * signatures and 2/ the AI engine should only produce 'decisions', rather than carry out the
- * actions - that is the job of the agent itself.
- * @note The output actions list would be used to carry out actions later by the agent. The
- * approach here is to find appropriate methods on the script files to execute.
- */
-typedef std::map<std::string, DataNode*> BindingList;
 
 /**
  * @brief A struct derived from Match, it is responsible for matching a

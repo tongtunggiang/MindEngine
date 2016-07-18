@@ -18,6 +18,7 @@ bool DataGroupMatch::matchesNode(DataNode* node, BindingList &bindings)
 
 	DataGroup* group = (DataGroup*) node;
 
+	// Check the match of every children in test item
 	DataNodeMatch* match = leftMostChild;
 	while (match)
 	{
