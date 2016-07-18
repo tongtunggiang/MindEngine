@@ -41,7 +41,7 @@ void DataGroup::setLeftMostChild(DataNode * child)
 	}
 }
 
-bool DataGroup::isGroup()
+bool DataGroup::isGroup() const
 {
 	return true;
 }

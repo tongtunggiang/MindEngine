@@ -56,7 +56,7 @@ public:
 	 * @brief Allows user to check whether this node is a DataGroup or not.
 	 * @return true if this node is a DataGroup, otherwise returns false.
 	 */
-	bool isGroup();
+	bool isGroup() const;
 	
 	/**
 	* @brief Checks whether the given data node can be cast in to a DataGroup.

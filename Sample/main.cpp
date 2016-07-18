@@ -22,10 +22,11 @@ int main()
 {
 	tinyxml2::XMLDocument* doc = readXmlFile(XML_FILE);
 
-	DataNode* root = processNode(doc->FirstChildElement());
+	DataGroup* root = (DataGroup*)processNode(doc->FirstChildElement());
 
-	std::cout << "Traverse the built tree:" << std::endl;
+	std::cout << std::endl << std::endl << "Traverse the built tree:" << std::endl;
 	traverseTree(root);
+
 	return 0;
 }
 
@@ -43,7 +44,8 @@ void traverseTree(DataNode* root)
 {
 	if (root == NULL)
 		return;
-	std::cout << root->getIdentifier() << std::endl;
+	std::cout << root->getIdentifier() << " ";
+
 	if (root->isGroup())
 	{
 		DataGroup* rootGroup = (DataGroup*)root;
@@ -59,6 +61,21 @@ void traverseTree(DataNode* root)
 			}
 		}
 	}
+	else
+	{
+		IdType rootID = root->getIdentifier();
+
+		if (rootID == "name" || rootID == "type")
+		{
+			Datum<std::string>* datum = (Datum<std::string>*)root;
+			std::cout << datum->getValue() << " ";
+		}
+		else if (rootID == "ammo" || rootID == "clips" || rootID == "health")
+		{
+			Datum<int>* datum = (Datum<int>*)root;
+			std::cout << datum->getValue() << " ";
+		}
+	}
 }
 
 // Damn ugly code - luckily it's just a demo
@@ -67,9 +84,11 @@ DataNode* processNode(tinyxml2::XMLElement* xmlNode)
 	if (xmlNode == NULL)
 		return NULL;
 
+	std::cout << std::endl << "Process XML node " << xmlNode->Name() << std::endl;
 	// If a xml node has a text, it must be a Datum
 	if (xmlNode->GetText() != NULL)
 	{
+		std::cout << "Got a datum " << xmlNode->GetText() << std::endl;
 		std::string xmlNodeType = xmlNode->Name();
 		if (xmlNodeType == "name" || xmlNodeType == "type")
 		{
@@ -78,7 +97,7 @@ DataNode* processNode(tinyxml2::XMLElement* xmlNode)
 				xmlNode->GetText());
 			return result;
 		}
-		else if (xmlNodeType == "ammo" || xmlNodeType == "clips")
+		else if (xmlNodeType == "ammo" || xmlNodeType == "clips" || xmlNodeType == "health")
 		{
 			Datum<int>* result = new Datum<int>(
 				xmlNode->Name(),
@@ -92,9 +111,11 @@ DataNode* processNode(tinyxml2::XMLElement* xmlNode)
 	}
 
 	// Else, it is a data group
+	std::cout << "Got a data group" << std::endl;
 	DataGroup* result = new DataGroup(xmlNode->Name());
 
 	result->setLeftMostChild(processNode(xmlNode->FirstChildElement()));
+	std::cout << "Data group " << result->getIdentifier() << " has first child: " << result->getLeftMostChild()->getIdentifier() << " " << std::endl;
 
 	if (xmlNode->FirstChildElement() != NULL)
 	{

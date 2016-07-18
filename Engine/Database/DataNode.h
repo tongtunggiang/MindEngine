@@ -44,7 +44,7 @@ public:
 	/**
 	 * @brief ~DataNode destructor.
 	 */
-	virtual ~DataNode();
+	virtual ~DataNode() = 0;
 
 
 	/**

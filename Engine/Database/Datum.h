@@ -58,7 +58,7 @@ public:
 	 * @brief Allows user to check whether this node is a Datum or not.
 	 * @return true if this node is a Datum, otherwise returns false.
 	 */
-	bool isDatum() { return true;  }
+	bool isDatum() const { return true;  }
 
 private:
 
