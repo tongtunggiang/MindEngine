@@ -31,8 +31,8 @@ struct StringDatumMatch : public DataNodeMatch
 	std::string matchValue;
 
 	/**
-	 * @brief The identifier to match.
-	 */
+	* @brief The identifier to match.
+	*/
 	IdType identifier;
 
 	/**

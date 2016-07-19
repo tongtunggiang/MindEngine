@@ -45,16 +45,33 @@ int main()
 	std::vector<Rule*> rules;
 	doc = readXmlFile(RULES_FILE);
 	processRulesFile(doc, rules);
+	std::cout << std::endl << std::endl;
 
 	BindingList bindings;
 	for (int i = 0; i < rules.size(); i++)
 	{
-		if (rules[i]->ifClause == NULL)
-			continue;
-		if (rules[i]->ifClause->matches(root, bindings))
+		DataNode* characterNode = root->getLeftMostChild();
+		bool ruleMatch = false;
+
+		std::cout << "Checking rule: " << rules[i]->action << "... ";
+		while (characterNode != NULL)
 		{
-			std::cout << "Found a fucking match: " << rules[i]->action << std::endl;
+			if (rules[i]->ifClause == NULL)
+				continue;
+
+			if (rules[i]->ifClause->matches(characterNode, bindings))
+			{
+				ruleMatch = true;
+				break;
+			}
+
+			characterNode = characterNode->getRightSibling();
 		}
+
+		if (ruleMatch)
+			std::cout << "Match" << std::endl;
+		else
+			std::cout << "Not match" << std::endl;
 	}
 
 	return 0;
@@ -105,16 +122,16 @@ Rule* processRule(tinyxml2::XMLElement* xmlNode)
 
 	std::cout << actionNode->GetText();
 
-	if (ifClauseNode->FirstChildElement()->Name() == "health")
+	if (std::string(ifClauseNode->FirstChildElement()->Name()) == "health")
 	{
-		std::cout << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
+		std::cout << " (number) " << ifClauseNode->FirstChildElement()->Name() << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
 
 		IntegerDatumMatch* datumMach = new IntegerDatumMatch("health", 0, 20);
 		result->ifClause = datumMach;
 	}
 	else
 	{
-		std::cout << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
+		std::cout << " (string) " << ifClauseNode->FirstChildElement()->Name() << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
 
 		StringDatumMatch* datumMatch = new StringDatumMatch(
 			std::string(ifClauseNode->FirstChildElement()->Name()),
@@ -151,14 +168,14 @@ void traverseTree(DataNode* root)
 	{
 		IdType rootID = root->getIdentifier();
 
-		if (rootID == "name" || rootID == "type" || rootID == "job")
-		{
-			Datum<std::string>* datum = (Datum<std::string>*)root;
-			std::cout << datum->getValue() << " ";
-		}
-		else if (rootID == "ammo" || rootID == "clips" || rootID == "health")
+		if (rootID == "ammo" || rootID == "clips" || rootID == "health")
 		{
 			Datum<int>* datum = (Datum<int>*)root;
+			std::cout << datum->getValue() << " ";
+		}
+		else
+		{
+			Datum<std::string>* datum = (Datum<std::string>*)root;
 			std::cout << datum->getValue() << " ";
 		}
 	}
@@ -173,18 +190,18 @@ DataNode* processDataNode(tinyxml2::XMLElement* xmlNode)
 	if (xmlNode->GetText() != NULL)
 	{
 		std::string xmlNodeType = xmlNode->Name();
-		if (xmlNodeType == "name" || xmlNodeType == "type" || xmlNodeType == "job")
-		{
-			Datum<std::string>* result = new Datum<std::string>(
-				xmlNode->Name(),
-				xmlNode->GetText());
-			return result;
-		}
-		else if (xmlNodeType == "ammo" || xmlNodeType == "clips" || xmlNodeType == "health")
+		if (xmlNodeType == "ammo" || xmlNodeType == "clips" || xmlNodeType == "health")
 		{
 			Datum<int>* result = new Datum<int>(
 				xmlNode->Name(),
 				std::stoi(std::string(xmlNode->GetText())));
+			return result;
+		}
+		else
+		{
+			Datum<std::string>* result = new Datum<std::string>(
+				xmlNode->Name(),
+				xmlNode->GetText());
 			return result;
 		}
 

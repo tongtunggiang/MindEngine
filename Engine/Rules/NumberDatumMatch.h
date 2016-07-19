@@ -44,8 +44,8 @@ struct NumberDatumMatch : public DataNodeMatch
 	T max;
 
 	/**
-	 * @brief The identifier to match.
-	 */
+	* @brief The identifier to match.
+	*/
 	IdType identifier;
 
 	/**

@@ -1,11 +1,16 @@
 #include "StringDatumMatch.h"
 #include "IdCheck.h"
 
+#include <iostream>
+#include <typeinfo>
+
 namespace RuleBased
 {
 
 bool StringDatumMatch::matchesNode(DataNode * node, BindingList & bindings)
 {
+	//std::cout << "Test node: " << identifier << " against data item: " << node->getIdentifier() << std::endl;
+
 	if (!node->isDatum())
 		return false;
 

@@ -20,14 +20,14 @@ struct DataGroupMatch
 {
 
 	/**
-	 * @brief The identifier to match.
-	 */
-	IdType identifier;
-
-	/**
 	 * @brief The first sub-match in this group.
 	 */
 	DataNodeMatch* leftMostChild;
+
+	/**
+	* @brief The identifier to match.
+	*/
+	IdType identifier;
 
 	/**
 	 * @brief Tries to match the given data node from the database against the criteria.
