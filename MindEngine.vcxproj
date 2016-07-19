@@ -26,6 +26,7 @@
     <ClCompile Include="Engine\Rules\DataNodeMatch.cpp" />
     <ClCompile Include="Engine\Rules\IdCheck.cpp" />
     <ClCompile Include="Engine\Rules\NumberDatumMatch.cpp" />
+    <ClCompile Include="Engine\Rules\StringDatumMatch.cpp" />
     <ClCompile Include="Libs\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -38,6 +39,7 @@
     <ClInclude Include="Engine\Rules\Match.h" />
     <ClInclude Include="Engine\Rules\NumberDatumMatch.h" />
     <ClInclude Include="Engine\Rules\Rule.h" />
+    <ClInclude Include="Engine\Rules\StringDatumMatch.h" />
     <ClInclude Include="Libs\tinyxml2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

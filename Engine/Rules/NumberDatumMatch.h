@@ -66,6 +66,9 @@ struct NumberDatumMatch : public DataNodeMatch
 	NumberDatumMatch(IdType identifier, T min, T max);
 };
 
+typedef NumberDatumMatch<int> IntegerDatumMatch;
+typedef NumberDatumMatch<float> FloatDatumMatch;
+
 }
 
 #endif // NUMBERDATUMMATCH_H

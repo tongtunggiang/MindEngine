@@ -25,7 +25,7 @@
 	
     <rule>
 		<if>
-			<job>Jobless</job>
+			<health>0-20</health>
 		</if>
 		
 		<action>Suicide</action>

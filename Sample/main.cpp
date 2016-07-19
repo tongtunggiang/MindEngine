@@ -8,6 +8,7 @@
 
 #include "DataGroupMatch.h"
 #include "NumberDatumMatch.h"
+#include "StringDatumMatch.h"
 
 #include "Rule.h"
 
@@ -37,7 +38,7 @@ int main()
 
 	std::cout << std::endl << "Traverse the built tree:" << std::endl;
 	traverseTree(root);
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl;
 
 	// Create Rule objects
 	delete doc;
@@ -48,9 +49,11 @@ int main()
 	BindingList bindings;
 	for (int i = 0; i < rules.size(); i++)
 	{
+		if (rules[i]->ifClause == NULL)
+			continue;
 		if (rules[i]->ifClause->matches(root, bindings))
 		{
-			std::cout << rules[i]->action << std::endl;
+			std::cout << "Found a fucking match: " << rules[i]->action << std::endl;
 		}
 	}
 
@@ -71,12 +74,56 @@ tinyxml2::XMLDocument* readXmlFile(std::string fileName)
 void processRulesFile(tinyxml2::XMLDocument* doc, std::vector<Rule*> &rules)
 {
 	// Get all elements with tag 'rule'
+	// This is the structure of Rules.xml
+	// <rules>
+	//     <rule>
+	//         <if> </if>
+	//         <action> </action>
+	//     </rule>
+	// </rules>
+	tinyxml2::XMLElement* ruleElement = doc->FirstChildElement()->FirstChildElement();
 
 	// Construct Rule object by those 'rule' elements
+	while (ruleElement != NULL)
+	{
+		Rule* rule = processRule(ruleElement);
+		rules.push_back(rule);
+		ruleElement = ruleElement->NextSiblingElement();
+	}
 }
 
 Rule* processRule(tinyxml2::XMLElement* xmlNode)
 {
+	// Example of the structure of a 'rule' node:
+	//		<if>
+	//	        <weapon>Knife</weapon>
+	//		</if>
+	//		<action>Hit</action>
+	Rule* result = new Rule();
+	tinyxml2::XMLElement* ifClauseNode = xmlNode->FirstChildElement("if");
+	tinyxml2::XMLElement* actionNode = xmlNode->FirstChildElement("action");
+
+	std::cout << actionNode->GetText();
+
+	if (ifClauseNode->FirstChildElement()->Name() == "health")
+	{
+		std::cout << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
+
+		IntegerDatumMatch* datumMach = new IntegerDatumMatch("health", 0, 20);
+		result->ifClause = datumMach;
+	}
+	else
+	{
+		std::cout << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
+
+		StringDatumMatch* datumMatch = new StringDatumMatch(
+			std::string(ifClauseNode->FirstChildElement()->Name()),
+			std::string(ifClauseNode->FirstChildElement()->GetText()));
+		result->ifClause = datumMatch;
+	}
+
+	result->action = actionNode->GetText();
+	return result;
 }
 
 void traverseTree(DataNode* root)

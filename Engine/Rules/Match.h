@@ -34,7 +34,7 @@ struct Match
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else returns false.
 	 */
-	virtual bool matches(const DataNode* database, BindingList &bindings) = 0;
+	virtual bool matches(DataNode* database, BindingList &bindings) = 0;
 };
 
 }

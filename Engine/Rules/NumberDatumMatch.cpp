@@ -12,7 +12,7 @@ bool NumberDatumMatch<T>::matchesNode(DataNode *node, BindingList &bindings)
 
 	bool idIsWildcard = IdCheck::isWildcard(identifier);
 	if (!idIsWildcard &&
-		identifier != node->identifier)
+		identifier != node->getIdentifier())
 		return false;
 
 	Datum<T> *datum = (Datum<T>*)node;
@@ -20,7 +20,7 @@ bool NumberDatumMatch<T>::matchesNode(DataNode *node, BindingList &bindings)
 	/**
 	 * @todo Need adding bindings mechanism here
 	 */
-	if (min <= datum->value && datum->value <= max)
+	if (min <= datum->getValue() && datum->getValue() <= max)
 	{
 		if (idIsWildcard)
 		{
@@ -32,5 +32,14 @@ bool NumberDatumMatch<T>::matchesNode(DataNode *node, BindingList &bindings)
 
 	return false;
 }
+
+template<typename T>
+NumberDatumMatch<T>::NumberDatumMatch(IdType identifier, T min, T max)
+	: identifier(identifier), min(min), max(max)
+{
+}
+
+template struct NumberDatumMatch<int>;
+template struct NumberDatumMatch<float>;
 
 }

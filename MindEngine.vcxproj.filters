@@ -43,6 +43,9 @@
     <ClCompile Include="Libs\tinyxml2.cpp">
       <Filter>Libs</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Rules\StringDatumMatch.cpp">
+      <Filter>Engine\Rules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Database\Datum.h">
@@ -74,6 +77,9 @@
     </ClInclude>
     <ClInclude Include="Libs\tinyxml2.h">
       <Filter>Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\StringDatumMatch.h">
+      <Filter>Engine\Rules</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
