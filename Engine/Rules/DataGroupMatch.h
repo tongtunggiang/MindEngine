@@ -16,7 +16,7 @@ namespace RuleBased
  * @brief Matches a group of data in the database.
  * This is done by building a match data structure that mirrors the data structure that is being searched for in the database.
  */
-struct DataGroupMatch
+struct DataGroupMatch : public DataNodeMatch
 {
 
 	/**

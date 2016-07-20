@@ -22,6 +22,7 @@
     <ClCompile Include="Engine\Database\DataGroup.cpp" />
     <ClCompile Include="Engine\Database\DataNode.cpp" />
     <ClCompile Include="Engine\Database\Datum.cpp" />
+    <ClCompile Include="Engine\Rules\BooleanMatch.cpp" />
     <ClCompile Include="Engine\Rules\DataGroupMatch.cpp" />
     <ClCompile Include="Engine\Rules\DataNodeMatch.cpp" />
     <ClCompile Include="Engine\Rules\IdCheck.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="Engine\Database\DataGroup.h" />
     <ClInclude Include="Engine\Database\DataNode.h" />
     <ClInclude Include="Engine\Database\Datum.h" />
+    <ClInclude Include="Engine\Rules\BooleanMatch.h" />
     <ClInclude Include="Engine\Rules\DataGroupMatch.h" />
     <ClInclude Include="Engine\Rules\DataNodeMatch.h" />
     <ClInclude Include="Engine\Rules\IdCheck.h" />

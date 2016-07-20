@@ -46,6 +46,7 @@
     <ClCompile Include="Engine\Rules\StringDatumMatch.cpp">
       <Filter>Engine\Rules</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Rules\BooleanMatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Database\Datum.h">
@@ -79,6 +80,9 @@
       <Filter>Libs</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Rules\StringDatumMatch.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\BooleanMatch.h">
       <Filter>Engine\Rules</Filter>
     </ClInclude>
   </ItemGroup>
