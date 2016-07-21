@@ -133,9 +133,9 @@ Rule* processRule(tinyxml2::XMLElement* xmlNode)
 	{
 		std::cout << " (string) " << ifClauseNode->FirstChildElement()->Name() << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
 
-		StringDatumMatch* datumMatch = new StringDatumMatch(
-			std::string(ifClauseNode->FirstChildElement()->Name()),
-			std::string(ifClauseNode->FirstChildElement()->GetText()));
+        std::string id = std::string(ifClauseNode->FirstChildElement()->Name());
+        std::string value = std::string(ifClauseNode->FirstChildElement()->GetText());
+        StringDatumMatch* datumMatch = new StringDatumMatch(id, value);
 		result->ifClause = datumMatch;
 	}
 
