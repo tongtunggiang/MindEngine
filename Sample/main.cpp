@@ -1,16 +1,7 @@
 #include <iostream>
-#include <vector>
 
-#include "tinyxml2.h"
-
-#include "DataGroup.h"
-#include "Datum.h"
-
-#include "DataGroupMatch.h"
-#include "NumberDatumMatch.h"
-#include "StringDatumMatch.h"
-
-#include "Rule.h"
+#include "DataTreeFactory.h"
+#include "RulesFactory.h"
 
 using namespace RuleBased;
 
@@ -19,14 +10,7 @@ using namespace RuleBased;
 
 // Function declarations
 tinyxml2::XMLDocument* readXmlFile(std::string fileName);
-
-DataNode* processDataNode(tinyxml2::XMLElement* xmlNode);
-
 void traverseTree(DataNode* root);
-
-Rule* processRule(tinyxml2::XMLElement* xmlNode);
-
-void processRulesFile(tinyxml2::XMLDocument* doc, std::vector<Rule*> &rules);
 
 // Main function
 int main()
@@ -34,7 +18,7 @@ int main()
 	// Construct data tree
 	tinyxml2::XMLDocument* doc = readXmlFile(DATABASE_FILE);
 
-	DataGroup* root = (DataGroup*)processDataNode(doc->FirstChildElement());
+	DataGroup* root = (DataGroup*)DataTreeFactory::processDataNode(doc->FirstChildElement());
 
 	std::cout << std::endl << "Traverse the built tree:" << std::endl;
 	traverseTree(root);
@@ -44,7 +28,7 @@ int main()
 	delete doc;
 	std::vector<Rule*> rules;
 	doc = readXmlFile(RULES_FILE);
-	processRulesFile(doc, rules);
+	RulesFactory::processRulesFile(doc, rules);
 	std::cout << std::endl << std::endl;
 
 	BindingList bindings;
@@ -88,61 +72,6 @@ tinyxml2::XMLDocument* readXmlFile(std::string fileName)
 	return doc;
 }
 
-void processRulesFile(tinyxml2::XMLDocument* doc, std::vector<Rule*> &rules)
-{
-	// Get all elements with tag 'rule'
-	// This is the structure of Rules.xml
-	// <rules>
-	//     <rule>
-	//         <if> </if>
-	//         <action> </action>
-	//     </rule>
-	// </rules>
-	tinyxml2::XMLElement* ruleElement = doc->FirstChildElement()->FirstChildElement();
-
-	// Construct Rule object by those 'rule' elements
-	while (ruleElement != NULL)
-	{
-		Rule* rule = processRule(ruleElement);
-		rules.push_back(rule);
-		ruleElement = ruleElement->NextSiblingElement();
-	}
-}
-
-Rule* processRule(tinyxml2::XMLElement* xmlNode)
-{
-	// Example of the structure of a 'rule' node:
-	//		<if>
-	//	        <weapon>Knife</weapon>
-	//		</if>
-	//		<action>Hit</action>
-	Rule* result = new Rule();
-	tinyxml2::XMLElement* ifClauseNode = xmlNode->FirstChildElement("if");
-	tinyxml2::XMLElement* actionNode = xmlNode->FirstChildElement("action");
-
-	std::cout << actionNode->GetText();
-
-	if (std::string(ifClauseNode->FirstChildElement()->Name()) == "health")
-	{
-		std::cout << " (number) " << ifClauseNode->FirstChildElement()->Name() << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
-
-		IntegerDatumMatch* datumMach = new IntegerDatumMatch("health", 0, 20);
-		result->ifClause = datumMach;
-	}
-	else
-	{
-		std::cout << " (string) " << ifClauseNode->FirstChildElement()->Name() << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
-
-        std::string id = std::string(ifClauseNode->FirstChildElement()->Name());
-        std::string value = std::string(ifClauseNode->FirstChildElement()->GetText());
-        StringDatumMatch* datumMatch = new StringDatumMatch(id, value);
-		result->ifClause = datumMatch;
-	}
-
-	result->action = actionNode->GetText();
-	return result;
-}
-
 void traverseTree(DataNode* root)
 {
 	if (root == NULL)
@@ -179,51 +108,4 @@ void traverseTree(DataNode* root)
 			std::cout << datum->getValue() << " ";
 		}
 	}
-}
-
-// Damn ugly code - luckily it's just a demo
-DataNode* processDataNode(tinyxml2::XMLElement* xmlNode)
-{
-	if (xmlNode == NULL)
-		return NULL;
-	// If a xml node has a text, it must be a Datum
-	if (xmlNode->GetText() != NULL)
-	{
-		std::string xmlNodeType = xmlNode->Name();
-		if (xmlNodeType == "ammo" || xmlNodeType == "clips" || xmlNodeType == "health")
-		{
-			Datum<int>* result = new Datum<int>(
-				xmlNode->Name(),
-				std::stoi(std::string(xmlNode->GetText())));
-			return result;
-		}
-		else
-		{
-			Datum<std::string>* result = new Datum<std::string>(
-				xmlNode->Name(),
-				xmlNode->GetText());
-			return result;
-		}
-
-		return new Datum<int>(
-			xmlNode->Name(),
-			0);
-	}
-
-	// Else, it is a data group
-	DataGroup* result = new DataGroup(xmlNode->Name());
-
-	result->setLeftMostChild(processDataNode(xmlNode->FirstChildElement()));
-
-	if (xmlNode->FirstChildElement() != NULL)
-	{
-		tinyxml2::XMLElement* rightSibling = xmlNode->FirstChildElement()->NextSiblingElement();
-		while (rightSibling != NULL)
-		{
-			result->getLeftMostChild()->setRightSibling(processDataNode(rightSibling));
-			rightSibling = rightSibling->NextSiblingElement();
-		}
-	}
-
-	return result;
 }

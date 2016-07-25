@@ -145,12 +145,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DataTreeFactory.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RulesFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MindEngine.vcxproj">
       <Project>{a87b4428-b6b7-4045-baed-da2c0ea7e360}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DataTreeFactory.h" />
+    <ClInclude Include="RulesFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
