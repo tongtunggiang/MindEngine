@@ -18,6 +18,8 @@ public:
 
 	static RuleBased::Rule* processRule(tinyxml2::XMLElement* xmlNode);
 
+	static RuleBased::Match* createMatch(tinyxml2::XMLElement* xmlNode);
+
 };
 
 #endif // RULESFACTORY_H

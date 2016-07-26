@@ -34,28 +34,37 @@ int main()
 	BindingList bindings;
 	for (int i = 0; i < rules.size(); i++)
 	{
-		DataNode* characterNode = root->getLeftMostChild();
-		bool ruleMatch = false;
+		//DataNode* characterNode = root->getLeftMostChild();
+		//bool ruleMatch = false;
 
-		std::cout << "Checking rule: " << rules[i]->action << "... ";
-		while (characterNode != NULL)
+		//std::cout << "Checking rule: " << rules[i]->action << "... ";
+		//while (characterNode != NULL)
+		//{
+		//	if (rules[i]->ifClause == NULL)
+		//		continue;
+
+		//	if (rules[i]->ifClause->matches(characterNode, bindings))
+		//	{
+		//		ruleMatch = true;
+		//		break;
+		//	}
+
+		//	characterNode = characterNode->getRightSibling();
+		//}
+
+		//if (ruleMatch)
+		//	std::cout << "   -->> MATCH" << std::endl;
+		//else
+		//	std::cout << std::endl;
+
+		if (rules[i]->ifClause->matches(root, bindings))
 		{
-			if (rules[i]->ifClause == NULL)
-				continue;
-
-			if (rules[i]->ifClause->matches(characterNode, bindings))
-			{
-				ruleMatch = true;
-				break;
-			}
-
-			characterNode = characterNode->getRightSibling();
+			std::cout << "Rule has action " << rules[i]->action << "  >>>  MATCH!" << std::endl;
 		}
-
-		if (ruleMatch)
-			std::cout << "Match" << std::endl;
 		else
-			std::cout << "Not match" << std::endl;
+		{
+			std::cout << "Rule has action " << rules[i]->action << std::endl;
+		}
 	}
 
 	return 0;

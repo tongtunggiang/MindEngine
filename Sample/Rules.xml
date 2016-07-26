@@ -2,14 +2,18 @@
 <rules>
 	<rule>
 		<if>
-			<job>Soldier</job>
+			<character>
+				<job>Soldier</job>
+			</character>
 		</if>		
 		<action>Retire</action>
 	</rule>
 	
 	<rule>
 		<if>
-			<weapon>Knife</weapon>
+			<character>
+				<weapon>Knife</weapon>
+			</character>
 		</if>
 		
 		<action>Hit</action>
@@ -17,7 +21,9 @@
 	
 	<rule>
 		<if>
-			<weapon>Machine</weapon>
+			<character>
+				<weapon>Machine</weapon>
+			</character>
 		</if>
 		
 		<action>Throw</action>
@@ -25,7 +31,9 @@
 	
     <rule>
 		<if>
-			<health>0-20</health>
+			<character>
+				<health>0-20</health>
+			</character>
 		</if>
 		
 		<action>Suicide</action>

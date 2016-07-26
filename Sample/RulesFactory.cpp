@@ -26,32 +26,57 @@ RuleBased::Rule * RulesFactory::processRule(tinyxml2::XMLElement * xmlNode)
 {
 	// Example of the structure of a 'rule' node:
 	//		<if>
-	//	        <weapon>Knife</weapon>
+	//			<character>
+	//				<weapon>Knife</weapon>
+	//			</character>
 	//		</if>
 	//		<action>Hit</action>
 	RuleBased::Rule* result = new RuleBased::Rule();
 	tinyxml2::XMLElement* ifClauseNode = xmlNode->FirstChildElement("if");
 	tinyxml2::XMLElement* actionNode = xmlNode->FirstChildElement("action");
 
-	std::cout << actionNode->GetText();
-
-	if (std::string(ifClauseNode->FirstChildElement()->Name()) == "health")
-	{
-		std::cout << " (number) " << ifClauseNode->FirstChildElement()->Name() << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
-
-		RuleBased::IntegerDatumMatch* datumMach = new RuleBased::IntegerDatumMatch("health", 0, 20);
-		result->ifClause = datumMach;
-	}
-	else
-	{
-		std::cout << " (string) " << ifClauseNode->FirstChildElement()->Name() << " " << ifClauseNode->FirstChildElement()->GetText() << std::endl;
-
-		std::string id = std::string(ifClauseNode->FirstChildElement()->Name());
-		std::string value = std::string(ifClauseNode->FirstChildElement()->GetText());
-		RuleBased::StringDatumMatch* datumMatch = new RuleBased::StringDatumMatch(id, value);
-		result->ifClause = datumMatch;
-	}
-
+	result->ifClause = createMatch(ifClauseNode->FirstChildElement());
 	result->action = actionNode->GetText();
 	return result;
+}
+
+RuleBased::Match * RulesFactory::createMatch(tinyxml2::XMLElement * xmlNode)
+{
+	// Create a data group match
+	if (xmlNode->FirstChildElement() != NULL)
+	{
+		std::cout << "Create a group match, id: " << xmlNode->Name() << std::endl;
+		RuleBased::DataGroupMatch* groupMatch = new RuleBased::DataGroupMatch();
+		groupMatch->identifier = std::string(xmlNode->Name());
+		groupMatch->leftMostChild = (RuleBased::DataNodeMatch*)createMatch(xmlNode->FirstChildElement());
+		
+		tinyxml2::XMLElement* xmlSibling = xmlNode->FirstChildElement()->NextSiblingElement();
+		RuleBased::DataNodeMatch* sibling = groupMatch->leftMostChild->rightSibling;
+		while (xmlSibling != NULL)
+		{
+			sibling = (RuleBased::DataNodeMatch*)createMatch(xmlSibling);
+			xmlSibling = xmlSibling->NextSiblingElement();
+			sibling = sibling->rightSibling;
+		}
+
+		return groupMatch;
+	}
+
+	// Create a datum match (based on identifier)
+	std::string id = std::string(xmlNode->Name());
+	if (id == "health") // Integer datum match
+	{
+		std::cout << "Create an int match, id: " << xmlNode->Name() << std::endl;
+		RuleBased::IntegerDatumMatch* datumMatch = new RuleBased::IntegerDatumMatch("health", 0, 20); // fix later
+		return datumMatch;
+	}
+	else // String datum match
+	{
+		std::cout << "Create a string match, id: " << xmlNode->Name() << std::endl;
+		std::string value = std::string(xmlNode->GetText());
+		RuleBased::StringDatumMatch* datumMatch = new RuleBased::StringDatumMatch(id, value);
+		return datumMatch;
+	}
+
+	return NULL;
 }
