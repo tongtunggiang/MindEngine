@@ -34,29 +34,6 @@ int main()
 	BindingList bindings;
 	for (int i = 0; i < rules.size(); i++)
 	{
-		//DataNode* characterNode = root->getLeftMostChild();
-		//bool ruleMatch = false;
-
-		//std::cout << "Checking rule: " << rules[i]->action << "... ";
-		//while (characterNode != NULL)
-		//{
-		//	if (rules[i]->ifClause == NULL)
-		//		continue;
-
-		//	if (rules[i]->ifClause->matches(characterNode, bindings))
-		//	{
-		//		ruleMatch = true;
-		//		break;
-		//	}
-
-		//	characterNode = characterNode->getRightSibling();
-		//}
-
-		//if (ruleMatch)
-		//	std::cout << "   -->> MATCH" << std::endl;
-		//else
-		//	std::cout << std::endl;
-
 		if (rules[i]->ifClause->matches(root, bindings))
 		{
 			std::cout << "Rule has action " << rules[i]->action << "  >>>  MATCH!" << std::endl;
