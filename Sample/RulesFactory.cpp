@@ -68,13 +68,15 @@ RuleBased::Match * RulesFactory::createMatch(tinyxml2::XMLElement * xmlNode)
 	{
 		std::cout << "Create an int match, id: " << xmlNode->Name() << std::endl;
 		RuleBased::IntegerDatumMatch* datumMatch = new RuleBased::IntegerDatumMatch("health", 0, 20); // fix later
+		datumMatch->rightSibling = NULL;
 		return datumMatch;
 	}
-	else // String datum match
+	else if (id == "weapon" || id == "job") // String datum match
 	{
 		std::cout << "Create a string match, id: " << xmlNode->Name() << std::endl;
 		std::string value = std::string(xmlNode->GetText());
 		RuleBased::StringDatumMatch* datumMatch = new RuleBased::StringDatumMatch(id, value);
+		datumMatch->rightSibling = NULL;
 		return datumMatch;
 	}
 

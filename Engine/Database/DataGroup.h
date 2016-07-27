@@ -59,17 +59,17 @@ public:
 	bool isGroup() const;
 	
 	/**
-	* @brief Checks whether the given data node can be cast in to a DataGroup.
-	* @return true if this node can be casted, otherwise returns false.
-	*/
+	 * @brief Checks whether the given data node can be cast in to a DataGroup.
+	 * @return true if this node can be casted, otherwise returns false.
+	 */
 	static bool canCastToDataGroup(DataNode* node);
 
 	/**
-	* @brief Casts the given DataNode to DataGroup.
-	* @return The casted group (or NULL if failed).
-	* @note Remember to check the possibiliy of casting the node, using check function.
-	* @see canCastToDataGroup
-	*/
+	 * @brief Casts the given DataNode to DataGroup.
+	 * @return The casted group (or NULL if failed).
+	 * @note Remember to check the possibiliy of casting the node, using check function.
+	 * @see canCastToDataGroup
+	 */
 	static DataGroup* castToDataGroup(DataNode* node);
 
 private:
