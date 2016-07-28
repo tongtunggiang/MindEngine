@@ -3,9 +3,12 @@
 	<rule>
 		<if>
 			<character>
-				<weapon>
-					<ammo>0-50</ammo>
-				</weapon>
+				<and>
+					<weapon>
+						<ammo>0-50</ammo>
+					</weapon>
+					<health>0-100</health>
+				</and>/
 			</character>
 		</if>
 		

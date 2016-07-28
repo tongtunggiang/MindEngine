@@ -7,6 +7,7 @@
 #include "DataGroupMatch.h"
 #include "NumberDatumMatch.h"
 #include "StringDatumMatch.h"
+#include "BooleanMatch.h"
 #include "Rule.h"
 
 class RulesFactory

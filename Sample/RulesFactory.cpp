@@ -40,8 +40,37 @@ RuleBased::Rule * RulesFactory::processRule(tinyxml2::XMLElement * xmlNode)
 	return result;
 }
 
+// WARNING: ugly code, but I don't want to separate my recursive function
+// Considering Abstract Factory design pattern for this
 RuleBased::Match * RulesFactory::createMatch(tinyxml2::XMLElement * xmlNode)
-{
+{	
+	//----------
+	// Create a boolean match
+	std::string id = std::string(xmlNode->Name());
+	if (id == "and")
+	{
+		RuleBased::Match* one = createMatch(xmlNode->FirstChildElement());
+		RuleBased::Match* two = createMatch(xmlNode->FirstChildElement()->NextSiblingElement());
+
+		RuleBased::AndMatch* match = new RuleBased::AndMatch(one, two);
+		return match;
+	}
+	else if (id == "or")
+	{
+		RuleBased::Match* one = createMatch(xmlNode->FirstChildElement());
+		RuleBased::Match* two = createMatch(xmlNode->FirstChildElement()->NextSiblingElement());
+
+		RuleBased::OrMatch* match = new RuleBased::OrMatch(one, two);
+		return match;
+	}
+	else if (id == "not")
+	{
+		RuleBased::Match* childMatch = createMatch(xmlNode->FirstChildElement());
+		RuleBased::NotMatch* match = new RuleBased::NotMatch(childMatch);
+		return match;
+	}
+
+	//----------
 	// Create a data group match
 	if (xmlNode->FirstChildElement() != NULL)
 	{
@@ -62,8 +91,8 @@ RuleBased::Match * RulesFactory::createMatch(tinyxml2::XMLElement * xmlNode)
 		return groupMatch;
 	}
 
+	//----------
 	// Create a datum match (based on identifier)
-	std::string id = std::string(xmlNode->Name());
 	if (id == "health" || id == "ammo") // Integer datum match
 	{
 		std::cout << "Create an int match, id: " << xmlNode->Name() << std::endl;
