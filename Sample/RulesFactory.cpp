@@ -64,10 +64,13 @@ RuleBased::Match * RulesFactory::createMatch(tinyxml2::XMLElement * xmlNode)
 
 	// Create a datum match (based on identifier)
 	std::string id = std::string(xmlNode->Name());
-	if (id == "health") // Integer datum match
+	if (id == "health" || id == "ammo") // Integer datum match
 	{
 		std::cout << "Create an int match, id: " << xmlNode->Name() << std::endl;
-		RuleBased::IntegerDatumMatch* datumMatch = new RuleBased::IntegerDatumMatch("health", 0, 20); // fix later
+		int min, max;
+		std::string valueStr = xmlNode->GetText();
+		getMinMaxValueFromString(valueStr, min, max);
+		RuleBased::IntegerDatumMatch* datumMatch = new RuleBased::IntegerDatumMatch(id, min, max);
 		datumMatch->rightSibling = NULL;
 		return datumMatch;
 	}
@@ -81,4 +84,31 @@ RuleBased::Match * RulesFactory::createMatch(tinyxml2::XMLElement * xmlNode)
 	}
 
 	return NULL;
+}
+
+void RulesFactory::getMinMaxValueFromString(std::string & str, int & min, int & max)
+{
+	// Extract min and max value from the string
+	// Pattern of min-max string: <minvalue>-<maxvalue>
+	// Example: 0-50
+	int minusIndex;
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (str[i] == '-')
+		{
+			minusIndex = i;
+			break;
+		}
+	}
+
+	int minStrLength = minusIndex;
+	int maxStrLength = str.length() - minStrLength - 1;
+
+	std::string minStr = str.substr(0, minStrLength);
+	std::string maxStr = str.substr(minusIndex + 1, maxStrLength);
+
+	min = std::stoi(minStr);
+	max = std::stoi(maxStr);
+
+	std::cout << str << ": " << min << ", " << max << std::endl;
 }

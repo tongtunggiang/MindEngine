@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rules>
+<rules>	
+	<rule>
+		<if>
+			<character>
+				<weapon>
+					<ammo>0-50</ammo>
+				</weapon>
+			</character>
+		</if>
+		
+		<action>Fire</action>
+	</rule>
+
 	<rule>
 		<if>
 			<character>
@@ -7,16 +19,6 @@
 			</character>
 		</if>		
 		<action>Retire</action>
-	</rule>
-	
-	<rule>
-		<if>
-			<character>
-				<weapon>Knife</weapon>
-			</character>
-		</if>
-		
-		<action>Hit</action>
 	</rule>
 	
 	<rule>

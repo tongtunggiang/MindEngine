@@ -20,6 +20,8 @@ public:
 
 	static RuleBased::Match* createMatch(tinyxml2::XMLElement* xmlNode);
 
+	static void getMinMaxValueFromString(std::string &str, int &min, int &max);
+
 };
 
 #endif // RULESFACTORY_H
