@@ -2,14 +2,16 @@
 <rules>	
 	<rule>
 		<if>
+			<and>
 			<character>
-				<and>
 					<weapon>
 						<ammo>0-50</ammo>
 					</weapon>
-					<health>0-100</health>
-				</and>/
 			</character>
+			<character>
+					<health>0-100</health>
+			</character>
+			</and>
 		</if>
 		
 		<action>Fire</action>
