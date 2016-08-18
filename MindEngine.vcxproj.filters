@@ -17,6 +17,9 @@
     <Filter Include="Engine\Database">
       <UniqueIdentifier>{e0628937-aec8-4329-8234-105d235fca32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Rete">
+      <UniqueIdentifier>{dab628f3-fd59-4bf7-a812-e9c1fe54504c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Database\DataGroup.cpp">
@@ -48,6 +51,12 @@
     </ClCompile>
     <ClCompile Include="Engine\Rules\BooleanMatch.cpp">
       <Filter>Engine\Rules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rete\ReteNode.cpp">
+      <Filter>Engine\Rete</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rete\PatternNode.cpp">
+      <Filter>Engine\Rete</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +95,12 @@
     </ClInclude>
     <ClInclude Include="Engine\Rules\BooleanMatch.h">
       <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rete\PatternNode.h">
+      <Filter>Engine\Rete</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rete\ReteNode.h">
+      <Filter>Engine\Rete</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
