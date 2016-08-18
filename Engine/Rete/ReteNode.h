@@ -22,7 +22,34 @@ class ReteNode
 
 public:
 
+	/**
+	 * @brief Default constructor
+	 */
     ReteNode();
+
+	/**
+	 * @brief A join node is a node which performs Boolean operations upon the
+	 * results passed down from pattern nodes. Another name for join nodes is
+	 * beta nodes.
+	 * @return true if this node is a join node.
+	 */
+	virtual bool isJoinNode() const;
+
+	/**
+	 * @brief A pattern node is a node which performs tests to the database
+	 * (aka. working memory) and passes down all matched facts. Pattern nodes
+	 * are also referred as alpha nodes.
+	 * @return true if this node is a pattern node.
+	 */
+	virtual bool isPatternNode() const;
+
+	//virtual bool isRuleNode() const;
+
+	/**
+	 * @brief addSuccessorNode
+	 * @param node The node is being added as the successor node of this node.
+	 */
+	virtual bool addSuccessorNode(ReteNode* node) = 0;
 
 protected:
 
