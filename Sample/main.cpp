@@ -62,7 +62,7 @@ void traverseTree(DataNode* root)
 {
 	if (root == NULL)
 		return;
-	std::cout << root->getIdentifier() << " ";
+	std::cout << root->getName() << " ";
 
 	if (root->isGroup())
 	{
@@ -81,7 +81,7 @@ void traverseTree(DataNode* root)
 	}
 	else
 	{
-		IdType rootID = root->getIdentifier();
+		NodeName rootID = root->getName();
 
 		if (rootID == "ammo" || rootID == "clips" || rootID == "health")
 		{

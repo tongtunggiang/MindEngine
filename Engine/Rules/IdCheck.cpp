@@ -9,11 +9,11 @@
 namespace RuleBased
 {
 
-bool IdCheck::isWildcard(IdType identifier)
+bool IdCheck::isWildcard(NodeName name)
 {
     // A wildcard contains a question mark at the beginning of the matching pattern
 	// For example: "?person" will match every name appeared in database like "Mark", "John",...
-    if (identifier[0] == '?')
+    if (name[0] == '?')
         return true;
 
 	return false;

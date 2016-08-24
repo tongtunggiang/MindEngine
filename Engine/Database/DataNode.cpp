@@ -3,16 +3,28 @@
 namespace RuleBased
 {
 
-DataNode::DataNode()
+int DataNode::staticID = 0;
+
+void DataNode::createUniqueID()
 {
-	identifier = "";
-	rightSibling = NULL;
+	id = staticID;
+	staticID++;
 }
 
-DataNode::DataNode(const IdType & identifier)
+DataNode::DataNode()
 {
-	this->identifier = identifier;
+	name = "";
+	rightSibling = NULL;
+
+	createUniqueID();
+}
+
+DataNode::DataNode(const NodeName& name)
+{
+	this->name = name;
 	this->rightSibling = NULL;
+
+	createUniqueID();
 }
 
 DataNode::~DataNode()
@@ -21,9 +33,9 @@ DataNode::~DataNode()
 		delete rightSibling;
 }
 
-IdType DataNode::getIdentifier() const
+NodeName DataNode::getName() const
 {
-	return identifier;
+	return name;
 }
 
 DataNode *DataNode::getRightSibling() const
@@ -45,6 +57,11 @@ void DataNode::setRightSibling(DataNode* sibling)
 {
 	sibling->rightSibling = rightSibling;
 	rightSibling = sibling;
+}
+
+int DataNode::getUniqueID() const
+{
+	return id;
 }
 
 }

@@ -10,8 +10,8 @@ namespace RuleBased
 //}
 //
 //template<class T>
-//Datum<T>::Datum(const std::string &identifier, T value)
-//	: DataNode(identifier), value(value)
+//Datum<T>::Datum(const std::string &name, T value)
+//	: DataNode(name), value(value)
 //{
 //}
 //

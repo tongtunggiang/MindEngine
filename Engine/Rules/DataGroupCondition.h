@@ -25,9 +25,9 @@ struct DataGroupCondition : public DataNodeCondition
 	DataGroupCondition* leftMostChild;
 
 	/**
-	* @brief The identifier to match.
+	* @brief The name to match.
 	*/
-	IdType identifier;
+	NodeName name;
 
 	/**
 	 * @brief Tries to match the given data node from the database against the criteria.

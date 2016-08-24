@@ -31,9 +31,9 @@ struct StringLeafCondition : public DataNodeCondition
 	std::string matchValue;
 
 	/**
-	* @brief The identifier to match.
+	* @brief The name to match.
 	*/
-	IdType identifier;
+	NodeName name;
 
 	/**
 	 * @brief Matches the given database node.
@@ -44,9 +44,9 @@ struct StringLeafCondition : public DataNodeCondition
 	virtual bool matchesNode(DataNode *node, BindingList &bindings);
 
 	/**
-	 * @brief Create a match object with the given identifier and match value.
+	 * @brief Create a match object with the given name and match value.
 	 */
-	StringLeafCondition(IdType identifier, std::string& matchValue);
+	StringLeafCondition(NodeName name, std::string& matchValue);
 
 };
 

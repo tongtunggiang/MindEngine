@@ -31,10 +31,10 @@ public:
 
 	/**
 	 * @brief DataGroup constructor.
-	 * @param identifier a string parameter.
+	 * @param name a string parameter.
 	 * @param leftMostChild a DataNode pointer representing this node's left most child in tree.
 	 */
-	DataGroup(const std::string& identifier);
+	DataGroup(const std::string& name);
 
 	/**
 	 * @brief ~DataGroup destructor.

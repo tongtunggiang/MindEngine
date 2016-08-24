@@ -21,11 +21,11 @@ class IdCheck
 public:
 
 	/**
-	 * @brief Check if the given database item's identifier is a wildcard or not.
+	 * @brief Check if the given database item's name is a wildcard or not.
 	 * @see IdType
 	 * @return True if it is a wildcard.
 	 */
-	static bool isWildcard(IdType identifier);
+	static bool isWildcard(NodeName name);
 
 };
 

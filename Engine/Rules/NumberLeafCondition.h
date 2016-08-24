@@ -44,9 +44,9 @@ struct NumberLeafCondition : public DataNodeCondition
 	T max;
 
 	/**
-	* @brief The identifier to match.
+	* @brief The name to match.
 	*/
-	IdType identifier;
+	NodeName name;
 
 	/**
 	 * @brief Matches the given database node.
@@ -57,13 +57,13 @@ struct NumberLeafCondition : public DataNodeCondition
 	virtual bool matchesNode(DataNode *node, BindingList &bindings);
 
 	/**
-	 * @brief Create a match object with the given identifier and range.
+	 * @brief Create a match object with the given name and range.
 	 * This range-based approach allows you to match a range with more flexibility. For example,
 	 * if you want to check the HP of the agent is lower than 80, you just create a matching range
 	 * of [0, 79] (since both limits are inclusive).
 	 * @note Remember to have max value greater than or equal to the min value.
 	 */
-	NumberLeafCondition(IdType identifier, T min, T max);
+	NumberLeafCondition(NodeName name, T min, T max);
 };
 
 typedef NumberLeafCondition<int> IntegerLeafCondition;

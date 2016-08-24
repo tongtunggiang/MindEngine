@@ -13,8 +13,7 @@ namespace RuleBased
 {
 
 /**
- * @brief A Datum consists of an identifier and and value. In Database's tree structure,
- * a leaf node is a Datum.
+ * @brief A Leaf node consists of an name and and value.
  * @see DataNode
  * @see DataGroup
  */
@@ -26,16 +25,16 @@ public:
 
 	/**
 	 * @brief Leaf node constructor.
-	 * @param value the value that the Datum holds.
+	 * @param value the value that the Leaf node holds.
 	 */
 	LeafDataNode(T value) : DataNode(), value(value) {}
 
 	/**
 	 * @brief Leaf node constructor.
-	 * @param identifier a string parameter.
-	 * @param value the value that the Datum holds.
+	 * @param name a string parameter.
+	 * @param value the value that the Leaf node holds.
 	 */
-	LeafDataNode(const std::string& identifier, T value) : DataNode(identifier), value(value) {}
+	LeafDataNode(const std::string& name, T value) : DataNode(name), value(value) {}
 
 	/**
 	 * @brief ~Leaf node destructor
@@ -44,13 +43,13 @@ public:
 
 	/**
 	 * @brief To change the value of the Leaf node.
-	 * @param newValue The new value that is going to be assigned to the Datum.
+	 * @param newValue The new value that is going to be assigned to the Leaf node.
 	 */
 	void setValue(T newValue) { value = newValue; }
 
 	/**
 	 * @brief To get the value of the Leaf node.
-	 * @return The value that the datum is currently holding.
+	 * @return The value that the Leaf node is currently holding.
 	 */
 	T getValue() const { return value; }
 

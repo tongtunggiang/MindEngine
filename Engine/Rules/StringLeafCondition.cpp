@@ -9,14 +9,14 @@ namespace RuleBased
 
 bool StringLeafCondition::matchesNode(DataNode * node, BindingList & bindings)
 {
-	//std::cout << "Test node: " << identifier << " against data item: " << node->getIdentifier() << std::endl;
+	//std::cout << "Test node: " << name << " against data item: " << node->getName() << std::endl;
 
 	if (!node->isLeaf())
 		return false;
 
-	bool idIsWildcard = IdCheck::isWildcard(identifier);
+	bool idIsWildcard = IdCheck::isWildcard(name);
 	if (!idIsWildcard &&
-		identifier != node->getIdentifier())
+		name != node->getName())
 		return false;
 
 	LeafDataNode<std::string> *datum = (LeafDataNode<std::string>*)node;
@@ -25,7 +25,7 @@ bool StringLeafCondition::matchesNode(DataNode * node, BindingList & bindings)
 	{
 		if (idIsWildcard)
 		{
-			bindings[identifier] = node;
+			bindings[name] = node;
 		}
 		return true;
 	}
@@ -33,8 +33,8 @@ bool StringLeafCondition::matchesNode(DataNode * node, BindingList & bindings)
 	return false;
 }
 
-StringLeafCondition::StringLeafCondition(IdType identifier, std::string & matchValue)
-	: identifier(identifier), matchValue(matchValue)
+StringLeafCondition::StringLeafCondition(NodeName name, std::string & matchValue)
+	: name(name), matchValue(matchValue)
 {
 }
 

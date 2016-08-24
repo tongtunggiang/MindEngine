@@ -9,9 +9,9 @@ bool DataGroupCondition::matchesNode(DataNode* node, BindingList &bindings)
 	if (!node->isGroup())
 		return false;
 
-	bool identifierIsWildcard = IdCheck::isWildcard(identifier);
+	bool identifierIsWildcard = IdCheck::isWildcard(name);
 	if (!identifierIsWildcard &&
-		identifier != node->getIdentifier())
+		name != node->getName())
 	{
 		return false;
 	}
@@ -31,7 +31,7 @@ bool DataGroupCondition::matchesNode(DataNode* node, BindingList &bindings)
 	if (identifierIsWildcard)
 	{
 		// Add to the binding list.
-		bindings[identifier] = node;
+		bindings[name] = node;
 	}
 
 	return true;

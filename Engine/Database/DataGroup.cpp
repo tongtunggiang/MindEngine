@@ -11,8 +11,8 @@ DataGroup::DataGroup()
 	leftMostChild = NULL;
 }
 
-DataGroup::DataGroup(const std::string &identifier)
-	: DataNode(identifier)
+DataGroup::DataGroup(const std::string &name)
+	: DataNode(name)
 {
 	this->leftMostChild = NULL;
 }

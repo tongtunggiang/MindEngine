@@ -10,9 +10,9 @@ bool NumberLeafCondition<T>::matchesNode(DataNode *node, BindingList &bindings)
 	if (!node->isLeaf())
 		return false;
 
-	bool idIsWildcard = IdCheck::isWildcard(identifier);
+	bool idIsWildcard = IdCheck::isWildcard(name);
 	if (!idIsWildcard &&
-		identifier != node->getIdentifier())
+		name != node->getName())
 		return false;
 
 	LeafDataNode<T> *datum = (LeafDataNode<T>*)node;
@@ -25,7 +25,7 @@ bool NumberLeafCondition<T>::matchesNode(DataNode *node, BindingList &bindings)
 		if (idIsWildcard)
 		{
 			// Add to the binding list.
-			bindings[identifier] = node;
+			bindings[name] = node;
 		}
 		return true;
 	}
@@ -34,8 +34,8 @@ bool NumberLeafCondition<T>::matchesNode(DataNode *node, BindingList &bindings)
 }
 
 template<typename T>
-NumberLeafCondition<T>::NumberLeafCondition(IdType identifier, T min, T max)
-	: identifier(identifier), min(min), max(max)
+NumberLeafCondition<T>::NumberLeafCondition(NodeName name, T min, T max)
+	: name(name), min(min), max(max)
 {
 }
 
