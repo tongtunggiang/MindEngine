@@ -36,7 +36,7 @@ bool DataNode::isGroup() const
 	return false;
 }
 
-bool DataNode::isDatum() const
+bool DataNode::isLeaf() const
 {
 	return false;
 }

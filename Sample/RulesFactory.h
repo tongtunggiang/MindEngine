@@ -4,10 +4,10 @@
 #include <vector>
 
 #include "tinyxml2.h"
-#include "DataGroupMatch.h"
-#include "NumberDatumMatch.h"
-#include "StringDatumMatch.h"
-#include "BooleanMatch.h"
+#include "DataGroupCondition.h"
+#include "NumberLeafCondition.h"
+#include "StringLeafCondition.h"
+#include "BooleanCondition.h"
 #include "Rule.h"
 
 class RulesFactory
@@ -19,7 +19,7 @@ public:
 
 	static RuleBased::Rule* processRule(tinyxml2::XMLElement* xmlNode);
 
-	static RuleBased::Match* createMatch(tinyxml2::XMLElement* xmlNode);
+	static RuleBased::Condition* createMatch(tinyxml2::XMLElement* xmlNode);
 
 	static void getMinMaxValueFromString(std::string &str, int &min, int &max);
 

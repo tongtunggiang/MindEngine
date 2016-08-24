@@ -85,12 +85,12 @@ void traverseTree(DataNode* root)
 
 		if (rootID == "ammo" || rootID == "clips" || rootID == "health")
 		{
-			Datum<int>* datum = (Datum<int>*)root;
+			LeafDataNode<int>* datum = (LeafDataNode<int>*)root;
 			std::cout << datum->getValue() << " ";
 		}
 		else
 		{
-			Datum<std::string>* datum = (Datum<std::string>*)root;
+			LeafDataNode<std::string>* datum = (LeafDataNode<std::string>*)root;
 			std::cout << datum->getValue() << " ";
 		}
 	}

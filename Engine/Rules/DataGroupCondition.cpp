@@ -1,10 +1,10 @@
-#include "DataGroupMatch.h"
+#include "DataGroupCondition.h"
 #include "IdCheck.h"
 
 namespace RuleBased
 {
 
-bool DataGroupMatch::matchesNode(DataNode* node, BindingList &bindings)
+bool DataGroupCondition::matchesNode(DataNode* node, BindingList &bindings)
 {
 	if (!node->isGroup())
 		return false;
@@ -19,7 +19,7 @@ bool DataGroupMatch::matchesNode(DataNode* node, BindingList &bindings)
 	DataGroup* group = (DataGroup*) node;
 
 	// Check the match of every children in test item
-	DataNodeMatch* match = leftMostChild;
+	DataNodeCondition* match = leftMostChild;
 	while (match)
 	{
 		if (!match->matchesChildren(group, bindings))

@@ -3,7 +3,7 @@
 
 #include "tinyxml2.h"
 #include "DataGroup.h"
-#include "Datum.h"
+#include "LeafDataNode.h"
 
 #define DATABASE_FILE "Database.xml"
 

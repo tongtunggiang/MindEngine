@@ -10,20 +10,20 @@ RuleBased::DataNode * DataTreeFactory::processDataNode(tinyxml2::XMLElement * xm
 		std::string xmlNodeType = xmlNode->Name();
 		if (xmlNodeType == "ammo" || xmlNodeType == "clips" || xmlNodeType == "health")
 		{
-			RuleBased::Datum<int>* result = new RuleBased::Datum<int>(
+			RuleBased::LeafDataNode<int>* result = new RuleBased::LeafDataNode<int>(
 				xmlNode->Name(),
 				std::stoi(std::string(xmlNode->GetText())));
 			return result;
 		}
 		else
 		{
-			RuleBased::Datum<std::string>* result = new RuleBased::Datum<std::string>(
+			RuleBased::LeafDataNode<std::string>* result = new RuleBased::LeafDataNode<std::string>(
 				xmlNode->Name(),
 				xmlNode->GetText());
 			return result;
 		}
 
-		return new RuleBased::Datum<int>(
+		return new RuleBased::LeafDataNode<int>(
 			xmlNode->Name(),
 			0);
 	}

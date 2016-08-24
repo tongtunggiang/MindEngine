@@ -21,31 +21,31 @@
   <ItemGroup>
     <ClCompile Include="Engine\Database\DataGroup.cpp" />
     <ClCompile Include="Engine\Database\DataNode.cpp" />
-    <ClCompile Include="Engine\Database\Datum.cpp" />
+    <ClCompile Include="Engine\Database\LeafDataNode.cpp" />
     <ClCompile Include="Engine\Rete\PatternNode.cpp" />
     <ClCompile Include="Engine\Rete\ReteNode.cpp" />
-    <ClCompile Include="Engine\Rules\BooleanMatch.cpp" />
-    <ClCompile Include="Engine\Rules\DataGroupMatch.cpp" />
-    <ClCompile Include="Engine\Rules\DataNodeMatch.cpp" />
+    <ClCompile Include="Engine\Rules\BooleanCondition.cpp" />
+    <ClCompile Include="Engine\Rules\DataGroupCondition.cpp" />
+    <ClCompile Include="Engine\Rules\DataNodeCondition.cpp" />
     <ClCompile Include="Engine\Rules\IdCheck.cpp" />
-    <ClCompile Include="Engine\Rules\NumberDatumMatch.cpp" />
-    <ClCompile Include="Engine\Rules\StringDatumMatch.cpp" />
+    <ClCompile Include="Engine\Rules\NumberLeafCondition.cpp" />
+    <ClCompile Include="Engine\Rules\StringLeafCondition.cpp" />
     <ClCompile Include="Libs\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Database\DataGroup.h" />
     <ClInclude Include="Engine\Database\DataNode.h" />
-    <ClInclude Include="Engine\Database\Datum.h" />
+    <ClInclude Include="Engine\Database\LeafDataNode.h" />
     <ClInclude Include="Engine\Rete\PatternNode.h" />
     <ClInclude Include="Engine\Rete\ReteNode.h" />
-    <ClInclude Include="Engine\Rules\BooleanMatch.h" />
-    <ClInclude Include="Engine\Rules\DataGroupMatch.h" />
-    <ClInclude Include="Engine\Rules\DataNodeMatch.h" />
+    <ClInclude Include="Engine\Rules\BooleanCondition.h" />
+    <ClInclude Include="Engine\Rules\DataGroupCondition.h" />
+    <ClInclude Include="Engine\Rules\DataNodeCondition.h" />
     <ClInclude Include="Engine\Rules\IdCheck.h" />
-    <ClInclude Include="Engine\Rules\Match.h" />
-    <ClInclude Include="Engine\Rules\NumberDatumMatch.h" />
+    <ClInclude Include="Engine\Rules\Condition.h" />
+    <ClInclude Include="Engine\Rules\NumberLeafCondition.h" />
     <ClInclude Include="Engine\Rules\Rule.h" />
-    <ClInclude Include="Engine\Rules\StringDatumMatch.h" />
+    <ClInclude Include="Engine\Rules\StringLeafCondition.h" />
     <ClInclude Include="Libs\tinyxml2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -48,7 +48,7 @@ bool DataGroup::isGroup() const
 
 bool DataGroup::canCastToDataGroup(DataNode* node)
 {
-	if (node->isDatum())
+	if (node->isLeaf())
 		return false;
 	return true;
 }

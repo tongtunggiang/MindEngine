@@ -1,4 +1,4 @@
-#include "Datum.h"
+#include "LeafDataNode.h"
 
 namespace RuleBased
 {
@@ -33,7 +33,7 @@ namespace RuleBased
 //}
 //
 //template<class T>
-//bool Datum<T>::isDatum()
+//bool Datum<T>::isLeaf()
 //{
 //	return true;
 //}

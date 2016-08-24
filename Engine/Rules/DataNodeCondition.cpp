@@ -1,14 +1,14 @@
-#include "DataNodeMatch.h"
+#include "DataNodeCondition.h"
 
 namespace RuleBased
 {
 
-bool DataNodeMatch::matches(DataNode *database, BindingList &bindings)
+bool DataNodeCondition::matches(DataNode *database, BindingList &bindings)
 {
 	return matchesChildren((DataGroup*) database, bindings);
 }
 
-bool DataNodeMatch::matchesChildren(DataGroup *group, BindingList &bindings)
+bool DataNodeCondition::matchesChildren(DataGroup *group, BindingList &bindings)
 {
 	DataNode* node = group->getLeftMostChild();
 	while (node)

@@ -28,29 +28,11 @@
     <ClCompile Include="Engine\Database\DataNode.cpp">
       <Filter>Engine\Database</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Database\Datum.cpp">
-      <Filter>Engine\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\NumberDatumMatch.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\DataGroupMatch.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\DataNodeMatch.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Rules\IdCheck.cpp">
       <Filter>Engine\Rules</Filter>
     </ClCompile>
     <ClCompile Include="Libs\tinyxml2.cpp">
       <Filter>Libs</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\StringDatumMatch.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\BooleanMatch.cpp">
-      <Filter>Engine\Rules</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Rete\ReteNode.cpp">
       <Filter>Engine\Rete</Filter>
@@ -58,11 +40,26 @@
     <ClCompile Include="Engine\Rete\PatternNode.cpp">
       <Filter>Engine\Rete</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Database\LeafDataNode.cpp">
+      <Filter>Engine\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rules\BooleanCondition.cpp">
+      <Filter>Engine\Rules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rules\DataNodeCondition.cpp">
+      <Filter>Engine\Rules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rules\DataGroupCondition.cpp">
+      <Filter>Engine\Rules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rules\NumberLeafCondition.cpp">
+      <Filter>Engine\Rules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rules\StringLeafCondition.cpp">
+      <Filter>Engine\Rules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Database\Datum.h">
-      <Filter>Engine\Database</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Database\DataNode.h">
       <Filter>Engine\Database</Filter>
     </ClInclude>
@@ -72,35 +69,38 @@
     <ClInclude Include="Engine\Rules\Rule.h">
       <Filter>Engine\Rules</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Rules\DataGroupMatch.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\DataNodeMatch.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Rules\IdCheck.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\Match.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\NumberDatumMatch.h">
       <Filter>Engine\Rules</Filter>
     </ClInclude>
     <ClInclude Include="Libs\tinyxml2.h">
       <Filter>Libs</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\StringDatumMatch.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\BooleanMatch.h">
-      <Filter>Engine\Rules</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Rete\PatternNode.h">
       <Filter>Engine\Rete</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Rete\ReteNode.h">
       <Filter>Engine\Rete</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Database\LeafDataNode.h">
+      <Filter>Engine\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\Condition.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\BooleanCondition.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\DataNodeCondition.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\NumberLeafCondition.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\StringLeafCondition.h">
+      <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rules\DataGroupCondition.h">
+      <Filter>Engine\Rules</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -42,74 +42,74 @@ RuleBased::Rule * RulesFactory::processRule(tinyxml2::XMLElement * xmlNode)
 
 // WARNING: ugly code, but I don't want to separate my recursive function
 // Considering Abstract Factory design pattern for this
-RuleBased::Match * RulesFactory::createMatch(tinyxml2::XMLElement * xmlNode)
+RuleBased::Condition * RulesFactory::createMatch(tinyxml2::XMLElement * xmlNode)
 {	
 	//----------
-	// Create a boolean match
+	// Create a boolean condition
 	std::string id = std::string(xmlNode->Name());
 	if (id == "and")
 	{
-		RuleBased::Match* one = createMatch(xmlNode->FirstChildElement());
-		RuleBased::Match* two = createMatch(xmlNode->FirstChildElement()->NextSiblingElement());
+		RuleBased::Condition* one = createMatch(xmlNode->FirstChildElement());
+		RuleBased::Condition* two = createMatch(xmlNode->FirstChildElement()->NextSiblingElement());
 
-		RuleBased::AndMatch* match = new RuleBased::AndMatch(one, two);
-		return match;
+		RuleBased::AndCondition* condition = new RuleBased::AndCondition(one, two);
+		return condition;
 	}
 	else if (id == "or")
 	{
-		RuleBased::Match* one = createMatch(xmlNode->FirstChildElement());
-		RuleBased::Match* two = createMatch(xmlNode->FirstChildElement()->NextSiblingElement());
+		RuleBased::Condition* one = createMatch(xmlNode->FirstChildElement());
+		RuleBased::Condition* two = createMatch(xmlNode->FirstChildElement()->NextSiblingElement());
 
-		RuleBased::OrMatch* match = new RuleBased::OrMatch(one, two);
+		RuleBased::OrCondition* match = new RuleBased::OrCondition(one, two);
 		return match;
 	}
 	else if (id == "not")
 	{
-		RuleBased::Match* childMatch = createMatch(xmlNode->FirstChildElement());
-		RuleBased::NotMatch* match = new RuleBased::NotMatch(childMatch);
+		RuleBased::Condition* childMatch = createMatch(xmlNode->FirstChildElement());
+		RuleBased::NotCondition* match = new RuleBased::NotCondition(childMatch);
 		return match;
 	}
 
 	//----------
-	// Create a data group match
+	// Create a data group condition
 	if (xmlNode->FirstChildElement() != NULL)
 	{
-		std::cout << "Create a group match, id: " << xmlNode->Name() << std::endl;
-		RuleBased::DataGroupMatch* groupMatch = new RuleBased::DataGroupMatch();
-		groupMatch->identifier = std::string(xmlNode->Name());
-		groupMatch->leftMostChild = (RuleBased::DataNodeMatch*)createMatch(xmlNode->FirstChildElement());
+		std::cout << "Create a group condition, id: " << xmlNode->Name() << std::endl;
+		RuleBased::DataGroupCondition* groupCondition = new RuleBased::DataGroupCondition();
+		groupCondition->identifier = std::string(xmlNode->Name());
+		groupCondition->leftMostChild = (RuleBased::DataGroupCondition*)createMatch(xmlNode->FirstChildElement());
 		
 		tinyxml2::XMLElement* xmlSibling = xmlNode->FirstChildElement()->NextSiblingElement();
-		RuleBased::DataNodeMatch* sibling = groupMatch->leftMostChild->rightSibling;
+		RuleBased::DataNodeCondition* sibling = groupCondition->leftMostChild->rightSibling;
 		while (xmlSibling != NULL)
 		{
-			sibling = (RuleBased::DataNodeMatch*)createMatch(xmlSibling);
+			sibling = (RuleBased::DataNodeCondition*)createMatch(xmlSibling);
 			xmlSibling = xmlSibling->NextSiblingElement();
 			sibling = sibling->rightSibling;
 		}
 
-		return groupMatch;
+		return groupCondition;
 	}
 
 	//----------
-	// Create a datum match (based on identifier)
-	if (id == "health" || id == "ammo") // Integer datum match
+	// Create a datum condition (based on identifier)
+	if (id == "health" || id == "ammo") // Integer datum condition
 	{
-		std::cout << "Create an int match, id: " << xmlNode->Name() << std::endl;
+		std::cout << "Create an int condition, id: " << xmlNode->Name() << std::endl;
 		int min, max;
 		std::string valueStr = xmlNode->GetText();
 		getMinMaxValueFromString(valueStr, min, max);
-		RuleBased::IntegerDatumMatch* datumMatch = new RuleBased::IntegerDatumMatch(id, min, max);
-		datumMatch->rightSibling = NULL;
-		return datumMatch;
+		RuleBased::IntegerLeafCondition* leafCondition = new RuleBased::IntegerLeafCondition(id, min, max);
+		leafCondition->rightSibling = NULL;
+		return leafCondition;
 	}
-	else if (id == "weapon" || id == "job") // String datum match
+	else if (id == "weapon" || id == "job") // String datum condition
 	{
-		std::cout << "Create a string match, id: " << xmlNode->Name() << std::endl;
+		std::cout << "Create a string condition, id: " << xmlNode->Name() << std::endl;
 		std::string value = std::string(xmlNode->GetText());
-		RuleBased::StringDatumMatch* datumMatch = new RuleBased::StringDatumMatch(id, value);
-		datumMatch->rightSibling = NULL;
-		return datumMatch;
+		RuleBased::StringLeafCondition* leafCondition = new RuleBased::StringLeafCondition(id, value);
+		leafCondition->rightSibling = NULL;
+		return leafCondition;
 	}
 
 	return NULL;

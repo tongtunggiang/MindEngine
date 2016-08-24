@@ -24,9 +24,9 @@ namespace RuleBased
 typedef std::map<std::string, DataNode*> BindingList;
 
 /**
- * @brief Provides the mechanism to match the data item from the rule with any item inside the database.
+ * @brief Provides the mechanism to match the data item from the rule with any item inside the database. This struct represents the condition part (aka. the if part) of the rule.
  */
-struct Match
+struct Condition
 {
 	/**
 	 * @brief Check the match on the database.

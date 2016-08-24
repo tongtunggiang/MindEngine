@@ -19,51 +19,51 @@ namespace RuleBased
  * @see DataGroup
  */
 template<class T>
-class Datum : public DataNode
+class LeafDataNode : public DataNode
 {
 
 public:
 
 	/**
-	 * @brief Datum constructor.
+	 * @brief Leaf node constructor.
 	 * @param value the value that the Datum holds.
 	 */
-	Datum(T value) : DataNode(), value(value) {}
+	LeafDataNode(T value) : DataNode(), value(value) {}
 
 	/**
-	 * @brief Datum constructor.
+	 * @brief Leaf node constructor.
 	 * @param identifier a string parameter.
 	 * @param value the value that the Datum holds.
 	 */
-	Datum(const std::string& identifier, T value) : DataNode(identifier), value(value) {}
+	LeafDataNode(const std::string& identifier, T value) : DataNode(identifier), value(value) {}
 
 	/**
-	 * @brief ~Datum destructor
+	 * @brief ~Leaf node destructor
 	 */
-	virtual ~Datum() {}
+	virtual ~LeafDataNode() {}
 
 	/**
-	 * @brief To change the value of the Datum.
+	 * @brief To change the value of the Leaf node.
 	 * @param newValue The new value that is going to be assigned to the Datum.
 	 */
 	void setValue(T newValue) { value = newValue; }
 
 	/**
-	 * @brief To get the value of the Datum.
+	 * @brief To get the value of the Leaf node.
 	 * @return The value that the datum is currently holding.
 	 */
 	T getValue() const { return value; }
 
 	/**
-	 * @brief Allows user to check whether this node is a Datum or not.
-	 * @return true if this node is a Datum, otherwise returns false.
+	 * @brief Allows user to check whether this node is a Leaf node or not.
+	 * @return true if this node is a Leaf node, otherwise returns false.
 	 */
-	bool isDatum() const { return true;  }
+	bool isLeaf() const { return true;  }
 
 private:
 
 	/**
-	 * @brief The value that the datum node holds.
+	 * @brief The value that the Leaf node holds.
 	 */
 	T value;
 

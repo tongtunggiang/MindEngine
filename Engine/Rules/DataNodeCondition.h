@@ -1,7 +1,7 @@
 #ifndef DATANODEMATCH_H
 #define DATANODEMATCH_H
 
-#include "Match.h"
+#include "Condition.h"
 #include "DataGroup.h"
 
 #include <string>
@@ -16,7 +16,7 @@ namespace RuleBased
 {
 
 /**
- * @brief A struct derived from Match, it is responsible for matching a
+ * @brief A struct derived from Condition, it is responsible for matching a
  * single DataNode in the database.
  *
  * Conceptually, the match class could match the whole database in
@@ -31,14 +31,14 @@ namespace RuleBased
  * Data node matches are arranged into tree, just like how data nodes
  * are.
  *
- * @see Match
+ * @see Condition
  */
-struct DataNodeMatch : public Match
+struct DataNodeCondition : public Condition
 {
 	/**
 	 * @brief The right sibling of this node in match tree.
 	 */
-	DataNodeMatch* rightSibling;
+	DataNodeCondition* rightSibling;
 
 	/**
 	 * @brief Matches the given database by checking each element in the database against the matchesNode method.

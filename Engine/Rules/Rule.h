@@ -1,7 +1,7 @@
 #ifndef RULE_H
 #define RULE_H
 
-#include "Match.h"
+#include "Condition.h"
 
 #include <string>
 
@@ -16,6 +16,7 @@ namespace RuleBased
 
 /**
  * @brief Represent a rule in a Rule-based system. A rule has two components: an if clause is going to be used to match against the database and a function to perform any action required.
+ * A rule has a condition and an action. If the condition is matched, the action will be executed.
  */
 class Rule
 {
@@ -25,7 +26,7 @@ public:
 	/**
 	 * @brief Consist of a set of data items, in a similar format to those in the database.
 	 */
-	Match* ifClause;
+	Condition* ifClause;
 
 	/**
 	 * @brief The action is going to be carried out when the rule matches.

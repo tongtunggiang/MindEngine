@@ -1,8 +1,8 @@
 #ifndef NUMBERDATUMMATCH_H
 #define NUMBERDATUMMATCH_H
 
-#include "DataNodeMatch.h"
-#include "Datum.h"
+#include "DataNodeCondition.h"
+#include "LeafDataNode.h"
 
 /**
  * @brief Contains classes to represent Rule-based system's database,
@@ -14,7 +14,7 @@ namespace RuleBased
 {
 
 /**
- * @brief A struct provides mechanism for matching two Datum whose values
+ * @brief A struct provides mechanism for matching two Leaf nodes whose values
  * is number values (int, float,...).
  *
  * It uses the range-based approach, since every number values in game is
@@ -24,14 +24,14 @@ namespace RuleBased
  * be combined into a single match struct.
  *
  * @note This struct acts not only as the mechanism of matching two number
- * Datum nodes, it also is the example of how to implement your own type of matching
+ * Leaf nodes, it also is the example of how to implement your own type of matching
  * with other data structures.
  *
- * @see Match
- * @see DataNodeMatch
+ * @see Condition
+ * @see DataNodeCondition
  */
 template<typename T>
-struct NumberDatumMatch : public DataNodeMatch
+struct NumberLeafCondition : public DataNodeCondition
 {
 	/**
 	 * @brief The minimum value of the matching range (inclusive).
@@ -63,11 +63,11 @@ struct NumberDatumMatch : public DataNodeMatch
 	 * of [0, 79] (since both limits are inclusive).
 	 * @note Remember to have max value greater than or equal to the min value.
 	 */
-	NumberDatumMatch(IdType identifier, T min, T max);
+	NumberLeafCondition(IdType identifier, T min, T max);
 };
 
-typedef NumberDatumMatch<int> IntegerDatumMatch;
-typedef NumberDatumMatch<float> FloatDatumMatch;
+typedef NumberLeafCondition<int> IntegerLeafCondition;
+typedef NumberLeafCondition<float> FloatLeafCondition;
 
 }
 

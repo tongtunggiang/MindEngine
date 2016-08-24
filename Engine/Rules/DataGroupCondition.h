@@ -1,7 +1,7 @@
 #ifndef DATAGROUPMATCH_H
 #define DATAGROUPMATCH_H
 
-#include "DataNodeMatch.h"
+#include "DataNodeCondition.h"
 
 /**
  * @brief Contains classes to represent Rule-based system's database,
@@ -16,13 +16,13 @@ namespace RuleBased
  * @brief Matches a group of data in the database.
  * This is done by building a match data structure that mirrors the data structure that is being searched for in the database.
  */
-struct DataGroupMatch : public DataNodeMatch
+struct DataGroupCondition : public DataNodeCondition
 {
 
 	/**
 	 * @brief The first sub-match in this group.
 	 */
-	DataNodeMatch* leftMostChild;
+	DataGroupCondition* leftMostChild;
 
 	/**
 	* @brief The identifier to match.
