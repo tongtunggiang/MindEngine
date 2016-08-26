@@ -107,7 +107,11 @@ RuleBased::JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* co
 
 RuleBased::PatternNode* ReteNetworkFactory::createPatternNode(tinyxml2::XMLElement* conditionNode)
 {
+	RuleBased::PatternNode* result;
 
+	networkRoot->addSuccessorNode(result);
+
+	return result;
 }
 
 }
