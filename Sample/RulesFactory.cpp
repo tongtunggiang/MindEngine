@@ -31,12 +31,11 @@ RuleBased::Rule * RulesFactory::processRule(tinyxml2::XMLElement * xmlNode)
 	//			</character>
 	//		</if>
 	//		<action>Hit</action>
-	RuleBased::Rule* result = new RuleBased::Rule();
-	tinyxml2::XMLElement* ifClauseNode = xmlNode->FirstChildElement("if");
-	tinyxml2::XMLElement* actionNode = xmlNode->FirstChildElement("action");
+	RuleBased::Condition* ifClause = createMatch(xmlNode->FirstChildElement("if")->FirstChildElement());
+	std::string action = xmlNode->FirstChildElement("action")->GetText();
 
-	result->ifClause = createMatch(ifClauseNode->FirstChildElement());
-	result->action = actionNode->GetText();
+	RuleBased::Rule* result = new RuleBased::Rule(ifClause, action);
+
 	return result;
 }
 

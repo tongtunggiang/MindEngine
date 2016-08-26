@@ -21,6 +21,8 @@ public:
 
 	static RuleBased::Condition* createMatch(tinyxml2::XMLElement* xmlNode);
 
+private:
+
 	static void getMinMaxValueFromString(std::string &str, int &min, int &max);
 
 };

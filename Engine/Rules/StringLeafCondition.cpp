@@ -23,9 +23,9 @@ bool StringLeafCondition::matchesNode(DataNode * node, BindingList & bindings)
 
 	if (datum->getValue() == matchValue)
 	{
-		if (idIsWildcard)
+		//if (idIsWildcard)
 		{
-			bindings[name] = node;
+			bindings.push_back(node->getUniqueID());
 		}
 		return true;
 	}

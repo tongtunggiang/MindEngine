@@ -34,6 +34,8 @@ public:
 	 */
 	std::string action;
 
+	Rule(Condition* ifClause, const std::string& action) : ifClause(ifClause), action(action) {}
+
 };
 
 }

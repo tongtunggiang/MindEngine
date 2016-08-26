@@ -28,10 +28,10 @@ bool DataGroupCondition::matchesNode(DataNode* node, BindingList &bindings)
 	}
 
 	//if (bindings && identifierIsWildcard)
-	if (identifierIsWildcard)
+	//if (identifierIsWildcard)
 	{
 		// Add to the binding list.
-		bindings[name] = node;
+		bindings.push_back(node->getUniqueID());
 	}
 
 	return true;

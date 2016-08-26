@@ -58,6 +58,15 @@
     <ClCompile Include="Engine\Rules\StringLeafCondition.cpp">
       <Filter>Engine\Rules</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Rete\ReteNetworkFactory.cpp">
+      <Filter>Engine\Rete</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rete\JoinNode.cpp">
+      <Filter>Engine\Rete</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Rete\RootNode.cpp">
+      <Filter>Engine\Rete</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Database\DataNode.h">
@@ -101,6 +110,15 @@
     </ClInclude>
     <ClInclude Include="Engine\Rules\DataGroupCondition.h">
       <Filter>Engine\Rules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rete\ReteNetworkFactory.h">
+      <Filter>Engine\Rete</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rete\JoinNode.h">
+      <Filter>Engine\Rete</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Rete\RootNode.h">
+      <Filter>Engine\Rete</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -22,10 +22,10 @@ bool NumberLeafCondition<T>::matchesNode(DataNode *node, BindingList &bindings)
 	 */
 	if (min <= datum->getValue() && datum->getValue() <= max)
 	{
-		if (idIsWildcard)
+		//if (idIsWildcard)
 		{
 			// Add to the binding list.
-			bindings[name] = node;
+			bindings.push_back(node->getUniqueID());
 		}
 		return true;
 	}

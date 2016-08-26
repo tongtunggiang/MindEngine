@@ -1,6 +1,8 @@
 #ifndef RETENODE_H
 #define RETENODE_H
 
+#include "Condition.h"
+
 #include <vector>
 
 /**
@@ -23,7 +25,7 @@ class ReteNode
 public:
 
 	/**
-	 * @brief Default constructor
+	 * @brief Default constructor.
 	 */
     ReteNode();
 
@@ -43,11 +45,19 @@ public:
 	 */
 	virtual bool isPatternNode() const;
 
+	/**
+	 * @brief Rete network has an entry point called root node. The database
+	 * will be passed into the network through this node.
+	 * @return true if this node is a root node.
+	 */
+	virtual bool isRootNode() const;
+
 	//virtual bool isRuleNode() const;
 
 	/**
-	 * @brief addSuccessorNode
+	 * @brief Add a successor node to current list.
 	 * @param node The node is being added as the successor node of this node.
+	 * @return true if the node is successfully added, otherwise return false.
 	 */
 	virtual bool addSuccessorNode(ReteNode* node) = 0;
 
@@ -58,6 +68,13 @@ protected:
      * Note that there is no opposite way, since the graph is directed acyclic.
      */
     std::vector<ReteNode*> successorNodes;
+
+	/**
+	 * @brief The list which is passed to the lower layer of Rete network stores
+	 * the unique ID of matched data nodes.
+	 * This list is reset every frame.
+	 */
+	BindingList outputBindingList;
 
 };
 

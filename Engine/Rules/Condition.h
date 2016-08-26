@@ -2,7 +2,7 @@
 #define MATCH_H
 
 #include "DataNode.h"
-#include <map>
+#include <vector>
 
 /**
  * @brief Contains classes to represent Rule-based system's database,
@@ -14,14 +14,9 @@ namespace RuleBased
 {
 
 /**
-* @brief The list of bound actions is simply a list of strings representing actions (for now).
-* I use list of strings for output actions because 1/ the action should be freed from function
-* signatures and 2/ the AI engine should only produce 'decisions', rather than carry out the
-* actions - that is the job of the agent itself.
-* @note The output actions list would be used to carry out actions later by the agent. The
-* approach here is to find appropriate methods on the script files to execute.
-*/
-typedef std::map<std::string, DataNode*> BindingList;
+ * @brief The list used to store unique IDs of database nodes which match the condition.
+ */
+typedef std::vector<int> BindingList;
 
 /**
  * @brief Provides the mechanism to match the data item from the rule with any item inside the database. This struct represents the condition part (aka. the if part) of the rule.

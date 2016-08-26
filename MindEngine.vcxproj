@@ -22,8 +22,11 @@
     <ClCompile Include="Engine\Database\DataGroup.cpp" />
     <ClCompile Include="Engine\Database\DataNode.cpp" />
     <ClCompile Include="Engine\Database\LeafDataNode.cpp" />
+    <ClCompile Include="Engine\Rete\JoinNode.cpp" />
     <ClCompile Include="Engine\Rete\PatternNode.cpp" />
+    <ClCompile Include="Engine\Rete\ReteNetworkFactory.cpp" />
     <ClCompile Include="Engine\Rete\ReteNode.cpp" />
+    <ClCompile Include="Engine\Rete\RootNode.cpp" />
     <ClCompile Include="Engine\Rules\BooleanCondition.cpp" />
     <ClCompile Include="Engine\Rules\DataGroupCondition.cpp" />
     <ClCompile Include="Engine\Rules\DataNodeCondition.cpp" />
@@ -36,8 +39,11 @@
     <ClInclude Include="Engine\Database\DataGroup.h" />
     <ClInclude Include="Engine\Database\DataNode.h" />
     <ClInclude Include="Engine\Database\LeafDataNode.h" />
+    <ClInclude Include="Engine\Rete\JoinNode.h" />
     <ClInclude Include="Engine\Rete\PatternNode.h" />
+    <ClInclude Include="Engine\Rete\ReteNetworkFactory.h" />
     <ClInclude Include="Engine\Rete\ReteNode.h" />
+    <ClInclude Include="Engine\Rete\RootNode.h" />
     <ClInclude Include="Engine\Rules\BooleanCondition.h" />
     <ClInclude Include="Engine\Rules\DataGroupCondition.h" />
     <ClInclude Include="Engine\Rules\DataNodeCondition.h" />
