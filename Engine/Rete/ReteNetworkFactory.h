@@ -5,6 +5,10 @@
 #include "PatternNode.h"
 #include "JoinNode.h"
 
+#include "DataGroupCondition.h"
+#include "NumberLeafCondition.h"
+#include "StringLeafCondition.h"
+
 #include "tinyxml2.h"
 
 /**
@@ -30,19 +34,9 @@ public:
 	 * @brief Parses in a XML document and converts it into Rete network.
 	 * @param doc The XMLDocument type object which represents the XML file being parsed
 	 */
-	void processRulesFile(tinyxml2::XMLDocument* doc);
+    void processRulesFile(tinyxml2::XMLDocument* doc);
 
 private:
-
-	/**
-	 * @brief The root of the Rete network, in which the database will be passed for matching.
-	 */
-	RootNode* networkRoot;
-
-	/**
-	 * @brief Singleton variable of the factory.
-	 */
-	static ReteNetworkFactory* factory;
 
 	/**
 	 * @brief Private constructor.
@@ -56,6 +50,18 @@ private:
 	RuleBased::JoinNode* createJoinNode(tinyxml2::XMLElement* conditionNode);
 
 	RuleBased::PatternNode* createPatternNode(tinyxml2::XMLElement* conditionNode);
+
+private:
+
+    /**
+     * @brief The root of the Rete network, in which the database will be passed for matching.
+     */
+    RootNode* networkRoot;
+
+    /**
+     * @brief Singleton variable of the factory.
+     */
+    static ReteNetworkFactory* factory;
 
 };
 
