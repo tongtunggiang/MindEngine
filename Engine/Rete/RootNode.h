@@ -12,6 +12,11 @@
 namespace RuleBased
 {
 
+/**
+ * @brief Represents the entry node of the Rete network.
+ * The database will be passed into this node, whose responsibility is
+ * forwarding them to the successor nodes, which are pattern nodes.
+ */
 class RootNode : public ReteNode
 {
 

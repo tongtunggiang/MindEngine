@@ -2,6 +2,7 @@
 #define PATTERNNODE_H
 
 #include "ReteNode.h"
+#include "DataGroupCondition.h"
 
 /**
  * @brief Contains classes to represent Rule-based system's database,
@@ -12,6 +13,13 @@
 namespace RuleBased
 {
 
+/**
+ * @brief Represents pattern nodes (aka. alpha nodes) of the Rete network.
+ * The database will be passed into these pattern nodes which transfer the
+ * matched facts to join nodes to perform Boolean operations.
+ * @see ReteNode
+ * @see JoinNode
+ */
 class PatternNode : public ReteNode
 {
 
@@ -30,7 +38,21 @@ public:
 	 */
 	virtual bool isPatternNode() const;
 
-	virtual bool addSuccessorNode(ReteNode *node);
+    /**
+     * @brief Add a successor node to current list.
+     * @param node The node is being added as the successor node of this node.
+     * @return true of the node is successfully added, otherwise return false.
+     */
+    virtual bool addSuccessorNode(ReteNode *node);
+
+private:
+
+    /**
+     * @brief The condition associated with this pattern node.
+     * The matching process would be performed upon this condition.
+     * @see DataNodeCondition
+     */
+    DataNodeCondition* condition;
 
 };
 

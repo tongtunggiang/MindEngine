@@ -12,6 +12,9 @@
 namespace RuleBased
 {
 
+/**
+ * @brief Represents the type of join nodes.
+ */
 enum struct BooleanType
 {
 	AND,
@@ -19,6 +22,12 @@ enum struct BooleanType
 	NOT
 };
 
+/**
+ * @brief Join nodes are responsible for matching two conditions and
+ * filtering conflict facts (if there are any) before passing them to
+ * terminal nodes. They receive input from upper level, the pattern nodes.
+ * @see PatternNode
+ */
 class JoinNode : public ReteNode
 {
 
