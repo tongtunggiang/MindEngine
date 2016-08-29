@@ -5,11 +5,11 @@
 			<and>
 			<character>
 					<weapon>
-						<ammo>0-50</ammo>
+						<ammo type="int">0-50</ammo>
 					</weapon>
 			</character>
 			<character>
-					<health>0-100</health>
+					<health type="int">0-100</health>
 			</character>
 			</and>
 		</if>
@@ -20,7 +20,7 @@
 	<rule>
 		<if>
 			<character>
-				<job>Soldier</job>
+				<job type="string">Soldier</job>
 			</character>
 		</if>		
 		<action>Retire</action>
@@ -29,7 +29,7 @@
 	<rule>
 		<if>
 			<character>
-				<weapon>Machine</weapon>
+				<weapon type="string">Machine</weapon>
 			</character>
 		</if>
 		
@@ -39,7 +39,7 @@
     <rule>
 		<if>
 			<character>
-				<health>0-20</health>
+				<health type="int">0-20</health>
 			</character>
 		</if>
 		

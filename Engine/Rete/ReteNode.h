@@ -70,8 +70,8 @@ protected:
     std::vector<ReteNode*> successorNodes;
 
 	/**
-	 * @brief The list which is passed to the lower layer of Rete network stores
-	 * the unique ID of matched data nodes.
+     * @brief The list which is passed to the lower layer of Rete network
+     * stores the unique ID of matched data nodes.
 	 * This list is reset every frame.
 	 */
 	BindingList outputBindingList;
