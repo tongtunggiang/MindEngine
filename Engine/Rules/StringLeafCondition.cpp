@@ -34,8 +34,15 @@ bool StringLeafCondition::matchesNode(DataNode * node, BindingList & bindings)
 }
 
 StringLeafCondition::StringLeafCondition(NodeName name, std::string & matchValue)
-	: name(name), matchValue(matchValue)
+	: name(name), matchValue(matchValue), DataNodeCondition()
 {
+}
+
+StringLeafCondition::StringLeafCondition(const char* name, const char* matchValue)
+	: DataNodeCondition()
+{
+	this->name = NodeName(name);
+	this->matchValue = std::string(matchValue);
 }
 
 }

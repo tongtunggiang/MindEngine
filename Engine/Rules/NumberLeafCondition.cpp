@@ -35,8 +35,15 @@ bool NumberLeafCondition<T>::matchesNode(DataNode *node, BindingList &bindings)
 
 template<typename T>
 NumberLeafCondition<T>::NumberLeafCondition(NodeName name, T min, T max)
-	: name(name), min(min), max(max)
+	: name(name), min(min), max(max), DataNodeCondition()
 {
+}
+
+template<typename T>
+RuleBased::NumberLeafCondition<T>::NumberLeafCondition(const char* name, T min, T max)
+	: min(min), max(max), DataNodeCondition()
+{
+	this->name = NodeName(name);
 }
 
 template struct NumberLeafCondition<int>;

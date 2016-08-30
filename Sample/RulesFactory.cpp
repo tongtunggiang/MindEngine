@@ -76,7 +76,7 @@ RuleBased::Condition * RulesFactory::createMatch(tinyxml2::XMLElement * xmlNode)
 		std::cout << "Create a group condition, id: " << xmlNode->Name() << std::endl;
 		RuleBased::DataGroupCondition* groupCondition = new RuleBased::DataGroupCondition();
 		groupCondition->name = std::string(xmlNode->Name());
-		groupCondition->leftMostChild = (RuleBased::DataGroupCondition*)createMatch(xmlNode->FirstChildElement());
+		groupCondition->leftMostChild = (RuleBased::DataNodeCondition*)createMatch(xmlNode->FirstChildElement());
 		
 		tinyxml2::XMLElement* xmlSibling = xmlNode->FirstChildElement()->NextSiblingElement();
 		RuleBased::DataNodeCondition* sibling = groupCondition->leftMostChild->rightSibling;

@@ -22,7 +22,7 @@ struct DataGroupCondition : public DataNodeCondition
 	/**
 	 * @brief The first sub-match in this group.
 	 */
-	DataGroupCondition* leftMostChild;
+	DataNodeCondition* leftMostChild;
 
 	/**
 	* @brief The name to match.

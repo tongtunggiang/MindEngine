@@ -36,6 +36,11 @@ namespace RuleBased
 struct DataNodeCondition : public Condition
 {
 	/**
+	 * @brief Default constructor.
+	 */
+	DataNodeCondition();
+
+	/**
 	 * @brief The right sibling of this node in match tree.
 	 */
 	DataNodeCondition* rightSibling;

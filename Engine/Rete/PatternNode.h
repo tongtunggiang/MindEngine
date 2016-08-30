@@ -4,6 +4,8 @@
 #include "ReteNode.h"
 #include "DataGroupCondition.h"
 
+#include "tinyxml2.h"
+
 /**
  * @brief Contains classes to represent Rule-based system's database,
  * which stores knowledge available to the AI agent as well as the
@@ -26,9 +28,10 @@ class PatternNode : public ReteNode
 public:
 
 	/**
-	 * @brief Default constructor.
+	 * @brief Construct a pattern node with a condition;
+	 * @param condition The condition that is associated with the pattern node.
 	 */
-	PatternNode();
+	PatternNode(DataGroupCondition* condition);
 
 	/**
 	 * @brief A pattern node is a node which performs tests to the database
@@ -44,6 +47,13 @@ public:
      * @return true of the node is successfully added, otherwise return false.
      */
     virtual bool addSuccessorNode(ReteNode *node);
+
+private:
+
+	/**
+	* @brief Default constructor.
+	*/
+	PatternNode();
 
 private:
 

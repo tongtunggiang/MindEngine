@@ -52,7 +52,7 @@ void ReteNetworkFactory::processRuleNode(tinyxml2::XMLElement* ruleNode)
 	tinyxml2::XMLElement* actionNode = ruleNode->FirstChildElement("action");
 }
 
-RuleBased::ReteNode* ReteNetworkFactory::processConditionNode(tinyxml2::XMLElement* conditionNode)
+ReteNode* ReteNetworkFactory::processConditionNode(tinyxml2::XMLElement* conditionNode)
 {
 	std::string xmlNodeName = conditionNode->Name();
 	
@@ -66,7 +66,7 @@ RuleBased::ReteNode* ReteNetworkFactory::processConditionNode(tinyxml2::XMLEleme
 	return createPatternNode(conditionNode);
 }
 
-RuleBased::JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode)
+JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode)
 {
 	// The boolean operators are organized as operator trees, for example:
 	//            AND
@@ -105,13 +105,65 @@ RuleBased::JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* co
 	return result;
 }
 
-RuleBased::PatternNode* ReteNetworkFactory::createPatternNode(tinyxml2::XMLElement* conditionNode)
+PatternNode* ReteNetworkFactory::createPatternNode(tinyxml2::XMLElement* conditionNode)
 {
-	RuleBased::PatternNode* result;
+	DataNodeCondition* condition = createCondition(conditionNode);
+
+	PatternNode* result = new PatternNode((DataGroupCondition*)condition);
 
 	networkRoot->addSuccessorNode(result);
 
 	return result;
+}
+
+DataNodeCondition* ReteNetworkFactory::createCondition(tinyxml2::XMLElement* conditionNode)
+{
+	if (conditionNode->Attribute("type") != NULL)
+	{
+		std::string type = conditionNode->Attribute("type");
+		if (type == "int")
+		{
+			return createNumberLeafCondition<int>(conditionNode);
+		}
+		
+		if (type == "float")
+		{
+			return createNumberLeafCondition<float>(conditionNode);
+		}
+		
+		if (type == "string")
+		{
+			return createStringLeafCondition(conditionNode);
+		}
+	}
+	else
+	{
+		return createDataGroupCondition(conditionNode);
+	}
+}
+
+DataGroupCondition* ReteNetworkFactory::createDataGroupCondition(tinyxml2::XMLElement* conditionNode)
+{
+	DataGroupCondition* condition = new DataGroupCondition();
+	condition->name = std::string(conditionNode->Name());
+	condition->leftMostChild = createCondition(conditionNode->FirstChildElement());
+
+	tinyxml2::XMLElement* xmlSibling = conditionNode->FirstChildElement()->NextSiblingElement();
+	DataNodeCondition* sibling = condition->leftMostChild->rightSibling;
+	while (xmlSibling != NULL)
+	{
+		sibling = createCondition(xmlSibling);
+		xmlSibling = xmlSibling->NextSiblingElement();
+		sibling = sibling->rightSibling;
+	}
+
+	return condition;
+}
+
+StringLeafCondition* ReteNetworkFactory::createStringLeafCondition(tinyxml2::XMLElement* conditionNode)
+{
+	return new StringLeafCondition(conditionNode->Name(),
+								   conditionNode->GetText());
 }
 
 }

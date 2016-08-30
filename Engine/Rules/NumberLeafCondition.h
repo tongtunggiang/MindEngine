@@ -64,6 +64,12 @@ struct NumberLeafCondition : public DataNodeCondition
 	 * @note Remember to have max value greater than or equal to the min value.
 	 */
 	NumberLeafCondition(NodeName name, T min, T max);
+
+	/**
+	 * @brief Create a match object with the given name and range.
+	 * @note Remember to have max value greater than or equal to the min value.
+	 */
+	NumberLeafCondition(const char* name, T min, T max);
 };
 
 typedef NumberLeafCondition<int> IntegerLeafCondition;

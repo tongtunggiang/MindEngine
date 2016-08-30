@@ -11,6 +11,8 @@
 
 #include "tinyxml2.h"
 
+#include <sstream>
+
 /**
  * @brief Contains classes to represent Rule-based system's database,
  * which stores knowledge available to the AI agent as well as the
@@ -43,14 +45,6 @@ private:
 	 */
 	ReteNetworkFactory();
 
-	void processRuleNode(tinyxml2::XMLElement* xmlNode);
-
-	RuleBased::ReteNode* processConditionNode(tinyxml2::XMLElement* conditionNode);
-
-	RuleBased::JoinNode* createJoinNode(tinyxml2::XMLElement* conditionNode);
-
-	RuleBased::PatternNode* createPatternNode(tinyxml2::XMLElement* conditionNode);
-
 private:
 
     /**
@@ -63,7 +57,67 @@ private:
      */
     static ReteNetworkFactory* factory;
 
+// Helper functions
+private:
+
+	void processRuleNode(tinyxml2::XMLElement* xmlNode);
+
+	ReteNode* processConditionNode(tinyxml2::XMLElement* conditionNode);
+
+	JoinNode* createJoinNode(tinyxml2::XMLElement* conditionNode);
+
+	PatternNode* createPatternNode(tinyxml2::XMLElement* conditionNode);
+
+	DataNodeCondition* createCondition(tinyxml2::XMLElement* conditionNode);
+
+	DataGroupCondition* createDataGroupCondition(tinyxml2::XMLElement* conditionNode);
+
+	StringLeafCondition* createStringLeafCondition(tinyxml2::XMLElement* conditionNode);
+
+	template<typename T>
+	NumberLeafCondition<T>* createNumberLeafCondition(tinyxml2::XMLElement* conditionNode);
+
+	template<typename T>
+	void getMinMaxValueFromString(const char* str, T &min, T &max);
+
 };
+
+template<typename T>
+NumberLeafCondition<T>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::XMLElement* conditionNode)
+{
+	T min, max;
+	getMinMaxValueFromString(conditionNode->GetText(), min, max);
+	return NumberLeafCondition<T>(conditionNode->Name(), min, max);
+}
+
+template<typename T>
+void ReteNetworkFactory::getMinMaxValueFromString(const char* str, T &min, T &max)
+{
+	std::string s = std::string(str);
+
+	// Extract min and max value from the string
+	// Pattern of min-max string: <minvalue>-<maxvalue>
+	// Example: 0-50
+	int minusIndex;
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s[i] == '-')
+		{
+			minusIndex = i;
+			break;
+		}
+	}
+
+	int minStrLength = minusIndex;
+	std::string minStr = s.substr(0, minStrLength);
+	std::istringstream minStream(minStr);
+	minStream >> min;
+
+	int maxStrLength = s.length() - minStrLength - 1;
+	std::string maxStr = s.substr(minusIndex + 1, maxStrLength);
+	std::istringstream maxStream(maxStr);
+	maxStream >> max;
+}
 
 }
 

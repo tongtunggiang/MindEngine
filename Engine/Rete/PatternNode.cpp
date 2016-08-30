@@ -7,6 +7,11 @@ PatternNode::PatternNode() : ReteNode()
 {
 }
 
+
+PatternNode::PatternNode(DataGroupCondition* condition) : condition(condition)
+{
+}
+
 bool PatternNode::isPatternNode() const
 {
 	return true;
