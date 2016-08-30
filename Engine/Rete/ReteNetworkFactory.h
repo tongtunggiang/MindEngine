@@ -96,15 +96,16 @@ NumberLeafCondition<T>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::
 	return new NumberLeafCondition<T>(conditionNode->Name(), min, max);
 }
 
-template NumberLeafCondition<int>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::XMLElement* conditionNode);
-template NumberLeafCondition<float>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::XMLElement* conditionNode);
+template NumberLeafCondition<int>* ReteNetworkFactory::createNumberLeafCondition<int>(tinyxml2::XMLElement* conditionNode);
+template NumberLeafCondition<float>* ReteNetworkFactory::createNumberLeafCondition<float>(tinyxml2::XMLElement* conditionNode);
 
 //--------
 // getMinMaxValueFromString
 template<typename T>
 void ReteNetworkFactory::getMinMaxValueFromString(const char* str, T &min, T &max)
 {
-	std::istringstream stream(std::string(str));
+	std::string cppStr = (std::string(str));
+	std::istringstream stream(cppStr);
 
 	stream >> min;
 	stream >> max;
