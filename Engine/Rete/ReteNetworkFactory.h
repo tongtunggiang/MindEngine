@@ -22,6 +22,9 @@
 namespace RuleBased
 {
 
+/**
+ * @brief Is responsible for constructing Rete network, with input is a XML document.
+ */
 class ReteNetworkFactory
 {
 
@@ -87,13 +90,13 @@ NumberLeafCondition<T>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::
 {
 	T min, max;
 	getMinMaxValueFromString(conditionNode->GetText(), min, max);
-	return NumberLeafCondition<T>(conditionNode->Name(), min, max);
+	return new NumberLeafCondition<T>(conditionNode->Name(), min, max);
 }
 
 template<typename T>
 void ReteNetworkFactory::getMinMaxValueFromString(const char* str, T &min, T &max)
 {
-	std::istringstream(std::string(str));
+	std::istringstream stream(std::string(str));
 
 	stream >> min;
 	stream >> max;

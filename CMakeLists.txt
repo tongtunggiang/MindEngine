@@ -27,6 +27,7 @@ include_directories(
     # Engine source files
     ${PROJECT_SOURCE_DIR}/Engine
     ${PROJECT_SOURCE_DIR}/Engine/Database
+    ${PROJECT_SOURCE_DIR}/Engine/Rete
     ${PROJECT_SOURCE_DIR}/Engine/Rules
 
     # Sample source files
