@@ -5,11 +5,11 @@
 			<and>
 			<character>
 					<weapon>
-						<ammo type="int">0-50</ammo>
+						<ammo type="int">0 50</ammo>
 					</weapon>
 			</character>
 			<character>
-					<health type="int">0-100</health>
+					<health type="int">0 100</health>
 			</character>
 			</and>
 		</if>
@@ -39,7 +39,7 @@
     <rule>
 		<if>
 			<character>
-				<health type="int">0-20</health>
+				<health type="int">0 20</health>
 			</character>
 		</if>
 		

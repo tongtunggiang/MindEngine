@@ -93,30 +93,10 @@ NumberLeafCondition<T>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::
 template<typename T>
 void ReteNetworkFactory::getMinMaxValueFromString(const char* str, T &min, T &max)
 {
-	std::string s = std::string(str);
+	std::istringstream(std::string(str));
 
-	// Extract min and max value from the string
-	// Pattern of min-max string: <minvalue>-<maxvalue>
-	// Example: 0-50
-	int minusIndex;
-	for (int i = 0; i < s.length(); i++)
-	{
-		if (s[i] == '-')
-		{
-			minusIndex = i;
-			break;
-		}
-	}
-
-	int minStrLength = minusIndex;
-	std::string minStr = s.substr(0, minStrLength);
-	std::istringstream minStream(minStr);
-	minStream >> min;
-
-	int maxStrLength = s.length() - minStrLength - 1;
-	std::string maxStr = s.substr(minusIndex + 1, maxStrLength);
-	std::istringstream maxStream(maxStr);
-	maxStream >> max;
+	stream >> min;
+	stream >> max;
 }
 
 }
