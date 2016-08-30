@@ -2,6 +2,7 @@
 
 #include "DataTreeFactory.h"
 #include "RulesFactory.h"
+#include "ReteNetworkFactory.h"
 
 using namespace RuleBased;
 
@@ -28,21 +29,7 @@ int main()
 	delete doc;
 	std::vector<Rule*> rules;
 	doc = readXmlFile(RULES_FILE);
-	RulesFactory::processRulesFile(doc, rules);
-	std::cout << std::endl << std::endl;
-
-	BindingList bindings;
-	for (int i = 0; i < rules.size(); i++)
-	{
-		if (rules[i]->ifClause->matches(root, bindings))
-		{
-			std::cout << "Rule has action " << rules[i]->action << "  >>>  MATCH!" << std::endl;
-		}
-		else
-		{
-			std::cout << "Rule has action " << rules[i]->action << std::endl;
-		}
-	}
+	RuleBased::ReteNetworkFactory::getFactoryInstance()->processRulesFile(doc);
 
 	return 0;
 }

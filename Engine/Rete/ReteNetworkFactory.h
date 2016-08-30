@@ -12,6 +12,7 @@
 #include "tinyxml2.h"
 
 #include <sstream>
+#include <string>
 
 /**
  * @brief Contains classes to represent Rule-based system's database,
@@ -85,6 +86,8 @@ private:
 
 };
 
+//--------
+// createNumberLeafCondition
 template<typename T>
 NumberLeafCondition<T>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::XMLElement* conditionNode)
 {
@@ -93,6 +96,11 @@ NumberLeafCondition<T>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::
 	return new NumberLeafCondition<T>(conditionNode->Name(), min, max);
 }
 
+template NumberLeafCondition<int>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::XMLElement* conditionNode);
+template NumberLeafCondition<float>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::XMLElement* conditionNode);
+
+//--------
+// getMinMaxValueFromString
 template<typename T>
 void ReteNetworkFactory::getMinMaxValueFromString(const char* str, T &min, T &max)
 {
@@ -101,6 +109,11 @@ void ReteNetworkFactory::getMinMaxValueFromString(const char* str, T &min, T &ma
 	stream >> min;
 	stream >> max;
 }
+
+template void ReteNetworkFactory::getMinMaxValueFromString<int>(
+	const char* str, int &min, int &max);
+template void ReteNetworkFactory::getMinMaxValueFromString<float>(
+	const char* str, float &min, float &max);
 
 }
 
