@@ -14,6 +14,8 @@
 #include <sstream>
 #include <string>
 
+#define LOG(x) (std::cout << x << std::endl)
+
 /**
  * @brief Contains classes to represent Rule-based system's database,
  * which stores knowledge available to the AI agent as well as the
@@ -93,6 +95,7 @@ NumberLeafCondition<T>* ReteNetworkFactory::createNumberLeafCondition(tinyxml2::
 {
 	T min, max;
 	getMinMaxValueFromString(conditionNode->GetText(), min, max);
+	LOG("RETE:       Create a number leaf condition " + std::string(conditionNode->Name()));
 	return new NumberLeafCondition<T>(conditionNode->Name(), min, max);
 }
 

@@ -1,5 +1,6 @@
 #include "ReteNetworkFactory.h"
-#include <string.h>
+#include <string>
+#include <iostream>
 
 namespace RuleBased
 {
@@ -23,10 +24,12 @@ ReteNetworkFactory* ReteNetworkFactory::getFactoryInstance()
 
 void ReteNetworkFactory::processRulesFile(tinyxml2::XMLDocument* doc)
 {
+	LOG("RETE: Start constructing Rete network");
+
 	tinyxml2::XMLElement* ruleElement = doc
 		->FirstChildElement("rules")
 		->FirstChildElement("rule");
-
+	
 	// Traverse all rule elements in Rules.xml file
 	// and extract conditions and actions associated
 	// with the rules
@@ -35,10 +38,14 @@ void ReteNetworkFactory::processRulesFile(tinyxml2::XMLDocument* doc)
 		processRuleNode(ruleElement);
 		ruleElement = ruleElement->NextSiblingElement();
 	}
+
+	LOG("RETE: Finish constructing Rete network");
 }
 
 void ReteNetworkFactory::processRuleNode(tinyxml2::XMLElement* ruleNode)
 {
+	LOG("RETE:   Process rule node: " + std::string(ruleNode->Name()));
+
 	// Example of the structure of a 'rule' node:
 	//		<if>
 	//			<character>
@@ -50,6 +57,8 @@ void ReteNetworkFactory::processRuleNode(tinyxml2::XMLElement* ruleNode)
 	processConditionNode(ifClauseNode->FirstChildElement());
 
 	tinyxml2::XMLElement* actionNode = ruleNode->FirstChildElement("action");
+
+	LOG("");
 }
 
 ReteNode* ReteNetworkFactory::processConditionNode(tinyxml2::XMLElement* conditionNode)
@@ -92,6 +101,8 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 		
 		ReteNode* tmpRight = processConditionNode(rightChild);
 		tmpRight->addSuccessorNode(result);
+		LOG("RETE:     Creating a join node, type " + xmlNodeName + ", children: " 
+			+ leftChild->Name() + "-" + rightChild->Name());
 	}
 	else if (xmlNodeName == "not")
 	{
@@ -100,6 +111,8 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 
 		ReteNode* tmp = processConditionNode(child);
 		tmp->addSuccessorNode(result);
+		LOG("RETE:     Creating a join node, type " + xmlNodeName + ", child: "
+			+ child->Name());
 	}
 
 	return result;
@@ -107,6 +120,7 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 
 PatternNode* ReteNetworkFactory::createPatternNode(tinyxml2::XMLElement* conditionNode)
 {
+	LOG("RETE:     Creating a pattern node");
 	DataNodeCondition* condition = createCondition(conditionNode);
 
 	PatternNode* result = new PatternNode((DataGroupCondition*)condition);
@@ -144,6 +158,7 @@ DataNodeCondition* ReteNetworkFactory::createCondition(tinyxml2::XMLElement* con
 
 DataGroupCondition* ReteNetworkFactory::createDataGroupCondition(tinyxml2::XMLElement* conditionNode)
 {
+	LOG("RETE:       Create a data group condition " + std::string(conditionNode->Name()));
 	DataGroupCondition* condition = new DataGroupCondition();
 	condition->name = std::string(conditionNode->Name());
 	condition->leftMostChild = createCondition(conditionNode->FirstChildElement());
@@ -162,6 +177,7 @@ DataGroupCondition* ReteNetworkFactory::createDataGroupCondition(tinyxml2::XMLEl
 
 StringLeafCondition* ReteNetworkFactory::createStringLeafCondition(tinyxml2::XMLElement* conditionNode)
 {
+	LOG("RETE:       Create a string leaf condition " + std::string(conditionNode->Name()) + " - " + std::string(conditionNode->GetText()));
 	return new StringLeafCondition(conditionNode->Name(),
 								   conditionNode->GetText());
 }

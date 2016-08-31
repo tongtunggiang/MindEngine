@@ -37,10 +37,10 @@ int main()
 // Function definition
 tinyxml2::XMLDocument* readXmlFile(std::string fileName)
 {
-	std::cout << "Loading XML file " << fileName << std::endl;
+	//std::cout << "Loading XML file " << fileName << std::endl;
 	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument();
 	doc->LoadFile(fileName.c_str());
-	std::cout << "XML file is successfully loaded" << std::endl;
+	//std::cout << "XML file is successfully loaded" << std::endl;
 
 	return doc;
 }
