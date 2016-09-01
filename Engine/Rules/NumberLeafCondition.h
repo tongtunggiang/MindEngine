@@ -41,12 +41,7 @@ struct NumberLeafCondition : public DataNodeCondition
 	/**
 	 * @brief The maximum value of the matching range (inclusive).
 	 */
-	T max;
-
-	/**
-	* @brief The name to match.
-	*/
-	NodeName name;
+    T max;
 
 	/**
 	 * @brief Matches the given database node.

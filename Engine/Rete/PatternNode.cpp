@@ -5,6 +5,7 @@ namespace RuleBased
 
 PatternNode::PatternNode() : ReteNode()
 {
+    condition = NULL;
 }
 
 
@@ -31,6 +32,29 @@ bool PatternNode::addSuccessorNode(ReteNode *node)
 void PatternNode::match(DataNode *database)
 {
     outputBinding.clear();
+}
+
+void PatternNode::findNodesToMatchInDatabase(const DataNode *database, std::vector<DataNode*> &outNodes)
+{
+    if (database == NULL)
+        return;
+
+    if (database->getName() == condition->name)
+    {
+        outNodes.push_back(database);
+    }
+
+    if (database->isGroup())
+    {
+        DataGroup* group = (DataGroup*)database;
+        DataNode* node = group->getLeftMostChild();
+
+        while (node != NULL)
+        {
+            findNodesToMatchInDatabase(node, outNodes);
+            node = node->getRightSibling();
+        }
+    }
 }
 
 }

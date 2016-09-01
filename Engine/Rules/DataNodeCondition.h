@@ -70,6 +70,11 @@ struct DataNodeCondition : public Condition
 	 */
 	virtual bool matchesNode(DataNode *node, BindingList &bindings) = 0;
 
+    /**
+    * @brief The name to match.
+    */
+    NodeName name;
+
 };
 
 }
