@@ -20,7 +20,7 @@ bool ReteNode::isPatternNode() const
 
 bool ReteNode::isRootNode() const
 {
-	return false;
+    return false;
 }
 
 //bool ReteNode::isRuleNode() const

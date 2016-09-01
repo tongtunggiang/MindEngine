@@ -59,7 +59,7 @@ public:
 	 * @param node The node is being added as the successor node of this node.
 	 * @return true if the node is successfully added, otherwise return false.
 	 */
-	virtual bool addSuccessorNode(ReteNode* node) = 0;
+    virtual bool addSuccessorNode(ReteNode* node) = 0;
 
 protected:
 
@@ -68,13 +68,6 @@ protected:
      * Note that there is no opposite way, since the graph is directed acyclic.
      */
     std::vector<ReteNode*> successorNodes;
-
-	/**
-     * @brief The list which is passed to the lower layer of Rete network
-     * stores the unique ID of matched data nodes.
-	 * This list is reset every frame.
-	 */
-	BindingList outputBindingList;
 
 };
 

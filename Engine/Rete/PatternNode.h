@@ -48,6 +48,8 @@ public:
      */
     virtual bool addSuccessorNode(ReteNode *node);
 
+    void match(DataNode* database);
+
 private:
 
 	/**
@@ -63,6 +65,8 @@ private:
      * @see DataNodeCondition
      */
     DataNodeCondition* condition;
+
+    BindingList outputBinding;
 
 };
 

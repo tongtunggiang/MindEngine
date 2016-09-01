@@ -11,6 +11,7 @@
 
 #include "tinyxml2.h"
 
+#include <iostream>
 #include <sstream>
 #include <string>
 

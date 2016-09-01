@@ -28,4 +28,9 @@ bool PatternNode::addSuccessorNode(ReteNode *node)
 	return false;
 }
 
+void PatternNode::match(DataNode *database)
+{
+    outputBinding.clear();
+}
+
 }
