@@ -23,4 +23,9 @@ bool RootNode::addSuccessorNode(ReteNode* node)
 	return false;
 }
 
+void RootNode::setDatabase(DataNode *database)
+{
+    this->database = database;
+}
+
 }

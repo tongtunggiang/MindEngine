@@ -17,6 +17,7 @@ namespace RuleBased
  * @brief The list used to store unique IDs of database nodes which match the condition.
  */
 typedef std::vector<int> BindingList;
+typedef int BindingElement;
 
 /**
  * @brief Provides the mechanism to match the data item from the rule with any item inside the database. This struct represents the condition part (aka. the if part) of the rule.

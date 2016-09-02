@@ -28,12 +28,7 @@ struct StringLeafCondition : public DataNodeCondition
 	/**
 	 * @brief The test value to match with value in the database.
 	 */
-	std::string matchValue;
-
-	/**
-	* @brief The name to match.
-	*/
-	NodeName name;
+    std::string matchValue;
 
 	/**
 	 * @brief Matches the given database node.

@@ -40,7 +40,21 @@ public:
 	 * @param node The pattern node is being added as the successor node of this node.
 	 * @return true if the node is successfully added, otherwise return false.
 	 */
-	virtual bool addSuccessorNode(ReteNode* node);
+    virtual bool addSuccessorNode(ReteNode* node);
+
+    /**
+     * @brief Set the database that will be matched against the Rete network.
+     * @param database The root of data tree that enters the Rete network for
+     * matching.
+     */
+    void setDatabase(DataNode* database);
+
+private:
+
+    /**
+     * @brief The root node of the database tree which is being matched against the Rete network. This will be passed down to all pattern nodes.
+     */
+    DataNode* database;
 
 };
 

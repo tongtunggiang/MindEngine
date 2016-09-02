@@ -48,8 +48,7 @@ tinyxml2::XMLDocument* readXmlFile(std::string fileName)
 void traverseTree(DataNode* root)
 {
 	if (root == NULL)
-		return;
-	std::cout << root->getName() << " ";
+        return;
 
 	if (root->isGroup())
 	{

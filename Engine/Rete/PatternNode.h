@@ -48,12 +48,21 @@ public:
      */
     virtual bool addSuccessorNode(ReteNode *node);
 
+    void match(DataNode* database);
+
 private:
 
 	/**
 	* @brief Default constructor.
 	*/
 	PatternNode();
+
+    /**
+     * @brief Find nodes to match, which are the nodes with same name with the condition.
+     * @param database The input database.
+     * @param outNodes An array contains all nodes with same name with the condition. This parameter is both input and output.
+     */
+    void findNodesToMatchInDatabase(const DataNode* database, std::vector<DataNode*> &outNodes);
 
 private:
 
@@ -63,6 +72,8 @@ private:
      * @see DataNodeCondition
      */
     DataNodeCondition* condition;
+
+    BindingList outputBinding;
 
 };
 
