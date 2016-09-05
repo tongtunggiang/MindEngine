@@ -8,6 +8,12 @@ DataNodeCondition::DataNodeCondition()
 	rightSibling = NULL;
 }
 
+DataNodeCondition::DataNodeCondition(NodeName &name)
+{
+	this->name = name;
+	rightSibling = NULL;
+}
+
 bool DataNodeCondition::matches(DataNode *database, BindingList &bindings)
 {
 	return matchesChildren((DataGroup*) database, bindings);

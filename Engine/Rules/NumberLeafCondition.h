@@ -58,7 +58,7 @@ struct NumberLeafCondition : public DataNodeCondition
 	 * of [0, 79] (since both limits are inclusive).
 	 * @note Remember to have max value greater than or equal to the min value.
 	 */
-	NumberLeafCondition(NodeName name, T min, T max);
+	NumberLeafCondition(NodeName& name, T min, T max);
 
 	/**
 	 * @brief Create a match object with the given name and range.

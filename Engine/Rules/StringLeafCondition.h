@@ -43,7 +43,7 @@ struct StringLeafCondition : public DataNodeCondition
 	 * @param name The name of the node.
 	 * @param matchValue The match value that is being matched.
 	 */
-	StringLeafCondition(NodeName name, std::string& matchValue);
+	StringLeafCondition(NodeName& name, std::string& matchValue);
 
 	/**
 	 * @brief Create a match object with the given name and match value.

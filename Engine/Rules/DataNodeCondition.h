@@ -39,11 +39,7 @@ struct DataNodeCondition : public Condition
 	 * @brief Default constructor.
 	 */
 	DataNodeCondition();
-
-	/**
-	 * @brief The right sibling of this node in match tree.
-	 */
-	DataNodeCondition* rightSibling;
+	DataNodeCondition(NodeName& name);
 
 	/**
 	 * @brief Matches the given database by checking each element in the database against the matchesNode method.
@@ -74,6 +70,11 @@ struct DataNodeCondition : public Condition
     * @brief The name to match.
     */
     NodeName name;
+
+	/**
+	 * @brief The right sibling of this node in match tree.
+	 */
+	DataNodeCondition* rightSibling;
 
 };
 

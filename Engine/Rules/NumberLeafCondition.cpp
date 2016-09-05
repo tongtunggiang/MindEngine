@@ -34,8 +34,8 @@ bool NumberLeafCondition<T>::matchesNode(DataNode *node, BindingList &bindings)
 }
 
 template<typename T>
-NumberLeafCondition<T>::NumberLeafCondition(NodeName name, T min, T max)
-	: name(name), min(min), max(max), DataNodeCondition()
+NumberLeafCondition<T>::NumberLeafCondition(NodeName& name, T min, T max)
+	: min(min), max(max), DataNodeCondition(name)
 {
 }
 

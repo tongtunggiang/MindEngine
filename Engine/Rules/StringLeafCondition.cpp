@@ -33,8 +33,8 @@ bool StringLeafCondition::matchesNode(DataNode * node, BindingList & bindings)
 	return false;
 }
 
-StringLeafCondition::StringLeafCondition(NodeName name, std::string & matchValue)
-	: name(name), matchValue(matchValue), DataNodeCondition()
+StringLeafCondition::StringLeafCondition(NodeName& name, std::string & matchValue)
+	: matchValue(matchValue), DataNodeCondition(name)
 {
 }
 

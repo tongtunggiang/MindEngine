@@ -62,7 +62,7 @@ private:
      * @param database The input database.
      * @param outNodes An array contains all nodes with same name with the condition. This parameter is both input and output.
      */
-    void findNodesToMatchInDatabase(const DataNode* database, std::vector<DataNode*> &outNodes);
+    void findNodesToMatchInDatabase(DataNode* database, std::vector<DataNode*> &outNodes);
 
 private:
 
@@ -73,7 +73,7 @@ private:
      */
     DataNodeCondition* condition;
 
-    BindingList outputBinding;
+    BindingList outputBindings;
 
 };
 
