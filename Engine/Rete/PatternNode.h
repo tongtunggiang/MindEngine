@@ -75,6 +75,8 @@ private:
 
     BindingList outputBindings;
 
+    std::vector<DataNode*> nodesToMatch;
+
 };
 
 }

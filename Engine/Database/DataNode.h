@@ -84,6 +84,14 @@ public:
 	 */
 	int getUniqueID() const;
 
+    /**
+     * @brief Find a node in a tree (identified by its root) which has same ID with provided one.
+     * @param root The root of the data tree is being traversed.
+     * @param id The desired ID of the data node.
+     * @return The data node has desired ID, or NULL if can't find.
+     */
+    static DataNode* getNodeByID(DataNode* root, int id);
+
 protected:
 
 	/**
