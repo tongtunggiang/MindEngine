@@ -1,4 +1,5 @@
 #include "DataNode.h"
+#include "DataGroup.h"
 
 namespace RuleBased
 {
@@ -31,6 +32,29 @@ DataNode::~DataNode()
 {
 	if (rightSibling != NULL)
 		delete rightSibling;
+}
+
+DataNode* DataNode::getNodeByID(DataNode *root, int id)
+{
+    if (root == NULL)
+        return NULL;
+
+    if (id == root->getUniqueID())
+        return root;
+
+    if (root->isGroup())
+    {
+        DataGroup* group = (DataGroup*)root;
+        DataNode* node = group->getLeftMostChild();
+        while (node != NULL)
+        {
+            DataNode* result = getNodeByID(node, id);
+            if (result != NULL)
+                return result;
+        }
+    }
+
+    return NULL;
 }
 
 NodeName DataNode::getName() const

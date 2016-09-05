@@ -31,7 +31,17 @@ bool PatternNode::addSuccessorNode(ReteNode *node)
 
 void PatternNode::match(DataNode *database)
 {
+    nodesToMatch.clear();
+    findNodesToMatchInDatabase(database, nodesToMatch);
+
     outputBinding.clear();
+    for (int i = 0; i < nodesToMatch.size(); i++)
+    {
+        if (condition->matches(nodesToMatch[i]))
+        {
+            outputBinding.push_back(nodesToMatch[i]->getUniqueID());
+        }
+    }
 }
 
 void PatternNode::findNodesToMatchInDatabase(const DataNode *database, std::vector<DataNode*> &outNodes)
