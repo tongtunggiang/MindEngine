@@ -203,7 +203,7 @@ void ReteNetworkFactory::trimString(std::string& str)
 	int i = 0;
 	while (i < str.length())
 	{
-		if (isRedundantSpace(str[i], str[i] + 1))
+		if (isRedundantSpace(str[i], str[i + 1]))
 			str.erase(str.begin() + i);
 		else
 			i++;
