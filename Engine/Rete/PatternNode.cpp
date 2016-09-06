@@ -34,17 +34,19 @@ void PatternNode::match(DataNode *database)
     nodesToMatch.clear();
     findNodesToMatchInDatabase(database, nodesToMatch);
 
-    outputBinding.clear();
+    outputBindings.clear();
     for (int i = 0; i < nodesToMatch.size(); i++)
     {
-        if (condition->matches(nodesToMatch[i]))
+		// ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		BindingList fuck;
+        if (condition->matches(nodesToMatch[i], fuck))
         {
-            outputBinding.push_back(nodesToMatch[i]->getUniqueID());
+            outputBindings.push_back(nodesToMatch[i]->getUniqueID());
         }
     }
 }
 
-void PatternNode::findNodesToMatchInDatabase(const DataNode *database, std::vector<DataNode*> &outNodes)
+void PatternNode::findNodesToMatchInDatabase(DataNode *database, std::vector<DataNode*> &outNodes)
 {
     if (database == NULL)
         return;

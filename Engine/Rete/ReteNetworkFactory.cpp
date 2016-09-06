@@ -1,5 +1,6 @@
 #include "ReteNetworkFactory.h"
 #include <string>
+#include <algorithm>
 #include <iostream>
 
 namespace RuleBased
@@ -29,7 +30,7 @@ void ReteNetworkFactory::processRulesFile(tinyxml2::XMLDocument* doc)
 	tinyxml2::XMLElement* ruleElement = doc
 		->FirstChildElement("rules")
 		->FirstChildElement("rule");
-	
+
 	// Traverse all rule elements in Rules.xml file
 	// and extract conditions and actions associated
 	// with the rules
@@ -64,7 +65,7 @@ void ReteNetworkFactory::processRuleNode(tinyxml2::XMLElement* ruleNode)
 ReteNode* ReteNetworkFactory::processConditionNode(tinyxml2::XMLElement* conditionNode)
 {
 	std::string xmlNodeName = conditionNode->Name();
-	
+
 	// Create a join node
 	if (xmlNodeName == "and" || xmlNodeName == "or" || xmlNodeName == "not")
 	{
@@ -98,10 +99,10 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 
 		ReteNode* tmpLeft = processConditionNode(leftChild);
 		tmpLeft->addSuccessorNode(result);
-		
+
 		ReteNode* tmpRight = processConditionNode(rightChild);
 		tmpRight->addSuccessorNode(result);
-		LOG("RETE:     Creating a join node, type " + xmlNodeName + ", children: " 
+		LOG("RETE:     Creating a join node, type " + xmlNodeName + ", children: "
 			+ leftChild->Name() + "-" + rightChild->Name());
 	}
 	else if (xmlNodeName == "not")
@@ -121,6 +122,7 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 PatternNode* ReteNetworkFactory::createPatternNode(tinyxml2::XMLElement* conditionNode)
 {
 	LOG("RETE:     Creating a pattern node");
+	generateHashCodeFromXML(conditionNode);
 	DataNodeCondition* condition = createCondition(conditionNode);
 
 	PatternNode* result = new PatternNode((DataGroupCondition*)condition);
@@ -139,12 +141,12 @@ DataNodeCondition* ReteNetworkFactory::createCondition(tinyxml2::XMLElement* con
 		{
 			return createNumberLeafCondition<int>(conditionNode);
 		}
-		
+
 		if (type == "float")
 		{
 			return createNumberLeafCondition<float>(conditionNode);
 		}
-		
+
 		if (type == "string")
 		{
 			return createStringLeafCondition(conditionNode);
@@ -180,6 +182,53 @@ StringLeafCondition* ReteNetworkFactory::createStringLeafCondition(tinyxml2::XML
 	LOG("RETE:       Create a string leaf condition " + std::string(conditionNode->Name()) + " - " + std::string(conditionNode->GetText()));
 	return new StringLeafCondition(conditionNode->Name(),
 								   conditionNode->GetText());
+}
+
+int ReteNetworkFactory::generateHashCodeFromXML(tinyxml2::XMLNode* xmlNode)
+{
+	tinyxml2::XMLPrinter printer;
+	xmlNode->Accept(&printer);
+	std::string xmlString = printer.CStr();
+	trimString(xmlString);
+	LOG("RETE:         " + xmlString);
+	return generateHashCode(xmlString);
+}
+
+void ReteNetworkFactory::trimString(std::string& str)
+{
+	//str.erase(std::remove(str.begin(), str.end(), '\n'), str.end());
+	//str.erase(std::remove(str.begin(), str.end(), '\t'), str.end());
+	//str.erase(std::remove(str.begin(), str.end(), '\r'), str.end());
+
+	int i = 0;
+	while (i < str.length())
+	{
+		if (isRedundantSpace(str[i], str[i] + 1))
+			str.erase(str.begin() + i);
+		else
+			i++;
+	}
+}
+
+bool ReteNetworkFactory::isRedundantSpace(char c, char cNext)
+{
+	if (c == '\n' ||
+		c == '\t' ||
+		c == '\r' ||
+		(c == ' ' && (!std::isdigit(cNext))))
+		return true;
+
+	return false;
+}
+
+int ReteNetworkFactory::generateHashCode(const std::string& xmlString)
+{
+	return 0;
+}
+
+PatternNode* ReteNetworkFactory::findPatternNodeByHashCode(int hashCode)
+{
+	return NULL;
 }
 
 }
