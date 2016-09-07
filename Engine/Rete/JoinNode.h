@@ -37,7 +37,7 @@ public:
 	 * @brief Creates a join node with type provided.
 	 * @param booleanTypeName The name of the boolean type.
 	 */
-	JoinNode(const std::string& booleanTypeName);
+	JoinNode(const std::string& booleanTypeName, size_t hashCode);
 
 	/**
 	 * @return true if this node is a join node.
@@ -52,6 +52,8 @@ public:
 	 */
 	virtual bool addSuccessorNode(ReteNode* node);
 
+	size_t getHashCode();
+
 private:
 
 	/**
@@ -63,6 +65,8 @@ private:
 	 * @brief Type of this join node: and, or, or not?
 	 */
 	BooleanType booleanType;
+
+	size_t hashCode;
 
 };
 

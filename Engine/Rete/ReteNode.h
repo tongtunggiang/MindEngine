@@ -61,6 +61,12 @@ public:
 	 */
     virtual bool addSuccessorNode(ReteNode* node) = 0;
 
+	/**
+	 * @brief Access to successor nodes of this Rete node.
+	 * @return The array which holds the successor nodes of this Rete node.
+	 */
+	const std::vector<ReteNode*>& getSuccessorNodes();
+
 protected:
 
     /**

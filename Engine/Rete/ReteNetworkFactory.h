@@ -95,7 +95,7 @@ private:
 
 	bool isRedundantSpace(char c, char cNext);
 
-	PatternNode* findPatternNodeByHashCode(int hashCode);
+	ReteNode* findReteNodeByHashCode(ReteNode* root, size_t hashCode);
 
 };
 

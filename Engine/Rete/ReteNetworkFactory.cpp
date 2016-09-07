@@ -91,7 +91,15 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 
 	std::string xmlNodeName = conditionNode->Name();
 
-	RuleBased::JoinNode* result = new RuleBased::JoinNode(xmlNodeName);
+	size_t hashCode = generateHashCodeFromXML(conditionNode);
+	JoinNode* findNodeWithSimilarHash = (JoinNode*)findReteNodeByHashCode(networkRoot, hashCode);
+	if (findNodeWithSimilarHash != NULL)
+	{
+		LOG("RETE:     This join is already existed");
+		return findNodeWithSimilarHash;
+	}
+
+	RuleBased::JoinNode* result = new RuleBased::JoinNode(xmlNodeName, hashCode);
 	if (xmlNodeName == "and" || xmlNodeName == "or" || xmlNodeName == "not")
 	{
 		// Binary boolean operators
@@ -123,11 +131,18 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 PatternNode* ReteNetworkFactory::createPatternNode(tinyxml2::XMLElement* conditionNode)
 {
 	LOG("RETE:     Creating a pattern node");
-	size_t hash = generateHashCodeFromXML(conditionNode);
+
+	size_t hashCode = generateHashCodeFromXML(conditionNode);
+	PatternNode* findNodeWithSimilarHash =
+	        (PatternNode*)findReteNodeByHashCode(networkRoot, hashCode);
+	if (findNodeWithSimilarHash != NULL)
+	{
+		LOG("RETE:     This pattern is already existed");
+		return findNodeWithSimilarHash;
+	}
+
 	DataNodeCondition* condition = createCondition(conditionNode);
-
-	PatternNode* result = new PatternNode((DataGroupCondition*)condition, hash);
-
+	PatternNode* result = new PatternNode((DataGroupCondition*)condition, hashCode);
 	networkRoot->addSuccessorNode(result);
 
 	return result;
@@ -227,8 +242,30 @@ size_t ReteNetworkFactory::generateHashCode(const std::string& xmlString)
 	return std::hash<std::string>()(xmlString);
 }
 
-PatternNode* ReteNetworkFactory::findPatternNodeByHashCode(int hashCode)
+ReteNode* ReteNetworkFactory::findReteNodeByHashCode(ReteNode* root, size_t hashCode)
 {
+	std::vector<ReteNode*> successors = root->getSuccessorNodes();
+
+	for (int i = 0; i < successors.size(); i++)
+	{
+		if (successors[i]->isPatternNode())
+		{
+			PatternNode* node = (PatternNode*)successors[i];
+			if (node->getHashCode() == hashCode)
+				return node;
+		}
+		else if (successors[i]->isJoinNode())
+		{
+			JoinNode* node = (JoinNode*)successors[i];
+			if (node->getHashCode() == hashCode)
+				return node;
+		}
+
+		ReteNode* findResultInSuccessors = findReteNodeByHashCode(successors[i], hashCode);
+		if (findResultInSuccessors != NULL)
+			return findResultInSuccessors;
+	}
+
 	return NULL;
 }
 

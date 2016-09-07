@@ -3,7 +3,8 @@
 namespace RuleBased
 {
 
-JoinNode::JoinNode(const std::string& booleanTypeName)
+JoinNode::JoinNode(const std::string& booleanTypeName, size_t hashCode)
+	: hashCode(hashCode)
 {
 	if (booleanTypeName == "and")
 	{
@@ -33,6 +34,11 @@ bool JoinNode::addSuccessorNode(ReteNode* node)
 	}
 
 	return false;
+}
+
+size_t JoinNode::getHashCode()
+{
+	return hashCode;
 }
 
 

@@ -20,7 +20,12 @@ bool ReteNode::isPatternNode() const
 
 bool ReteNode::isRootNode() const
 {
-    return false;
+	return false;
+}
+
+const std::vector<ReteNode*>& ReteNode::getSuccessorNodes()
+{
+	return successorNodes;
 }
 
 //bool ReteNode::isRuleNode() const
