@@ -1,6 +1,7 @@
 #include "ReteNetworkFactory.h"
 #include <string>
 #include <algorithm>
+#include <unordered_set>
 #include <iostream>
 
 namespace RuleBased
@@ -122,10 +123,10 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 PatternNode* ReteNetworkFactory::createPatternNode(tinyxml2::XMLElement* conditionNode)
 {
 	LOG("RETE:     Creating a pattern node");
-	generateHashCodeFromXML(conditionNode);
+	size_t hash = generateHashCodeFromXML(conditionNode);
 	DataNodeCondition* condition = createCondition(conditionNode);
 
-	PatternNode* result = new PatternNode((DataGroupCondition*)condition);
+	PatternNode* result = new PatternNode((DataGroupCondition*)condition, hash);
 
 	networkRoot->addSuccessorNode(result);
 
@@ -184,7 +185,7 @@ StringLeafCondition* ReteNetworkFactory::createStringLeafCondition(tinyxml2::XML
 								   conditionNode->GetText());
 }
 
-int ReteNetworkFactory::generateHashCodeFromXML(tinyxml2::XMLNode* xmlNode)
+size_t ReteNetworkFactory::generateHashCodeFromXML(tinyxml2::XMLNode* xmlNode)
 {
 	tinyxml2::XMLPrinter printer;
 	xmlNode->Accept(&printer);
@@ -221,9 +222,9 @@ bool ReteNetworkFactory::isRedundantSpace(char c, char cNext)
 	return false;
 }
 
-int ReteNetworkFactory::generateHashCode(const std::string& xmlString)
+size_t ReteNetworkFactory::generateHashCode(const std::string& xmlString)
 {
-	return 0;
+	return std::hash<std::string>()(xmlString);
 }
 
 PatternNode* ReteNetworkFactory::findPatternNodeByHashCode(int hashCode)

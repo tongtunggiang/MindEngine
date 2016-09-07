@@ -31,7 +31,7 @@ public:
 	 * @brief Construct a pattern node with a condition;
 	 * @param condition The condition that is associated with the pattern node.
 	 */
-	PatternNode(DataGroupCondition* condition);
+	PatternNode(DataGroupCondition* condition, size_t hashCode);
 
 	/**
 	 * @brief A pattern node is a node which performs tests to the database
@@ -49,6 +49,8 @@ public:
     virtual bool addSuccessorNode(ReteNode *node);
 
     void match(DataNode* database);
+
+	size_t getHashCode();
 
 private:
 
@@ -76,6 +78,8 @@ private:
     BindingList outputBindings;
 
     std::vector<DataNode*> nodesToMatch;
+
+	size_t hashCode;
 
 };
 

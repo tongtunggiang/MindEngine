@@ -87,9 +87,9 @@ private:
 	template<typename T>
 	void getMinMaxValueFromString(const char* str, T &min, T &max);
 
-	int generateHashCodeFromXML(tinyxml2::XMLNode* xmlNode);
+	size_t generateHashCodeFromXML(tinyxml2::XMLNode* xmlNode);
 
-	int generateHashCode(const std::string& xmlString);
+	size_t generateHashCode(const std::string& xmlString);
 
 	void trimString(std::string& str);
 

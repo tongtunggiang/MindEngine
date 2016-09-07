@@ -9,7 +9,8 @@ PatternNode::PatternNode() : ReteNode()
 }
 
 
-PatternNode::PatternNode(DataGroupCondition* condition) : condition(condition)
+PatternNode::PatternNode(DataGroupCondition* condition, size_t hashCode)
+	: condition(condition), hashCode(hashCode)
 {
 }
 
@@ -67,6 +68,11 @@ void PatternNode::findNodesToMatchInDatabase(DataNode *database, std::vector<Dat
             node = node->getRightSibling();
         }
     }
+}
+
+size_t PatternNode::getHashCode()
+{
+	return hashCode;
 }
 
 }
