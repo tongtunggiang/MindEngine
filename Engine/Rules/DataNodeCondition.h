@@ -47,7 +47,7 @@ struct DataNodeCondition : public Condition
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else returns false.
 	 */
-	virtual bool matches(DataNode *database, BindingList &bindings);
+    virtual bool matches(DataNode *database);
 
 	/**
 	 * @brief Matches all the children of the given group to see if any of them pass the matchesNode test.
@@ -56,7 +56,7 @@ struct DataNodeCondition : public Condition
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else return false.
 	 */
-	bool matchesChildren(DataGroup *group, BindingList &bindings);
+    bool matchesChildren(DataGroup *group);
 
 	/**
 	 * @brief Matches the data node from the database against the criteria in this match.
@@ -64,7 +64,7 @@ struct DataNodeCondition : public Condition
 	 * @param bindings When part of the if clause matches a wild card, it is added to the bindings. This parameter is both input and output parameter.
 	 * @return true if matches, else return false.
 	 */
-	virtual bool matchesNode(DataNode *node, BindingList &bindings) = 0;
+    virtual bool matchesNode(DataNode *node) = 0;
 
     /**
     * @brief The name to match.

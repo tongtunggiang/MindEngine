@@ -11,10 +11,10 @@ AndCondition::AndCondition(Condition * one, Condition * two)
 	subMatches[1] = two;
 }
 
-bool RuleBased::AndCondition::matches(DataNode * database, BindingList & bindings)
+bool RuleBased::AndCondition::matches(DataNode * database)
 {
-	return subMatches[0]->matches(database, bindings) &&
-		subMatches[1]->matches(database, bindings);
+    return subMatches[0]->matches(database) &&
+        subMatches[1]->matches(database);
 }
 
 //---------
@@ -25,10 +25,10 @@ OrCondition::OrCondition(Condition * one, Condition * two)
 	subMatches[1] = two;
 }
 
-bool OrCondition::matches(DataNode * database, BindingList & bindings)
+bool OrCondition::matches(DataNode * database)
 {
-	return subMatches[0]->matches(database, bindings) ||
-		subMatches[1]->matches(database, bindings);
+    return subMatches[0]->matches(database) ||
+        subMatches[1]->matches(database);
 }
 
 //---------
@@ -37,9 +37,9 @@ NotCondition::NotCondition(Condition * match) : match(match)
 {
 }
 
-bool NotCondition::matches(DataNode * database, BindingList & bindings)
+bool NotCondition::matches(DataNode * database)
 {
-	return !match->matches(database, bindings);
+    return !match->matches(database);
 }
 
 }

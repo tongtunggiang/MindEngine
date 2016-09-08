@@ -38,9 +38,7 @@ void PatternNode::match(DataNode *database)
     outputBindings.clear();
     for (int i = 0; i < nodesToMatch.size(); i++)
     {
-		// ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		BindingList fuck;
-        if (condition->matches(nodesToMatch[i], fuck))
+        if (condition->matches(nodesToMatch[i]))
         {
             outputBindings.push_back(nodesToMatch[i]->getUniqueID());
         }

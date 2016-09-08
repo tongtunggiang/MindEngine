@@ -4,7 +4,7 @@
 namespace RuleBased
 {
 
-bool DataGroupCondition::matchesNode(DataNode* node, BindingList &bindings)
+bool DataGroupCondition::matchesNode(DataNode* node)
 {
 	if (!node->isGroup())
 		return false;
@@ -22,17 +22,10 @@ bool DataGroupCondition::matchesNode(DataNode* node, BindingList &bindings)
 	DataNodeCondition* match = leftMostChild;
 	while (match)
 	{
-		if (!match->matchesChildren(group, bindings))
+        if (!match->matchesChildren(group))
 			return false;
 		match = match->rightSibling;
-	}
-
-	//if (bindings && identifierIsWildcard)
-	//if (identifierIsWildcard)
-	{
-		// Add to the binding list.
-		bindings.push_back(node->getUniqueID());
-	}
+    }
 
 	return true;
 }

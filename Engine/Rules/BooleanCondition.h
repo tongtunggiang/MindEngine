@@ -31,7 +31,7 @@ struct AndCondition : public Condition
 	 * @brief Matches the given database by trying its to sub-matches in turn.
 	 * @return If either of two sub-matches return false, then this method returns false, otherwise returns true.
 	 */
-	virtual bool matches(DataNode* database, BindingList &bindings);
+    virtual bool matches(DataNode* database);
 
 };
 
@@ -54,7 +54,7 @@ struct OrCondition : public Condition
 	 * @brief Matches the given database by trying its to sub-matches in turn.
 	 * @return If either of two sub-matches return false, then this method returns false, otherwise returns true.
 	 */
-	virtual bool matches(DataNode* database, BindingList &bindings);
+    virtual bool matches(DataNode* database);
 };
 
 /**
@@ -76,7 +76,7 @@ struct NotCondition : public Condition
 	 * @brief Matches the given database.
 	 * @return true if the child match is not matches, otherwise returns false.
 	 */
-	virtual bool matches(DataNode* database, BindingList &bindings);
+    virtual bool matches(DataNode* database);
 };
 
 }

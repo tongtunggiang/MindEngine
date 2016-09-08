@@ -7,7 +7,7 @@
 namespace RuleBased
 {
 
-bool StringLeafCondition::matchesNode(DataNode * node, BindingList & bindings)
+bool StringLeafCondition::matchesNode(DataNode * node)
 {
 	//std::cout << "Test node: " << name << " against data item: " << node->getName() << std::endl;
 
@@ -22,11 +22,7 @@ bool StringLeafCondition::matchesNode(DataNode * node, BindingList & bindings)
 	LeafDataNode<std::string> *datum = (LeafDataNode<std::string>*)node;
 
 	if (datum->getValue() == matchValue)
-	{
-		//if (idIsWildcard)
-		{
-			bindings.push_back(node->getUniqueID());
-		}
+    {
 		return true;
 	}
 

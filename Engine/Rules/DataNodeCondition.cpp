@@ -14,17 +14,17 @@ DataNodeCondition::DataNodeCondition(NodeName &name)
 	rightSibling = NULL;
 }
 
-bool DataNodeCondition::matches(DataNode *database, BindingList &bindings)
+bool DataNodeCondition::matches(DataNode *database)
 {
-	return matchesChildren((DataGroup*) database, bindings);
+    return matchesChildren((DataGroup*) database);
 }
 
-bool DataNodeCondition::matchesChildren(DataGroup *group, BindingList &bindings)
+bool DataNodeCondition::matchesChildren(DataGroup *group)
 {
 	DataNode* node = group->getLeftMostChild();
 	while (node)
 	{
-		if (matchesNode(node, bindings))
+        if (matchesNode(node))
 			return true;
 		node = node->getRightSibling();
 	}

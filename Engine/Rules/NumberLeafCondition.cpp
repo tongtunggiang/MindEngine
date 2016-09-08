@@ -5,7 +5,7 @@ namespace RuleBased
 {
 
 template<typename T>
-bool NumberLeafCondition<T>::matchesNode(DataNode *node, BindingList &bindings)
+bool NumberLeafCondition<T>::matchesNode(DataNode *node)
 {
 	if (!node->isLeaf())
 		return false;
@@ -21,12 +21,7 @@ bool NumberLeafCondition<T>::matchesNode(DataNode *node, BindingList &bindings)
 	 * @todo Need adding bindings mechanism here
 	 */
 	if (min <= datum->getValue() && datum->getValue() <= max)
-	{
-		//if (idIsWildcard)
-		{
-			// Add to the binding list.
-			bindings.push_back(node->getUniqueID());
-		}
+    {
 		return true;
 	}
 
