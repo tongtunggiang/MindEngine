@@ -3,6 +3,28 @@
 	<rule>
 		<if>
 			<and>
+				<and>
+				<character>
+						<weapon>
+							<ammo type="int">0 50</ammo>
+						</weapon>
+				</character>
+				<character>
+						<health type="int">0 100</health>
+				</character>
+				</and>
+				<character>
+					<name type="string">Giang</name>
+				</character>
+			</and>
+		</if>
+		
+		<action>Fire</action>
+	</rule>
+	
+	<rule>
+		<if>
+			<and>
 			<character>
 					<weapon>
 						<ammo type="int">0 50</ammo>
@@ -14,7 +36,7 @@
 			</and>
 		</if>
 		
-		<action>Fire</action>
+		<action>Fire1</action>
 	</rule>
 
 	<rule>
@@ -24,6 +46,15 @@
 			</character>
 		</if>		
 		<action>Retire</action>
+	</rule>
+
+	<rule>
+		<if>
+			<character>
+				<job type="string">Soldier</job>
+			</character>
+		</if>		
+		<action>Hide</action>
 	</rule>
 	
 	<rule>
