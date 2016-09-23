@@ -67,6 +67,20 @@
     <ClCompile Include="Engine\Rete\RootNode.cpp">
       <Filter>Engine\Rete</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Database\DataGroup.cpp" />
+    <ClCompile Include="Source\Database\DataNode.cpp" />
+    <ClCompile Include="Source\Database\LeafDataNode.cpp" />
+    <ClCompile Include="Source\Rete\JoinNode.cpp" />
+    <ClCompile Include="Source\Rete\PatternNode.cpp" />
+    <ClCompile Include="Source\Rete\ReteNetworkFactory.cpp" />
+    <ClCompile Include="Source\Rete\ReteNode.cpp" />
+    <ClCompile Include="Source\Rete\RootNode.cpp" />
+    <ClCompile Include="Source\Rules\BooleanCondition.cpp" />
+    <ClCompile Include="Source\Rules\DataGroupCondition.cpp" />
+    <ClCompile Include="Source\Rules\DataNodeCondition.cpp" />
+    <ClCompile Include="Source\Rules\IdCheck.cpp" />
+    <ClCompile Include="Source\Rules\NumberLeafCondition.cpp" />
+    <ClCompile Include="Source\Rules\StringLeafCondition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Database\DataNode.h">
@@ -120,5 +134,21 @@
     <ClInclude Include="Engine\Rete\RootNode.h">
       <Filter>Engine\Rete</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Database\DataGroup.h" />
+    <ClInclude Include="Include\Database\DataNode.h" />
+    <ClInclude Include="Include\Database\LeafDataNode.h" />
+    <ClInclude Include="Include\Rete\JoinNode.h" />
+    <ClInclude Include="Include\Rete\PatternNode.h" />
+    <ClInclude Include="Include\Rete\ReteNetworkFactory.h" />
+    <ClInclude Include="Include\Rete\ReteNode.h" />
+    <ClInclude Include="Include\Rete\RootNode.h" />
+    <ClInclude Include="Include\Rules\BooleanCondition.h" />
+    <ClInclude Include="Include\Rules\Condition.h" />
+    <ClInclude Include="Include\Rules\DataGroupCondition.h" />
+    <ClInclude Include="Include\Rules\DataNodeCondition.h" />
+    <ClInclude Include="Include\Rules\IdCheck.h" />
+    <ClInclude Include="Include\Rules\NumberLeafCondition.h" />
+    <ClInclude Include="Include\Rules\Rule.h" />
+    <ClInclude Include="Include\Rules\StringLeafCondition.h" />
   </ItemGroup>
 </Project>

@@ -14,8 +14,8 @@ endif(UNIX)
 file(GLOB_RECURSE LIBS_HDRS Libs/*.h)
 file(GLOB_RECURSE LIBS_SRCS Libs/*.cpp)
 
-file(GLOB_RECURSE ENGINE_HDRS Engine/*.h)
-file(GLOB_RECURSE ENGINE_SRCS Engine/*.cpp)
+file(GLOB_RECURSE ENGINE_HDRS Include/*.h)
+file(GLOB_RECURSE ENGINE_SRCS Source/*.cpp)
 
 file(GLOB_RECURSE SAMPLE_HDRS Sample/*.h)
 file(GLOB_RECURSE SAMPLE_SRCS Sample/*.cpp)
@@ -25,10 +25,10 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/Libs
 
     # Engine source files
-    ${PROJECT_SOURCE_DIR}/Engine
-    ${PROJECT_SOURCE_DIR}/Engine/Database
-    ${PROJECT_SOURCE_DIR}/Engine/Rete
-    ${PROJECT_SOURCE_DIR}/Engine/Rules
+    ${PROJECT_SOURCE_DIR}/Include
+    ${PROJECT_SOURCE_DIR}/Include/Database
+    ${PROJECT_SOURCE_DIR}/Include/Rete
+    ${PROJECT_SOURCE_DIR}/Include/Rules
 
     # Sample source files
     ${PROJECT_SOURCE_DIR}/Sample

@@ -19,39 +19,39 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Database\DataGroup.cpp" />
-    <ClCompile Include="Engine\Database\DataNode.cpp" />
-    <ClCompile Include="Engine\Database\LeafDataNode.cpp" />
-    <ClCompile Include="Engine\Rete\JoinNode.cpp" />
-    <ClCompile Include="Engine\Rete\PatternNode.cpp" />
-    <ClCompile Include="Engine\Rete\ReteNetworkFactory.cpp" />
-    <ClCompile Include="Engine\Rete\ReteNode.cpp" />
-    <ClCompile Include="Engine\Rete\RootNode.cpp" />
-    <ClCompile Include="Engine\Rules\BooleanCondition.cpp" />
-    <ClCompile Include="Engine\Rules\DataGroupCondition.cpp" />
-    <ClCompile Include="Engine\Rules\DataNodeCondition.cpp" />
-    <ClCompile Include="Engine\Rules\IdCheck.cpp" />
-    <ClCompile Include="Engine\Rules\NumberLeafCondition.cpp" />
-    <ClCompile Include="Engine\Rules\StringLeafCondition.cpp" />
     <ClCompile Include="Libs\tinyxml2.cpp" />
+    <ClCompile Include="Source\Database\DataGroup.cpp" />
+    <ClCompile Include="Source\Database\DataNode.cpp" />
+    <ClCompile Include="Source\Database\LeafDataNode.cpp" />
+    <ClCompile Include="Source\Rete\JoinNode.cpp" />
+    <ClCompile Include="Source\Rete\PatternNode.cpp" />
+    <ClCompile Include="Source\Rete\ReteNetworkFactory.cpp" />
+    <ClCompile Include="Source\Rete\ReteNode.cpp" />
+    <ClCompile Include="Source\Rete\RootNode.cpp" />
+    <ClCompile Include="Source\Rules\BooleanCondition.cpp" />
+    <ClCompile Include="Source\Rules\DataGroupCondition.cpp" />
+    <ClCompile Include="Source\Rules\DataNodeCondition.cpp" />
+    <ClCompile Include="Source\Rules\IdCheck.cpp" />
+    <ClCompile Include="Source\Rules\NumberLeafCondition.cpp" />
+    <ClCompile Include="Source\Rules\StringLeafCondition.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Database\DataGroup.h" />
-    <ClInclude Include="Engine\Database\DataNode.h" />
-    <ClInclude Include="Engine\Database\LeafDataNode.h" />
-    <ClInclude Include="Engine\Rete\JoinNode.h" />
-    <ClInclude Include="Engine\Rete\PatternNode.h" />
-    <ClInclude Include="Engine\Rete\ReteNetworkFactory.h" />
-    <ClInclude Include="Engine\Rete\ReteNode.h" />
-    <ClInclude Include="Engine\Rete\RootNode.h" />
-    <ClInclude Include="Engine\Rules\BooleanCondition.h" />
-    <ClInclude Include="Engine\Rules\DataGroupCondition.h" />
-    <ClInclude Include="Engine\Rules\DataNodeCondition.h" />
-    <ClInclude Include="Engine\Rules\IdCheck.h" />
-    <ClInclude Include="Engine\Rules\Condition.h" />
-    <ClInclude Include="Engine\Rules\NumberLeafCondition.h" />
-    <ClInclude Include="Engine\Rules\Rule.h" />
-    <ClInclude Include="Engine\Rules\StringLeafCondition.h" />
+    <ClInclude Include="Include\Database\DataGroup.h" />
+    <ClInclude Include="Include\Database\DataNode.h" />
+    <ClInclude Include="Include\Database\LeafDataNode.h" />
+    <ClInclude Include="Include\Rete\JoinNode.h" />
+    <ClInclude Include="Include\Rete\PatternNode.h" />
+    <ClInclude Include="Include\Rete\ReteNetworkFactory.h" />
+    <ClInclude Include="Include\Rete\ReteNode.h" />
+    <ClInclude Include="Include\Rete\RootNode.h" />
+    <ClInclude Include="Include\Rules\BooleanCondition.h" />
+    <ClInclude Include="Include\Rules\Condition.h" />
+    <ClInclude Include="Include\Rules\DataGroupCondition.h" />
+    <ClInclude Include="Include\Rules\DataNodeCondition.h" />
+    <ClInclude Include="Include\Rules\IdCheck.h" />
+    <ClInclude Include="Include\Rules\NumberLeafCondition.h" />
+    <ClInclude Include="Include\Rules\Rule.h" />
+    <ClInclude Include="Include\Rules\StringLeafCondition.h" />
     <ClInclude Include="Libs\tinyxml2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -124,7 +124,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;MINDENGINE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libs;$(SolutionDir)Engine;$(SolutionDir)Engine\Database;$(SolutionDir)Engine\Rete;$(SolutionDir)Engine\Rules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libs;$(SolutionDir)Include;$(SolutionDir)Include\Database;$(SolutionDir)Include\Rete;$(SolutionDir)Include\Rules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
