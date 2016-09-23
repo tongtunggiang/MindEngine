@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classes>
-	<class name="character">
-		<attribute type="string">
+	<class type="complex">
+		<name>
+			character
+		</name>
+		<class type="string">
 			name
-		</attribute>
-		<attribute type="string">
+		</class>
+		<class type="string">
 			job
-		</attribute>
-		<attribute type="complex type">
+		</class>
+		<class type="complex">
 			<name>weapon</name>
-			<attribute type="string">
+			<class type="string">
 				type
-			</attribute>
-			<attribute type="int">
+			</class>
+			<class type="int">
 				ammo
-			</attribute>
-			<attribute type="int">
+			</class>
+			<class type="int">
 				clips
-			</attribute>
-		</attribute>
-		<attribute type="int">
+			</class>
+		</class>
+		<class type="int">
 			health
-		</attribute>
+		</class>
 	</class>
 </classes>
