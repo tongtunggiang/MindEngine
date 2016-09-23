@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
 	<character>
-		<name>Captain</name>
-        <weapon>
-			<type>Rifle</type>
-            <ammo>36</ammo>
-            <clips>2</clips>
-		</weapon>
-		<job>Soldier</job>
-        <health>65</health>
-	</character>
-	
-    <character>
 		<name>Giang</name>
-        <weapon>Knife</weapon>
 		<job>Programmer</job>
-        <health>100</health>
+		<weapon>
+			<type>Keyboard</type>
+			<ammo>0</ammo>
+			<clips>0</clips>
+		</weapon>
+		<health>100<health>
 	</character>
-	
-    <character>
-		<name>Duong</name>
-        <weapon>Bat</weapon>
-		<job>Jobless</job>
-        <health>10</health>
+
+	<character>
+		<name>John</name>
+		<job>Assasin</job>
+		<weapon>
+			<type>Rifle</type>
+			<ammo>20</ammo>
+			<clips>5</clips>
+		</weapon>
+		<health>80<health>
 	</character>
 </database>
