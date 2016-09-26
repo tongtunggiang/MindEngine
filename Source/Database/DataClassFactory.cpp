@@ -37,7 +37,7 @@ void DataClassFactory::processXMLFile(tinyxml2::XMLDocument* doc)
 DataNode* DataClassFactory::createDataClass(tinyxml2::XMLElement* element)
 {
     if (element == NULL)
-        return;
+        return NULL;
 
     std::string type = element->Attribute("type");
     if (isPrimitiveType(type))
@@ -68,15 +68,9 @@ DataNode* DataClassFactory::createDataClass(tinyxml2::XMLElement* element)
     return NULL;
 }
 
-template<typename T>
-LeafDataNode<T>* DataClassFactory::createLeafDataNode(const std::string& name, T& value)
-{
-    return new LeafDataNode<T>(name, value);
-}
-
 DataGroup* DataClassFactory::createDataGroup(tinyxml2::XMLElement *element)
 {
-    std::string name = element->FirstChildElement("name");
+    std::string name = element->FirstChildElement("name")->GetText();
     DataGroup* group = new DataGroup(name);
 
     tinyxml2::XMLElement* firstXMLChild = element->FirstChildElement("class");

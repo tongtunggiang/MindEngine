@@ -3,11 +3,13 @@
 #include "DataTreeFactory.h"
 #include "RulesFactory.h"
 #include "ReteNetworkFactory.h"
+#include "DataClassFactory.h"
 
 using namespace RuleBased;
 
 #define DATABASE_FILE "Database.xml"
 #define RULES_FILE "Rules.xml"
+#define CLASS_FILE "DatabaseClasses.xml"
 
 // Function declarations
 tinyxml2::XMLDocument* readXmlFile(std::string fileName);
@@ -16,20 +18,23 @@ void traverseTree(DataNode* root);
 // Main function
 int main()
 {
-	// Construct data tree
-	tinyxml2::XMLDocument* doc = readXmlFile(DATABASE_FILE);
+//	// Construct data tree
+//	tinyxml2::XMLDocument* doc = readXmlFile(DATABASE_FILE);
 
-	DataGroup* root = (DataGroup*)DataTreeFactory::processDataNode(doc->FirstChildElement());
+//	DataGroup* root = (DataGroup*)DataTreeFactory::processDataNode(doc->FirstChildElement());
 
-	std::cout << std::endl << "Traverse the built tree:" << std::endl;
-	traverseTree(root);
-	std::cout << std::endl << std::endl;
+//	std::cout << std::endl << "Traverse the built tree:" << std::endl;
+//	traverseTree(root);
+//	std::cout << std::endl << std::endl;
 
-	// Create Rule objects
-	delete doc;
-	std::vector<Rule*> rules;
-	doc = readXmlFile(RULES_FILE);
-	RuleBased::ReteNetworkFactory::getFactoryInstance()->processRulesFile(doc);
+//	// Create Rule objects
+//	delete doc;
+//	std::vector<Rule*> rules;
+//	doc = readXmlFile(RULES_FILE);
+//	RuleBased::ReteNetworkFactory::getFactoryInstance()->processRulesFile(doc);
+
+    tinyxml2::XMLDocument* doc = readXmlFile(CLASS_FILE);
+    DataClassFactory::get()->processXMLFile(doc);
 
 	return 0;
 }

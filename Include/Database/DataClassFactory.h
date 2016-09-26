@@ -47,13 +47,41 @@ private:
     DataGroup* createDataGroup(tinyxml2::XMLElement* element);
 
     template<typename T>
-    LeafDataNode<T>* createLeafDataNode(const std::string& name, T& value);
+    LeafDataNode<T>* createLeafDataNode(const std::string& name, T value);
 
 private:
 
     static DataClassFactory* instance;
 
 };
+
+//------
+// Template instantiation
+template<typename T>
+LeafDataNode<T>* DataClassFactory::createLeafDataNode(const std::string& name, T value)
+{
+    return new LeafDataNode<T>(name, value);
+}
+
+template LeafDataNode<int>*
+DataClassFactory::createLeafDataNode<int>(
+        const std::string& name,
+        int value);
+
+template LeafDataNode<float>*
+DataClassFactory::createLeafDataNode<float>(
+        const std::string& name,
+        float value);
+
+template LeafDataNode<std::string>*
+DataClassFactory::createLeafDataNode<std::string>(
+        const std::string& name,
+        std::string value);
+
+template LeafDataNode<bool>*
+DataClassFactory::createLeafDataNode<bool>(
+        const std::string& name,
+        bool value);
 
 }
 
