@@ -44,6 +44,13 @@ public:
 	DataNode(const NodeName& name);
 
 	/**
+	 * @brief Clones current DataNode object.
+	 * @return The clone instance of this DataNode.
+	 * @note Only use it when you are cloning a data class.
+	 */
+	virtual DataNode* clone() = 0;
+
+	/**
 	 * @brief ~DataNode destructor.
 	 */
 	virtual ~DataNode() = 0;

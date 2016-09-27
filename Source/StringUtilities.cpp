@@ -27,3 +27,12 @@ bool StringUtilities::isRedundantSpace(char c, char cNext)
 
 	return false;
 }
+
+bool StringUtilities::isPrimitiveTypeName(const std::string &str)
+{
+	if (str == "int" || str == "float" ||
+        str == "bool" || str == "string")
+        return true;
+
+    return false;
+}

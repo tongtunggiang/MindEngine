@@ -28,6 +28,21 @@ DataNode* DataGroup::getLeftMostChild() const
 	return leftMostChild;
 }
 
+DataNode* DataGroup::getRightMostChild() const
+{
+	DataNode* rightMostChild = leftMostChild;
+	while (rightMostChild != NULL)
+	{
+		if (rightMostChild->getRightSibling() == NULL)
+		{
+			return rightMostChild;
+		}
+		rightMostChild = rightMostChild->getRightSibling();
+	}
+
+	return NULL;
+}
+
 void DataGroup::setLeftMostChild(DataNode * child)
 {
 	if (leftMostChild == NULL)
@@ -65,6 +80,22 @@ DataGroup * DataGroup::castToDataGroup(DataNode* node)
 	castResult = (DataGroup*)node;
 	std::cout << "castResult: " << castResult->isGroup() << std::endl;
 	return castResult;
+}
+
+DataNode* DataGroup::clone()
+{
+	DataGroup* instance = new DataGroup(this->name);
+
+	instance->setLeftMostChild(this->leftMostChild->clone());
+
+	DataNode* traverse = this->leftMostChild->getRightSibling();
+	while (traverse != NULL)
+	{
+		instance->getRightMostChild()->setRightSibling(traverse->clone());
+		traverse = traverse->getRightSibling();
+	}
+
+	return instance;
 }
 
 }

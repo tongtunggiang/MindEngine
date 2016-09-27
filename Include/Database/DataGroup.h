@@ -48,6 +48,14 @@ public:
 	DataNode* getLeftMostChild() const;
 
 	/**
+	 * @brief Data nodes are put into a left-most child, right sibling tree. This function returns the pointer to the right most child of this node.
+	 * @return The right most child of this data group node.
+	 */
+	DataNode* getRightMostChild() const;
+
+	virtual DataNode* clone();
+
+	/**
 	 *
 	 */
 	void setLeftMostChild(DataNode* child);

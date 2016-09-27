@@ -40,7 +40,7 @@ DataNode* DataClassFactory::createDataClass(tinyxml2::XMLElement* element)
         return NULL;
 
     std::string type = element->Attribute("type");
-    if (isPrimitiveType(type))
+    if (StringUtilities::isPrimitiveTypeName(type))
     {
         std::string name = element->GetText();
 		StringUtilities::trimString(name);
@@ -89,15 +89,6 @@ DataGroup* DataClassFactory::createDataGroup(tinyxml2::XMLElement *element)
     }
 
     return group;
-}
-
-bool DataClassFactory::isPrimitiveType(const std::string& type)
-{
-    if (type == "int" || type == "float" ||
-        type == "bool" || type == "string")
-        return true;
-
-    return false;
 }
 
 std::string DataClassFactory::getDataGroupName(tinyxml2::XMLElement *element)

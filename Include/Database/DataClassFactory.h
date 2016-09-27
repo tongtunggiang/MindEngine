@@ -39,7 +39,6 @@ public:
 private:
 
     DataNode* createDataClass(tinyxml2::XMLElement* element);
-    bool isPrimitiveType(const std::string& type);
     DataGroup* createDataGroup(tinyxml2::XMLElement* element);
 	std::string getDataGroupName(tinyxml2::XMLElement* element);
 

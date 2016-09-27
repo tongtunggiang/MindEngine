@@ -14,9 +14,12 @@ public:
 	 */
 	static void trimString(std::string& str);
 
+	static bool isPrimitiveTypeName(const std::string& str);
+
 private:
 
 	static bool isRedundantSpace(char c, char cNext);
+
 };
 
 #endif // STRINGUTILITIES_H

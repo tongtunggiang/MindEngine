@@ -59,6 +59,12 @@ public:
 	 */
 	bool isLeaf() const { return true;  }
 
+	virtual DataNode* clone()
+	{
+		LeafDataNode<T>* instance = new LeafDataNode(this->name, this->value);
+		return instance;
+	}
+
 private:
 
 	/**
