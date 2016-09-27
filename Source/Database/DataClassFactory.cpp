@@ -2,36 +2,36 @@
 #include <string>
 #include "DataGroup.h"
 #include "LeafDataNode.h"
+#include "StringUtilities.h"
 
-namespace RuleBased {
-
-DataClassFactory* DataClassFactory::instance = NULL;
+namespace RuleBased
+{
 
 DataClassFactory::DataClassFactory()
 {
+	// empty body
 }
 
-DataClassFactory* DataClassFactory::get()
+DataClasses* DataClassFactory::createClassesFromXMLFile(tinyxml2::XMLDocument* doc)
 {
-    if (instance == NULL)
-    {
-        instance = new DataClassFactory();
-    }
+	if (doc == NULL)
+		return NULL;
 
-    return instance;
-}
-
-void DataClassFactory::processXMLFile(tinyxml2::XMLDocument* doc)
-{
     tinyxml2::XMLElement* classElement = doc
             ->FirstChildElement("classes")
             ->FirstChildElement("class");
 
+	DataClasses* classes = new DataClasses();
     while (classElement != NULL)
     {
-        createDataClass(classElement);
+        DataNode* createdClass = createDataClass(classElement);
+		std::string createdClassName = createdClass->getName();
+		classes->addNewClass(createdClassName, createdClass);
+
         classElement = classElement->NextSiblingElement();
     }
+
+	return classes;
 }
 
 DataNode* DataClassFactory::createDataClass(tinyxml2::XMLElement* element)
@@ -43,6 +43,7 @@ DataNode* DataClassFactory::createDataClass(tinyxml2::XMLElement* element)
     if (isPrimitiveType(type))
     {
         std::string name = element->GetText();
+		StringUtilities::trimString(name);
         if (type == "int")
         {
             return createLeafDataNode<int>(name, 0);
@@ -71,6 +72,7 @@ DataNode* DataClassFactory::createDataClass(tinyxml2::XMLElement* element)
 DataGroup* DataClassFactory::createDataGroup(tinyxml2::XMLElement *element)
 {
     std::string name = element->FirstChildElement("name")->GetText();
+	StringUtilities::trimString(name);
     DataGroup* group = new DataGroup(name);
 
     tinyxml2::XMLElement* firstXMLChild = element->FirstChildElement("class");

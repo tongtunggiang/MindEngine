@@ -18,23 +18,13 @@ void traverseTree(DataNode* root);
 // Main function
 int main()
 {
-//	// Construct data tree
-//	tinyxml2::XMLDocument* doc = readXmlFile(DATABASE_FILE);
-
-//	DataGroup* root = (DataGroup*)DataTreeFactory::processDataNode(doc->FirstChildElement());
-
-//	std::cout << std::endl << "Traverse the built tree:" << std::endl;
-//	traverseTree(root);
-//	std::cout << std::endl << std::endl;
-
-//	// Create Rule objects
-//	delete doc;
-//	std::vector<Rule*> rules;
-//	doc = readXmlFile(RULES_FILE);
-//	RuleBased::ReteNetworkFactory::getFactoryInstance()->processRulesFile(doc);
-
     tinyxml2::XMLDocument* doc = readXmlFile(CLASS_FILE);
-    DataClassFactory::get()->processXMLFile(doc);
+    DataClassFactory* factory = new DataClassFactory();
+	DataClasses* classes = factory->createClassesFromXMLFile(doc);
+	if (classes->enquireClass("character"))
+	{
+		std::cout << "Boo";
+	}
 
 	return 0;
 }

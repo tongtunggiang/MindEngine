@@ -5,6 +5,7 @@
 
 #include "DataGroup.h"
 #include "LeafDataNode.h"
+#include "DataClasses.h"
 #include "tinyxml2.h"
 
 /**
@@ -17,30 +18,25 @@ namespace RuleBased
 {
 
 /**
- * @brief The singleton class is responsible for creating prototypes of DataNode objects based on the Data Class XML file.
+ * @brief This class is responsible for creating prototypes of DataNode objects based on the Data Class XML file.
  */
 class DataClassFactory
 {
 
 public:
 
-    /**
-     * @return The singleton instance of the factory.
+	/**
+     * @brief Default constructor.
      */
-    static DataClassFactory* get();
+    DataClassFactory();
 
     /**
      * @brief Traverse through the XML file and create data classes.
      * @param The provided XML file.
      */
-    void processXMLFile(tinyxml2::XMLDocument* doc);
+    DataClasses* createClassesFromXMLFile(tinyxml2::XMLDocument* doc);
 
 private:
-
-    /**
-     * @brief Private constructor.
-     */
-    DataClassFactory();
 
     DataNode* createDataClass(tinyxml2::XMLElement* element);
     bool isPrimitiveType(const std::string& type);
@@ -48,10 +44,6 @@ private:
 
     template<typename T>
     LeafDataNode<T>* createLeafDataNode(const std::string& name, T value);
-
-private:
-
-    static DataClassFactory* instance;
 
 };
 

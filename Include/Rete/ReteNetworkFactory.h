@@ -91,10 +91,6 @@ private:
 
 	size_t generateHashCode(const std::string& xmlString);
 
-	void trimString(std::string& str);
-
-	bool isRedundantSpace(char c, char cNext);
-
 	ReteNode* findReteNodeByHashCode(ReteNode* root, size_t hashCode);
 
 };
