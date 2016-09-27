@@ -71,22 +71,21 @@ DataNode* DataClassFactory::createDataClass(tinyxml2::XMLElement* element)
 
 DataGroup* DataClassFactory::createDataGroup(tinyxml2::XMLElement *element)
 {
-    std::string name = element->FirstChildElement("name")->GetText();
-	StringUtilities::trimString(name);
-    DataGroup* group = new DataGroup(name);
+    DataGroup* group = new DataGroup(getDataGroupName(element));
 
     tinyxml2::XMLElement* firstXMLChild = element->FirstChildElement("class");
     if (firstXMLChild != NULL)
     {
         group->setLeftMostChild(createDataClass(firstXMLChild));
-        DataNode* sibling = group->getLeftMostChild()->getRightSibling();
+
+        DataNode* childNode = group->getLeftMostChild();
         tinyxml2::XMLElement* xmlSibling = firstXMLChild->NextSiblingElement("class");
         while (xmlSibling != NULL)
         {
-            sibling = createDataClass(xmlSibling);
-            xmlSibling = xmlSibling->NextSiblingElement();
-            sibling = sibling->getRightSibling();
-        }
+			childNode->setRightSibling(createDataClass(xmlSibling));
+			xmlSibling = xmlSibling->NextSiblingElement();
+			childNode = childNode->getRightSibling();
+		}
     }
 
     return group;
@@ -99,6 +98,13 @@ bool DataClassFactory::isPrimitiveType(const std::string& type)
         return true;
 
     return false;
+}
+
+std::string DataClassFactory::getDataGroupName(tinyxml2::XMLElement *element)
+{
+	std::string name = element->FirstChildElement("name")->GetText();
+	StringUtilities::trimString(name);
+	return name;
 }
 
 }
