@@ -1,47 +1,110 @@
 #include "DataTreeFactory.h"
+#include "DataClasses.h"
+#include "DataGroup.h"
+#include "LeafDataNode.h"
 
-RuleBased::DataNode * DataTreeFactory::processDataNode(tinyxml2::XMLElement * xmlNode)
+#include <iostream>
+
+using namespace RuleBased;
+using namespace tinyxml2;
+
+DataNode* DataTreeFactory::process(XMLDocument* doc, DataClasses* classes)
 {
-	if (xmlNode == NULL)
+	XMLElement* elem = getFirstNode(doc);
+
+	DataGroup* database = new DataGroup("database");
+	while (elem != NULL)
+	{
+		DataNode* child = processXMLElement(elem, classes);
+
+		if (child != NULL)
+		{
+			if (database->getLeftMostChild() == NULL)
+			{
+				database->setLeftMostChild(child);
+			}
+			else
+			{
+				database->getRightMostChild()->setRightSibling(child);
+			}
+		}
+
+		elem = elem->NextSiblingElement();
+	}
+}
+
+DataNode* DataTreeFactory::processXMLElement(XMLElement *element, DataClasses* classes)
+{
+	std::string elementName = element->Name();
+	DataNode* prototype = classes->enquireClass(elementName);
+	if (prototype == NULL)
 		return NULL;
-	// If a xml node has a text, it must be a Datum
-	if (xmlNode->GetText() != NULL)
+
+	DataNode* product = prototype->clone();
+	updateValuesForDataNodeFromXML(element, product);
+	return product;
+}
+
+void DataTreeFactory::updateValuesForDataNodeFromXML(XMLElement *element, DataNode *node)
+{
+	if (node == NULL)
+		return;
+
+	if (node->isGroup())
 	{
-		std::string xmlNodeType = xmlNode->Name();
-		if (xmlNodeType == "ammo" || xmlNodeType == "clips" || xmlNodeType == "health")
+		DataGroup* group = (DataGroup*)node;
+		updateValuesForDataNodeFromXML(element->FirstChildElement(),
+									   group->getLeftMostChild());
+		if (group->getLeftMostChild() != NULL)
 		{
-			RuleBased::LeafDataNode<int>* result = new RuleBased::LeafDataNode<int>(
-				xmlNode->Name(),
-				std::stoi(std::string(xmlNode->GetText())));
-			return result;
-		}
-		else
-		{
-			RuleBased::LeafDataNode<std::string>* result = new RuleBased::LeafDataNode<std::string>(
-				xmlNode->Name(),
-				xmlNode->GetText());
-			return result;
-		}
-
-		return new RuleBased::LeafDataNode<int>(
-			xmlNode->Name(),
-			0);
-	}
-
-	// Else, it is a data group
-	RuleBased::DataGroup* result = new RuleBased::DataGroup(xmlNode->Name());
-
-	result->setLeftMostChild(processDataNode(xmlNode->FirstChildElement()));
-
-	if (xmlNode->FirstChildElement() != NULL)
-	{
-		tinyxml2::XMLElement* rightSibling = xmlNode->FirstChildElement()->NextSiblingElement();
-		while (rightSibling != NULL)
-		{
-			result->getLeftMostChild()->setRightSibling(processDataNode(rightSibling));
-			rightSibling = rightSibling->NextSiblingElement();
+			DataNode* sibling = group->getLeftMostChild()->getRightSibling();
+			XMLElement* xmlSibling = element->FirstChildElement()->NextSiblingElement();
+			while (sibling != NULL)
+			{
+				updateValuesForDataNodeFromXML(xmlSibling, sibling);
+				sibling = sibling->getRightSibling();
+				xmlSibling = xmlSibling->NextSiblingElement();
+			}
 		}
 	}
+	else
+	{
+		std::cout << "Value read from XML: " << element->Name() << "=" << element->GetText() << std::endl;
 
-	return result;
+		std::string valueType = element->Attribute("type");
+		if (valueType == "string")
+		{
+			LeafDataNode<std::string>* leaf = (LeafDataNode<std::string>*)node;
+			leaf->setValue(std::string(element->GetText()));
+		}
+		else if (valueType == "int")
+		{
+			LeafDataNode<int>* leaf = (LeafDataNode<int>*)node;
+			int value = std::stoi(element->GetText());
+			leaf->setValue(value);
+		}
+		else if (valueType == "float")
+		{
+			LeafDataNode<float>* leaf = (LeafDataNode<float>*)node;
+			float value = std::stof(element->GetText());
+			leaf->setValue(value);
+		}
+		else if (valueType == "bool")
+		{
+			LeafDataNode<bool>* leaf = (LeafDataNode<bool>*)node;
+			if (std::string(element->GetText()) == "true")
+			{
+				leaf->setValue(true);
+			}
+			else
+			{
+				leaf->setValue(false);
+			}
+		}
+	}
+}
+
+XMLElement* DataTreeFactory::getFirstNode(XMLDocument *doc)
+{
+	return doc->FirstChildElement()->FirstChildElement();
 }

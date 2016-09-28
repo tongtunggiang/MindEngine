@@ -2,8 +2,7 @@
 #define DATATREEFACTORY_H
 
 #include "tinyxml2.h"
-#include "DataGroup.h"
-#include "LeafDataNode.h"
+#include "DataClasses.h"
 
 #define DATABASE_FILE "Database.xml"
 
@@ -12,7 +11,13 @@ class DataTreeFactory
 
 public:
 
-	static RuleBased::DataNode* processDataNode(tinyxml2::XMLElement* xmlNode);
+	RuleBased::DataNode* process(tinyxml2::XMLDocument* doc, RuleBased::DataClasses* classes);
+
+private:
+
+	tinyxml2::XMLElement* getFirstNode(tinyxml2::XMLDocument* doc);
+	RuleBased::DataNode* processXMLElement(tinyxml2::XMLElement* element, RuleBased::DataClasses* classes);
+	void updateValuesForDataNodeFromXML(tinyxml2::XMLElement* element, RuleBased::DataNode* node);
 
 };
 

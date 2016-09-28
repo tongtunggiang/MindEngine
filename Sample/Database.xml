@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
 	<character>
-		<name>Giang</name>
-		<job>Programmer</job>
+		<name type="string">Giang</name>
+		<job type="string">Programmer</job>
 		<weapon>
-			<type>Keyboard</type>
-			<ammo>0</ammo>
-			<clips>0</clips>
+			<type type="string">Keyboard</type>
+			<ammo type="int">0</ammo>
+			<clips type="int">0</clips>
 		</weapon>
-		<health>100<health>
+		<health type="int">100</health>
 	</character>
 
 	<character>
-		<name>John</name>
-		<job>Assasin</job>
+		<name type="string">John</name>
+		<job type="string">Assasin</job>
 		<weapon>
-			<type>Rifle</type>
-			<ammo>20</ammo>
-			<clips>5</clips>
+			<type type="string">Rifle</type>
+			<ammo type="int">20</ammo>
+			<clips type="int">5</clips>
 		</weapon>
-		<health>80<health>
+		<health type="int">80</health>
 	</character>
 </database>

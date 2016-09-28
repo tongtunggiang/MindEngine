@@ -19,12 +19,13 @@ void traverseTree(DataNode* root);
 int main()
 {
     tinyxml2::XMLDocument* doc = readXmlFile(CLASS_FILE);
-    DataClassFactory* factory = new DataClassFactory();
-	DataClasses* classes = factory->createClassesFromXMLFile(doc);
-	if (classes->enquireClass("character"))
-	{
-		std::cout << "Boo";
-	}
+    DataClassFactory* classFactory = new DataClassFactory();
+	DataClasses* classes = classFactory->createClassesFromXMLFile(doc);
+
+	delete doc;
+	doc = readXmlFile(DATABASE_FILE);
+	DataTreeFactory* databaseFactory = new DataTreeFactory();
+	databaseFactory->process(doc, classes);
 
 	return 0;
 }
@@ -35,7 +36,12 @@ tinyxml2::XMLDocument* readXmlFile(std::string fileName)
 	//std::cout << "Loading XML file " << fileName << std::endl;
 	tinyxml2::XMLDocument* doc = new tinyxml2::XMLDocument();
 	doc->LoadFile(fileName.c_str());
-	//std::cout << "XML file is successfully loaded" << std::endl;
+	if (doc->ErrorID() != tinyxml2::XML_SUCCESS)
+	{
+		std::cout << "Fuck this fucking file "<< fileName << " can't load: ERROR = "
+				  << doc->ErrorID() << std::endl;
+		return NULL;
+	}
 
 	return doc;
 }
