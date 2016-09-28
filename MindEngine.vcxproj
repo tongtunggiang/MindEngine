@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Libs\tinyxml2.cpp" />
+    <ClCompile Include="Source\Database\DataClasses.cpp" />
+    <ClCompile Include="Source\Database\DataClassFactory.cpp" />
     <ClCompile Include="Source\Database\DataGroup.cpp" />
     <ClCompile Include="Source\Database\DataNode.cpp" />
     <ClCompile Include="Source\Database\LeafDataNode.cpp" />
@@ -34,8 +36,11 @@
     <ClCompile Include="Source\Rules\IdCheck.cpp" />
     <ClCompile Include="Source\Rules\NumberLeafCondition.cpp" />
     <ClCompile Include="Source\Rules\StringLeafCondition.cpp" />
+    <ClCompile Include="Source\StringUtilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Database\DataClasses.h" />
+    <ClInclude Include="Include\Database\DataClassFactory.h" />
     <ClInclude Include="Include\Database\DataGroup.h" />
     <ClInclude Include="Include\Database\DataNode.h" />
     <ClInclude Include="Include\Database\LeafDataNode.h" />
@@ -52,6 +57,7 @@
     <ClInclude Include="Include\Rules\NumberLeafCondition.h" />
     <ClInclude Include="Include\Rules\Rule.h" />
     <ClInclude Include="Include\Rules\StringLeafCondition.h" />
+    <ClInclude Include="Include\StringUtilities.h" />
     <ClInclude Include="Libs\tinyxml2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

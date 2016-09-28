@@ -8,7 +8,7 @@ DataClasses::DataClasses()
 	classes.clear();
 }
 
-void DataClasses::addNewClass(const std::__cxx11::string &name, DataNode *newClass, bool overrideExisting)
+void DataClasses::addNewClass(const std::string &name, DataNode *newClass, bool overrideExisting)
 {
 	if (classes.count(name) == 0)
 	{

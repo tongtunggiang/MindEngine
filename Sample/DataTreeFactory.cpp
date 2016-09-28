@@ -31,6 +31,8 @@ DataNode* DataTreeFactory::process(XMLDocument* doc, DataClasses* classes)
 
 		elem = elem->NextSiblingElement();
 	}
+
+	return database;
 }
 
 DataNode* DataTreeFactory::processXMLElement(XMLElement *element, DataClasses* classes)

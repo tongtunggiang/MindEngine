@@ -22,50 +22,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Database\DataGroup.cpp">
-      <Filter>Engine\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Database\DataNode.cpp">
-      <Filter>Engine\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\IdCheck.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
     <ClCompile Include="Libs\tinyxml2.cpp">
       <Filter>Libs</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rete\ReteNode.cpp">
-      <Filter>Engine\Rete</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rete\PatternNode.cpp">
-      <Filter>Engine\Rete</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Database\LeafDataNode.cpp">
-      <Filter>Engine\Database</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\BooleanCondition.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\DataNodeCondition.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\DataGroupCondition.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\NumberLeafCondition.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rules\StringLeafCondition.cpp">
-      <Filter>Engine\Rules</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rete\ReteNetworkFactory.cpp">
-      <Filter>Engine\Rete</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rete\JoinNode.cpp">
-      <Filter>Engine\Rete</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Rete\RootNode.cpp">
-      <Filter>Engine\Rete</Filter>
     </ClCompile>
     <ClCompile Include="Source\Database\DataGroup.cpp" />
     <ClCompile Include="Source\Database\DataNode.cpp" />
@@ -81,58 +39,13 @@
     <ClCompile Include="Source\Rules\IdCheck.cpp" />
     <ClCompile Include="Source\Rules\NumberLeafCondition.cpp" />
     <ClCompile Include="Source\Rules\StringLeafCondition.cpp" />
+    <ClCompile Include="Source\Database\DataClasses.cpp" />
+    <ClCompile Include="Source\Database\DataClassFactory.cpp" />
+    <ClCompile Include="Source\StringUtilities.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Database\DataNode.h">
-      <Filter>Engine\Database</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Database\DataGroup.h">
-      <Filter>Engine\Database</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\Rule.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\IdCheck.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
     <ClInclude Include="Libs\tinyxml2.h">
       <Filter>Libs</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rete\PatternNode.h">
-      <Filter>Engine\Rete</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rete\ReteNode.h">
-      <Filter>Engine\Rete</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Database\LeafDataNode.h">
-      <Filter>Engine\Database</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\Condition.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\BooleanCondition.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\DataNodeCondition.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\NumberLeafCondition.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\StringLeafCondition.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rules\DataGroupCondition.h">
-      <Filter>Engine\Rules</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rete\ReteNetworkFactory.h">
-      <Filter>Engine\Rete</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rete\JoinNode.h">
-      <Filter>Engine\Rete</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Rete\RootNode.h">
-      <Filter>Engine\Rete</Filter>
     </ClInclude>
     <ClInclude Include="Include\Database\DataGroup.h" />
     <ClInclude Include="Include\Database\DataNode.h" />
@@ -150,5 +63,8 @@
     <ClInclude Include="Include\Rules\NumberLeafCondition.h" />
     <ClInclude Include="Include\Rules\Rule.h" />
     <ClInclude Include="Include\Rules\StringLeafCondition.h" />
+    <ClInclude Include="Include\Database\DataClasses.h" />
+    <ClInclude Include="Include\Database\DataClassFactory.h" />
+    <ClInclude Include="Include\StringUtilities.h" />
   </ItemGroup>
 </Project>
