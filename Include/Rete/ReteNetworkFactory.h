@@ -93,6 +93,10 @@ private:
 
 	ReteNode* findReteNodeByHashCode(ReteNode* root, size_t hashCode);
 
+private:
+
+    std::vector<std::string> patternVariables;
+
 };
 
 //--------

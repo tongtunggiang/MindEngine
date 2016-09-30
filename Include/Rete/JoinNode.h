@@ -68,7 +68,7 @@ public:
 	 * @param input The input array.
 	 * @return true if the input is successfully updated.
 	 */
-	bool updateInput(size_t key, BindingList& input);
+    bool updateInput(size_t key, VariableBindings& input);
 
 public:
 
@@ -93,7 +93,7 @@ private:
 	/**
 	 * @brief The map holding two input arrays of this JoinNode object.
 	 */
-	std::map<size_t, BindingList> inputLists;
+    std::map<size_t, VariableBindings> inputLists;
 
 };
 

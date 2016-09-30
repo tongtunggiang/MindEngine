@@ -25,6 +25,7 @@ CMakeLists.txt.user
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
+[Bb]uild/
 x64/
 x86/
 bld/

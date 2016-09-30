@@ -121,6 +121,7 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 			size_t hash = castedChildRete->getHashCode();
 			result->addInput(hash);
 			childRete->addSuccessorNode(result);
+            childrenNumber++;
 		}
 
 		tinyxml2::XMLElement* leftChild = conditionNode->FirstChildElement();
@@ -149,6 +150,8 @@ PatternNode* ReteNetworkFactory::createPatternNode(tinyxml2::XMLElement* conditi
 {
 	LOG("RETE:     Creating a pattern node");
 
+    patternVariables.clear();
+
 	size_t hashCode = generateHashCodeFromXML(conditionNode);
 	PatternNode* findNodeWithSimilarHash =
 	        (PatternNode*)findReteNodeByHashCode(networkRoot, hashCode);
@@ -162,6 +165,12 @@ PatternNode* ReteNetworkFactory::createPatternNode(tinyxml2::XMLElement* conditi
 	PatternNode* result = new PatternNode((DataGroupCondition*)condition, hashCode);
 	networkRoot->addSuccessorNode(result);
 
+    for (int i = 0; i < patternVariables.size(); i++)
+    {
+        result->addVariableName(patternVariables[i]);
+    }
+
+    patternVariables.clear();
 	return result;
 }
 
@@ -194,8 +203,12 @@ DataNodeCondition* ReteNetworkFactory::createCondition(tinyxml2::XMLElement* con
 DataGroupCondition* ReteNetworkFactory::createDataGroupCondition(tinyxml2::XMLElement* conditionNode)
 {
 	LOG("RETE:       Create a data group condition " + std::string(conditionNode->Name()));
+
+    std::string varName = std::string(conditionNode->Attribute("name"));
+    patternVariables.push_back(varName);
+
 	DataGroupCondition* condition = new DataGroupCondition();
-	condition->name = std::string(conditionNode->Name());
+    condition->name = std::string(conditionNode->Attribute("class"));
 	condition->leftMostChild = createCondition(conditionNode->FirstChildElement());
 
 	tinyxml2::XMLElement* xmlSibling = conditionNode->FirstChildElement()->NextSiblingElement();

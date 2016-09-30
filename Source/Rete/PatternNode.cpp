@@ -1,4 +1,5 @@
 #include "PatternNode.h"
+#include "JoinNode.h"
 
 namespace RuleBased
 {
@@ -35,13 +36,26 @@ void PatternNode::match(DataNode *database)
     nodesToMatch.clear();
     findNodesToMatchInDatabase(database, nodesToMatch);
 
-    outputBindings.clear();
     for (int i = 0; i < nodesToMatch.size(); i++)
     {
         if (condition->matches(nodesToMatch[i]))
         {
-            outputBindings.push_back(nodesToMatch[i]->getUniqueID());
         }
+    }
+
+    pushOutputToSuccessors();
+}
+
+void PatternNode::addVariableName(std::string variable)
+{
+    variableBindings[variable] = OutputIDs();
+}
+
+void PatternNode::pushOutputToSuccessors()
+{
+    for (int i = 0; i < successorNodes.size(); i++)
+    {
+        ((JoinNode*)successorNodes[i])->updateInput(hashCode, variableBindings);
     }
 }
 

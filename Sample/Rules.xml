@@ -3,77 +3,15 @@
 	<rule>
 		<if>
 			<and>
-				<and>
-				<character>
-						<weapon>
-							<ammo type="int">0 50</ammo>
-						</weapon>
-				</character>
-				<character>
-						<health type="int">0 100</health>
-				</character>
-				</and>
-				<character>
-					<name type="string">Giang</name>
-				</character>
+				<var name="obj1" class="character">
+					<job type="string">Programmer</job>
+				</var>
+				<var name="obj2" class="character">
+					<job type="string">Assasin</job>
+				</var>
 			</and>
 		</if>
 		
-		<action>Fire</action>
-	</rule>
-	
-	<rule>
-		<if>
-			<and>
-			<character>
-					<weapon>
-						<ammo type="int">0 50</ammo>
-					</weapon>
-			</character>
-			<character>
-					<health type="int">0 100</health>
-			</character>
-			</and>
-		</if>
-		
-		<action>Fire1</action>
-	</rule>
-
-	<rule>
-		<if>
-			<character>
-				<job type="string">Soldier</job>
-			</character>
-		</if>		
-		<action>Retire</action>
-	</rule>
-
-	<rule>
-		<if>
-			<character>
-				<job type="string">Soldier</job>
-			</character>
-		</if>		
-		<action>Hide</action>
-	</rule>
-	
-	<rule>
-		<if>
-			<character>
-				<weapon type="string">Machine</weapon>
-			</character>
-		</if>
-		
-		<action>Throw</action>
-	</rule>
-	
-    <rule>
-		<if>
-			<character>
-				<health type="int">0 20</health>
-			</character>
-		</if>
-		
-		<action>Suicide</action>
+		<action>Teach</action>
 	</rule>
 </rules>

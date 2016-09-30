@@ -4,6 +4,7 @@
 #include "Condition.h"
 
 #include <vector>
+#include <map>
 
 /**
  * @brief Contains classes to represent Rule-based system's database,
@@ -13,6 +14,9 @@
  */
 namespace RuleBased
 {
+
+typedef std::vector<int> OutputIDs;
+typedef std::map<std::string, OutputIDs> VariableBindings;
 
 /**
  * @brief The base class of every node in Rete network. Every node

@@ -6,6 +6,9 @@
 
 #include "tinyxml2.h"
 
+#include <string>
+#include <map>
+
 /**
  * @brief Contains classes to represent Rule-based system's database,
  * which stores knowledge available to the AI agent as well as the
@@ -50,6 +53,11 @@ public:
 
     void match(DataNode* database);
 
+    /**
+     * @brief Add new variable name to this pattern node. This function is called at constructing phase.
+     */
+    void addVariableName(std::string variable);
+
 public:
 
 	// Begin IHashedReteNode interface
@@ -70,6 +78,8 @@ private:
      */
     void findNodesToMatchInDatabase(DataNode* database, std::vector<DataNode*> &outNodes);
 
+    void pushOutputToSuccessors();
+
 private:
 
     /**
@@ -79,9 +89,9 @@ private:
      */
     DataNodeCondition* condition;
 
-    BindingList outputBindings;
-
     std::vector<DataNode*> nodesToMatch;
+
+    VariableBindings variableBindings;
 
 	size_t hashCode;
 

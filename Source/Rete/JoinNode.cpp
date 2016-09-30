@@ -41,12 +41,12 @@ bool JoinNode::addInput(size_t key)
 	if (inputLists.size() >= 2)
 		return false;
 
-	inputLists[key] = BindingList();
+    inputLists[key] = VariableBindings();
 
 	return true;
 }
 
-bool JoinNode::updateInput(size_t key, BindingList & input)
+bool JoinNode::updateInput(size_t key, VariableBindings & input)
 {
 	if (!inputLists.count(key))
 	{
