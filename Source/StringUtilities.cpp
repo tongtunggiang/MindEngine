@@ -1,6 +1,9 @@
 #include "StringUtilities.h"
 #include <cctype>
 
+namespace RuleBased
+{
+
 void StringUtilities::trimString(std::string& str)
 {
 	//str.erase(std::remove(str.begin(), str.end(), '\n'), str.end());
@@ -31,8 +34,10 @@ bool StringUtilities::isRedundantSpace(char c, char cNext)
 bool StringUtilities::isPrimitiveTypeName(const std::string &str)
 {
 	if (str == "int" || str == "float" ||
-        str == "bool" || str == "string")
-        return true;
+		str == "bool" || str == "string")
+		return true;
 
-    return false;
+	return false;
+}
+
 }

@@ -104,14 +104,27 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 	if (xmlNodeName == "and" || xmlNodeName == "or" || xmlNodeName == "not")
 	{
 		// Binary boolean operators
+		tinyxml2::XMLElement* child = conditionNode->FirstChildElement();
+		int childrenNumber = 0;
+		while (childrenNumber < 2)
+		{
+			if (child == NULL)
+				break;
+
+			ReteNode* childRete = processConditionNode(child);
+			IHashedReteNode* castedChildRete = (IHashedReteNode*)childRete;
+			if (castedChildRete == NULL)
+			{
+				child = child->NextSiblingElement();
+				continue;
+			}
+			size_t hash = castedChildRete->getHashCode();
+			result->addInput(hash);
+			childRete->addSuccessorNode(result);
+		}
+
 		tinyxml2::XMLElement* leftChild = conditionNode->FirstChildElement();
 		tinyxml2::XMLElement* rightChild = leftChild->NextSiblingElement();
-
-		ReteNode* tmpLeft = processConditionNode(leftChild);
-		tmpLeft->addSuccessorNode(result);
-
-		ReteNode* tmpRight = processConditionNode(rightChild);
-		tmpRight->addSuccessorNode(result);
 		LOG("RETE:     Creating a join node, type " + xmlNodeName + ", children: "
 			+ leftChild->Name() + "-" + rightChild->Name());
 	}
@@ -121,6 +134,9 @@ JoinNode* ReteNetworkFactory::createJoinNode(tinyxml2::XMLElement* conditionNode
 		tinyxml2::XMLElement* child = conditionNode->FirstChildElement();
 
 		ReteNode* tmp = processConditionNode(child);
+		IHashedReteNode* castedChildRete = (IHashedReteNode*)tmp;
+		size_t hash = castedChildRete->getHashCode();
+		result->addInput(hash);
 		tmp->addSuccessorNode(result);
 		LOG("RETE:     Creating a join node, type " + xmlNodeName + ", child: "
 			+ child->Name());

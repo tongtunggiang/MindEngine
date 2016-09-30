@@ -2,6 +2,15 @@
 #define STRINGUTILITIES_H
 
 #include <string>
+#include <iostream>
+
+namespace RuleBased
+{
+
+/**
+ * @brief The print log to stdin macro.
+ */
+#define LOG(x) (std::cout << x << std::endl)
 
 class StringUtilities
 {
@@ -14,6 +23,11 @@ public:
 	 */
 	static void trimString(std::string& str);
 
+	/**
+	 * @brief Check if the given string is primitive type or not.
+	 * @param str The string will be checked.
+	 * @return true if str represents a primitive type.
+	 */
 	static bool isPrimitiveTypeName(const std::string& str);
 
 private:
@@ -21,5 +35,7 @@ private:
 	static bool isRedundantSpace(char c, char cNext);
 
 };
+
+}
 
 #endif // STRINGUTILITIES_H

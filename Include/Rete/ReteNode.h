@@ -77,6 +77,15 @@ protected:
 
 };
 
+class IHashedReteNode
+{
+
+public:
+
+	virtual size_t getHashCode() = 0;
+
+};
+
 }
 
 #endif // RETENODE_H

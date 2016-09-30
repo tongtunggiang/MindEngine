@@ -22,7 +22,7 @@ namespace RuleBased
  * @see ReteNode
  * @see JoinNode
  */
-class PatternNode : public ReteNode
+class PatternNode : public ReteNode, public IHashedReteNode
 {
 
 public:
@@ -50,7 +50,11 @@ public:
 
     void match(DataNode* database);
 
-	size_t getHashCode();
+public:
+
+	// Begin IHashedReteNode interface
+	virtual size_t getHashCode();
+	// End IHashedReteNode interface;
 
 private:
 

@@ -36,6 +36,27 @@ bool JoinNode::addSuccessorNode(ReteNode* node)
 	return false;
 }
 
+bool JoinNode::addInput(size_t key)
+{
+	if (inputLists.size() >= 2)
+		return false;
+
+	inputLists[key] = BindingList();
+
+	return true;
+}
+
+bool JoinNode::updateInput(size_t key, BindingList & input)
+{
+	if (!inputLists.count(key))
+	{
+		return false;
+	}
+
+	inputLists[key] = input;
+	return true;
+}
+
 size_t JoinNode::getHashCode()
 {
 	return hashCode;

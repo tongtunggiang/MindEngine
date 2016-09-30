@@ -2,6 +2,8 @@
 #define JOINNODE_H
 
 #include "ReteNode.h"
+#include <map>
+#include <vector>
 
 /**
  * @brief Contains classes to represent Rule-based system's database,
@@ -28,7 +30,7 @@ enum struct BooleanType
  * terminal nodes. They receive input from upper level, the pattern nodes.
  * @see PatternNode
  */
-class JoinNode : public ReteNode
+class JoinNode : public ReteNode, public IHashedReteNode
 {
 
 public:
@@ -52,7 +54,27 @@ public:
 	 */
 	virtual bool addSuccessorNode(ReteNode* node);
 
-	size_t getHashCode();
+	/**
+	 * @brief Add new input array to this join node.
+	 * @param key The reference key to the input.
+	 * @return true if the input is successfully added.
+	 * @note If there are already two inputs in the list, you can no longer add more.
+	 */
+	bool addInput(size_t key);
+
+	/**
+	 * @brief Update the input array with key provided.
+	 * @param key The reference key to the input.
+	 * @param input The input array.
+	 * @return true if the input is successfully updated.
+	 */
+	bool updateInput(size_t key, BindingList& input);
+
+public:
+
+	// Begin IHashedReteNode interface
+	virtual size_t getHashCode();
+	// End IHashedReteNode interface;
 
 private:
 
@@ -67,6 +89,11 @@ private:
 	BooleanType booleanType;
 
 	size_t hashCode;
+
+	/**
+	 * @brief The map holding two input arrays of this JoinNode object.
+	 */
+	std::map<size_t, BindingList> inputLists;
 
 };
 

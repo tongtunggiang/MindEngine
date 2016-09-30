@@ -9,13 +9,13 @@
 #include "NumberLeafCondition.h"
 #include "StringLeafCondition.h"
 
+#include "StringUtilities.h"
+
 #include "tinyxml2.h"
 
 #include <iostream>
 #include <sstream>
 #include <string>
-
-#define LOG(x) (std::cout << x << std::endl)
 
 /**
  * @brief Contains classes to represent Rule-based system's database,
